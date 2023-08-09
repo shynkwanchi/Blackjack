@@ -7,18 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		693A4F162A833CA000E5AF22 /* BlackjackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693A4F152A833CA000E5AF22 /* BlackjackApp.swift */; };
+		693A4F162A833CA000E5AF22 /* Blackjack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693A4F152A833CA000E5AF22 /* Blackjack.swift */; };
 		693A4F182A833CA000E5AF22 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693A4F172A833CA000E5AF22 /* ContentView.swift */; };
 		693A4F1A2A833CA100E5AF22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 693A4F192A833CA100E5AF22 /* Assets.xcassets */; };
 		693A4F1D2A833CA100E5AF22 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 693A4F1C2A833CA100E5AF22 /* Preview Assets.xcassets */; };
+		693A4F252A833DFC00E5AF22 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693A4F242A833DFC00E5AF22 /* MenuView.swift */; };
+		693A4F282A83451A00E5AF22 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693A4F272A83451A00E5AF22 /* Background.swift */; };
+		693A4F2A2A834B8E00E5AF22 /* Logo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693A4F292A834B8E00E5AF22 /* Logo.swift */; };
+		693A4F2E2A834FD000E5AF22 /* BricolageGrotesque-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 693A4F2C2A834FD000E5AF22 /* BricolageGrotesque-Light.ttf */; };
+		693A4F2F2A834FD000E5AF22 /* BricolageGrotesque-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 693A4F2D2A834FD000E5AF22 /* BricolageGrotesque-Medium.ttf */; };
+		693A4F322A83528E00E5AF22 /* BricolageGrotesque-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 693A4F312A83528E00E5AF22 /* BricolageGrotesque-Bold.ttf */; };
+		693A4F352A8358DC00E5AF22 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693A4F342A8358DC00E5AF22 /* CustomButton.swift */; };
+		693A4F372A8364A600E5AF22 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693A4F362A8364A600E5AF22 /* GameView.swift */; };
+		693A4F392A8364B600E5AF22 /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693A4F382A8364B600E5AF22 /* LeaderboardView.swift */; };
+		693A4F3B2A8364D200E5AF22 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693A4F3A2A8364D200E5AF22 /* SettingsView.swift */; };
+		693A4F3D2A8364E600E5AF22 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693A4F3C2A8364E600E5AF22 /* Header.swift */; };
+		693A4F3F2A83725700E5AF22 /* PlayerStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693A4F3E2A83725700E5AF22 /* PlayerStats.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		693A4F122A833CA000E5AF22 /* Blackjack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blackjack.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		693A4F152A833CA000E5AF22 /* BlackjackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackApp.swift; sourceTree = "<group>"; };
+		693A4F152A833CA000E5AF22 /* Blackjack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blackjack.swift; sourceTree = "<group>"; };
 		693A4F172A833CA000E5AF22 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		693A4F192A833CA100E5AF22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		693A4F1C2A833CA100E5AF22 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		693A4F242A833DFC00E5AF22 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		693A4F272A83451A00E5AF22 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
+		693A4F292A834B8E00E5AF22 /* Logo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logo.swift; sourceTree = "<group>"; };
+		693A4F2C2A834FD000E5AF22 /* BricolageGrotesque-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BricolageGrotesque-Light.ttf"; sourceTree = "<group>"; };
+		693A4F2D2A834FD000E5AF22 /* BricolageGrotesque-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BricolageGrotesque-Medium.ttf"; sourceTree = "<group>"; };
+		693A4F302A83500E00E5AF22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		693A4F312A83528E00E5AF22 /* BricolageGrotesque-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BricolageGrotesque-Bold.ttf"; sourceTree = "<group>"; };
+		693A4F342A8358DC00E5AF22 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		693A4F362A8364A600E5AF22 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		693A4F382A8364B600E5AF22 /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
+		693A4F3A2A8364D200E5AF22 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		693A4F3C2A8364E600E5AF22 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
+		693A4F3E2A83725700E5AF22 /* PlayerStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStats.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +76,11 @@
 		693A4F142A833CA000E5AF22 /* Blackjack */ = {
 			isa = PBXGroup;
 			children = (
-				693A4F152A833CA000E5AF22 /* BlackjackApp.swift */,
-				693A4F172A833CA000E5AF22 /* ContentView.swift */,
+				693A4F302A83500E00E5AF22 /* Info.plist */,
+				693A4F2B2A834F6100E5AF22 /* Fonts */,
+				693A4F262A83431E00E5AF22 /* Components */,
+				693A4F232A833CB000E5AF22 /* View */,
+				693A4F152A833CA000E5AF22 /* Blackjack.swift */,
 				693A4F192A833CA100E5AF22 /* Assets.xcassets */,
 				693A4F1B2A833CA100E5AF22 /* Preview Content */,
 			);
@@ -65,6 +93,40 @@
 				693A4F1C2A833CA100E5AF22 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		693A4F232A833CB000E5AF22 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				693A4F172A833CA000E5AF22 /* ContentView.swift */,
+				693A4F242A833DFC00E5AF22 /* MenuView.swift */,
+				693A4F362A8364A600E5AF22 /* GameView.swift */,
+				693A4F382A8364B600E5AF22 /* LeaderboardView.swift */,
+				693A4F3A2A8364D200E5AF22 /* SettingsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		693A4F262A83431E00E5AF22 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				693A4F342A8358DC00E5AF22 /* CustomButton.swift */,
+				693A4F272A83451A00E5AF22 /* Background.swift */,
+				693A4F292A834B8E00E5AF22 /* Logo.swift */,
+				693A4F3C2A8364E600E5AF22 /* Header.swift */,
+				693A4F3E2A83725700E5AF22 /* PlayerStats.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		693A4F2B2A834F6100E5AF22 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				693A4F2C2A834FD000E5AF22 /* BricolageGrotesque-Light.ttf */,
+				693A4F2D2A834FD000E5AF22 /* BricolageGrotesque-Medium.ttf */,
+				693A4F312A83528E00E5AF22 /* BricolageGrotesque-Bold.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,7 +187,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				693A4F322A83528E00E5AF22 /* BricolageGrotesque-Bold.ttf in Resources */,
 				693A4F1D2A833CA100E5AF22 /* Preview Assets.xcassets in Resources */,
+				693A4F2E2A834FD000E5AF22 /* BricolageGrotesque-Light.ttf in Resources */,
+				693A4F2F2A834FD000E5AF22 /* BricolageGrotesque-Medium.ttf in Resources */,
 				693A4F1A2A833CA100E5AF22 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,8 +202,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				693A4F3D2A8364E600E5AF22 /* Header.swift in Sources */,
+				693A4F392A8364B600E5AF22 /* LeaderboardView.swift in Sources */,
 				693A4F182A833CA000E5AF22 /* ContentView.swift in Sources */,
-				693A4F162A833CA000E5AF22 /* BlackjackApp.swift in Sources */,
+				693A4F352A8358DC00E5AF22 /* CustomButton.swift in Sources */,
+				693A4F3B2A8364D200E5AF22 /* SettingsView.swift in Sources */,
+				693A4F2A2A834B8E00E5AF22 /* Logo.swift in Sources */,
+				693A4F252A833DFC00E5AF22 /* MenuView.swift in Sources */,
+				693A4F162A833CA000E5AF22 /* Blackjack.swift in Sources */,
+				693A4F282A83451A00E5AF22 /* Background.swift in Sources */,
+				693A4F3F2A83725700E5AF22 /* PlayerStats.swift in Sources */,
+				693A4F372A8364A600E5AF22 /* GameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +344,8 @@
 				DEVELOPMENT_TEAM = 29DDDV83NA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Blackjack/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "\"\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -299,6 +375,8 @@
 				DEVELOPMENT_TEAM = 29DDDV83NA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Blackjack/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "\"\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
