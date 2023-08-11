@@ -12,20 +12,22 @@
 
 import SwiftUI
 
-struct LeaderboardView: View {
+struct SettingsView: View {
     var body: some View {
         ZStack {
             Background()
             
             VStack {
-                Header(viewName: "leaderboard")
+                Header(viewName: "settings")
+                
+                Spacer()
             }
         }
     }
 }
 
-struct LeaderboardView_Previews: PreviewProvider {
+struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        LeaderboardView()
+        SettingsView()
     }
 }

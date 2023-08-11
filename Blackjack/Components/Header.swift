@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 09/08/2023
-  Last modified: 09/08/2023
+  Last modified: 11/08/2023
   Acknowledgement: None
 */
 
@@ -21,10 +21,8 @@ struct Header: View {
                 
             } label: {
                 Image(systemName: "house.fill")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 30, height: 30)
-                
+                    .iconModidifer()
+                    .frame(width: 30)
             }
             .buttonStyle(CustomButton())
             
@@ -33,6 +31,8 @@ struct Header: View {
                 .tracking(2.5)
                 .shadow(radius: 1, x: 2.5, y: 2.5)
                 .foregroundColor(.accentColor)
+                .padding(.top, 5)
+                .padding(.bottom, 10)
         }
     }
 }

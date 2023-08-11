@@ -27,9 +27,8 @@ struct MenuView: View {
                         
                     } label: {
                         Image(systemName: "play.fill")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 240, height: 30)
+                            .iconModidifer()
+                            .frame(width: 240)
                     }
                     .buttonStyle(CustomButton())
                     .padding(.vertical, 5)
@@ -38,9 +37,8 @@ struct MenuView: View {
                         
                     } label: {
                         Image(systemName: "trophy.fill")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 240, height: 30)
+                            .iconModidifer()
+                            .frame(width: 240)
                     }
                     .buttonStyle(CustomButton())
                     .padding(.vertical, 5)
@@ -50,9 +48,8 @@ struct MenuView: View {
                             
                         } label: {
                             Image(systemName: "questionmark")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 95, height: 30)
+                                .iconModidifer()
+                                .frame(width: 95)
                         }
                         .buttonStyle(CustomButton())
                         .padding(.all, 5)
@@ -61,9 +58,8 @@ struct MenuView: View {
                             
                         } label: {
                             Image(systemName: "gearshape.fill")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 95, height: 30)
+                                .iconModidifer()
+                                .frame(width: 95)
                         }
                         .buttonStyle(CustomButton())
                         .padding(.all, 5)

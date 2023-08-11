@@ -23,9 +23,8 @@ struct GameView: View {
                         
                     } label: {
                         Image(systemName: "house.fill")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 30, height: 30)
+                            .iconModidifer()
+                            .frame(width: 30)
                     }
                     .buttonStyle(CustomButton())
                     Spacer()
@@ -41,43 +40,35 @@ struct GameView: View {
                         
                     } label: {
                         Image(systemName: "questionmark")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 30, height: 30)
+                            .iconModidifer()
+                            .frame(width: 30)
                     }
                     .buttonStyle(CustomButton())
                 }
-                .padding(.bottom, 30.0)
+                .padding(.bottom, 15.0)
+                GameStats(icon: "laptopcomputer", money: 250, score: 20)
+                
                 Spacer()
                 
-                HStack {
+                GameStats(icon: "person.fill", money: 500, score: 21)
+                HStack(spacing: 40.0) {
                     Button {
                         
                     } label: {
                         Text("DRAW")
-                            .font(Font.custom("BricolageGrotesque-Light", size: 24))
-                            .tracking(2.5)
-                            .frame(width: 120, height: 30)
-                            .shadow(radius: 1, x: 2.5, y: 2.5)
-                            .foregroundColor(.accentColor)
+                            .modifier(ButtonTextModifier())
                     }
                     .buttonStyle(CustomButton())
-                    
-                    Spacer()
                     
                     Button {
                         
                     } label: {
                         Text("CHECK")
-                            .font(Font.custom("BricolageGrotesque-Light", size: 24))
-                            .tracking(2.5)
-                            .frame(width: 120, height: 30)
-                            .shadow(radius: 1, x: 2.5, y: 2.5)
-                            .foregroundColor(.accentColor)
+                            .modifier(ButtonTextModifier())
                     }
                     .buttonStyle(CustomButton())
                 }
-                .padding(.top, 30.0)
+                .padding(.top, 15.0)
             }
             .padding(.horizontal, 15.0)
         }

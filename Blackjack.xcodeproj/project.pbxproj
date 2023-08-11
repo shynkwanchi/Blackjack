@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		69058D2F2A85EA8B007053BA /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69058D2E2A85EA8B007053BA /* Modifiers.swift */; };
+		69058D322A85FEAB007053BA /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69058D312A85FEAB007053BA /* UserModel.swift */; };
+		69058D342A85FEC8007053BA /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69058D332A85FEC8007053BA /* CardModel.swift */; };
+		69058D382A8617CA007053BA /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69058D372A8617CA007053BA /* ListItem.swift */; };
+		69058D3A2A862C6E007053BA /* UserStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69058D392A862C6E007053BA /* UserStats.swift */; };
 		693A4F162A833CA000E5AF22 /* Blackjack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693A4F152A833CA000E5AF22 /* Blackjack.swift */; };
 		693A4F182A833CA000E5AF22 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693A4F172A833CA000E5AF22 /* ContentView.swift */; };
 		693A4F1A2A833CA100E5AF22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 693A4F192A833CA100E5AF22 /* Assets.xcassets */; };
@@ -17,15 +22,19 @@
 		693A4F2E2A834FD000E5AF22 /* BricolageGrotesque-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 693A4F2C2A834FD000E5AF22 /* BricolageGrotesque-Light.ttf */; };
 		693A4F2F2A834FD000E5AF22 /* BricolageGrotesque-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 693A4F2D2A834FD000E5AF22 /* BricolageGrotesque-Medium.ttf */; };
 		693A4F322A83528E00E5AF22 /* BricolageGrotesque-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 693A4F312A83528E00E5AF22 /* BricolageGrotesque-Bold.ttf */; };
-		693A4F352A8358DC00E5AF22 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693A4F342A8358DC00E5AF22 /* CustomButton.swift */; };
 		693A4F372A8364A600E5AF22 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693A4F362A8364A600E5AF22 /* GameView.swift */; };
-		693A4F392A8364B600E5AF22 /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693A4F382A8364B600E5AF22 /* LeaderboardView.swift */; };
+		693A4F392A8364B600E5AF22 /* LeaderBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693A4F382A8364B600E5AF22 /* LeaderBoardView.swift */; };
 		693A4F3B2A8364D200E5AF22 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693A4F3A2A8364D200E5AF22 /* SettingsView.swift */; };
 		693A4F3D2A8364E600E5AF22 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693A4F3C2A8364E600E5AF22 /* Header.swift */; };
-		693A4F3F2A83725700E5AF22 /* PlayerStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693A4F3E2A83725700E5AF22 /* PlayerStats.swift */; };
+		693A4F3F2A83725700E5AF22 /* GameStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693A4F3E2A83725700E5AF22 /* GameStats.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		69058D2E2A85EA8B007053BA /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
+		69058D312A85FEAB007053BA /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		69058D332A85FEC8007053BA /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
+		69058D372A8617CA007053BA /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
+		69058D392A862C6E007053BA /* UserStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStats.swift; sourceTree = "<group>"; };
 		693A4F122A833CA000E5AF22 /* Blackjack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blackjack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		693A4F152A833CA000E5AF22 /* Blackjack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blackjack.swift; sourceTree = "<group>"; };
 		693A4F172A833CA000E5AF22 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -38,12 +47,11 @@
 		693A4F2D2A834FD000E5AF22 /* BricolageGrotesque-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BricolageGrotesque-Medium.ttf"; sourceTree = "<group>"; };
 		693A4F302A83500E00E5AF22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		693A4F312A83528E00E5AF22 /* BricolageGrotesque-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BricolageGrotesque-Bold.ttf"; sourceTree = "<group>"; };
-		693A4F342A8358DC00E5AF22 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		693A4F362A8364A600E5AF22 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
-		693A4F382A8364B600E5AF22 /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
+		693A4F382A8364B600E5AF22 /* LeaderBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardView.swift; sourceTree = "<group>"; };
 		693A4F3A2A8364D200E5AF22 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		693A4F3C2A8364E600E5AF22 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
-		693A4F3E2A83725700E5AF22 /* PlayerStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStats.swift; sourceTree = "<group>"; };
+		693A4F3E2A83725700E5AF22 /* GameStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStats.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +65,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		69058D2D2A85E044007053BA /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				69058D2E2A85EA8B007053BA /* Modifiers.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		69058D302A85FE94007053BA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				69058D312A85FEAB007053BA /* UserModel.swift */,
+				69058D332A85FEC8007053BA /* CardModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		69058D352A85FF05007053BA /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = APIs;
+			sourceTree = "<group>";
+		};
+		69058D362A85FF98007053BA /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 		693A4F092A833CA000E5AF22 = {
 			isa = PBXGroup;
 			children = (
@@ -76,10 +115,14 @@
 		693A4F142A833CA000E5AF22 /* Blackjack */ = {
 			isa = PBXGroup;
 			children = (
+				69058D362A85FF98007053BA /* Enums */,
+				69058D352A85FF05007053BA /* APIs */,
+				69058D302A85FE94007053BA /* Models */,
+				69058D2D2A85E044007053BA /* Utilities */,
 				693A4F302A83500E00E5AF22 /* Info.plist */,
 				693A4F2B2A834F6100E5AF22 /* Fonts */,
 				693A4F262A83431E00E5AF22 /* Components */,
-				693A4F232A833CB000E5AF22 /* View */,
+				693A4F232A833CB000E5AF22 /* Views */,
 				693A4F152A833CA000E5AF22 /* Blackjack.swift */,
 				693A4F192A833CA100E5AF22 /* Assets.xcassets */,
 				693A4F1B2A833CA100E5AF22 /* Preview Content */,
@@ -95,26 +138,27 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		693A4F232A833CB000E5AF22 /* View */ = {
+		693A4F232A833CB000E5AF22 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				693A4F172A833CA000E5AF22 /* ContentView.swift */,
 				693A4F242A833DFC00E5AF22 /* MenuView.swift */,
 				693A4F362A8364A600E5AF22 /* GameView.swift */,
-				693A4F382A8364B600E5AF22 /* LeaderboardView.swift */,
+				693A4F382A8364B600E5AF22 /* LeaderBoardView.swift */,
 				693A4F3A2A8364D200E5AF22 /* SettingsView.swift */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		693A4F262A83431E00E5AF22 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				693A4F342A8358DC00E5AF22 /* CustomButton.swift */,
 				693A4F272A83451A00E5AF22 /* Background.swift */,
 				693A4F292A834B8E00E5AF22 /* Logo.swift */,
 				693A4F3C2A8364E600E5AF22 /* Header.swift */,
-				693A4F3E2A83725700E5AF22 /* PlayerStats.swift */,
+				693A4F3E2A83725700E5AF22 /* GameStats.swift */,
+				69058D372A8617CA007053BA /* ListItem.swift */,
+				69058D392A862C6E007053BA /* UserStats.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -203,15 +247,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				693A4F3D2A8364E600E5AF22 /* Header.swift in Sources */,
-				693A4F392A8364B600E5AF22 /* LeaderboardView.swift in Sources */,
+				693A4F392A8364B600E5AF22 /* LeaderBoardView.swift in Sources */,
 				693A4F182A833CA000E5AF22 /* ContentView.swift in Sources */,
-				693A4F352A8358DC00E5AF22 /* CustomButton.swift in Sources */,
+				69058D2F2A85EA8B007053BA /* Modifiers.swift in Sources */,
 				693A4F3B2A8364D200E5AF22 /* SettingsView.swift in Sources */,
+				69058D342A85FEC8007053BA /* CardModel.swift in Sources */,
 				693A4F2A2A834B8E00E5AF22 /* Logo.swift in Sources */,
 				693A4F252A833DFC00E5AF22 /* MenuView.swift in Sources */,
+				69058D3A2A862C6E007053BA /* UserStats.swift in Sources */,
+				69058D382A8617CA007053BA /* ListItem.swift in Sources */,
 				693A4F162A833CA000E5AF22 /* Blackjack.swift in Sources */,
+				69058D322A85FEAB007053BA /* UserModel.swift in Sources */,
 				693A4F282A83451A00E5AF22 /* Background.swift in Sources */,
-				693A4F3F2A83725700E5AF22 /* PlayerStats.swift in Sources */,
+				693A4F3F2A83725700E5AF22 /* GameStats.swift in Sources */,
 				693A4F372A8364A600E5AF22 /* GameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
