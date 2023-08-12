@@ -21,9 +21,26 @@ struct LeaderBoardView: View {
                 Header(viewName: "leader board")
                 
                 ScrollView {
-                    
+                    VStack(spacing: 0) {
+                        ForEach(0..<dummyUsers.count, id: \.self) { index in
+                            if index != dummyUsers.count - 1 {
+                                UserRow(user: dummyUsers[index], rank: index + 1)   // Add row divider between rows
+                                Divider()
+                                    .background(Color.accentColor)
+                            }
+                            else {
+                                UserRow(user: dummyUsers[index], rank: index + 1)   // Except the last row
+                            }
+                        }
+                    }
                 }
-                Spacer()
+                .background(Color("item-background"))
+                .clipShape(RoundedRectangle(cornerRadius: 15))
+                .clipped()
+                .padding(.horizontal)
+            }
+            .overlay {
+//                UserStats(user: dummyUsers[0])
             }
         }
     }

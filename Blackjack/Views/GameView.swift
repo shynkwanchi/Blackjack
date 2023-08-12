@@ -45,7 +45,7 @@ struct GameView: View {
                     }
                     .buttonStyle(CustomButton())
                 }
-                .padding(.bottom, 15.0)
+                .padding(.bottom, 10.0)
                 GameStats(icon: "laptopcomputer", money: 250, score: 20)
                 
                 Spacer()
@@ -68,7 +68,7 @@ struct GameView: View {
                     }
                     .buttonStyle(CustomButton())
                 }
-                .padding(.top, 15.0)
+                .padding(.top, 10.0)
             }
             .padding(.horizontal, 15.0)
         }

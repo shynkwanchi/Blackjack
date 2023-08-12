@@ -32,7 +32,6 @@ struct GameStats: View {
                 Spacer()
                 Text(String(money))
                     .font(Font.custom("BricolageGrotesque-light", size: 25))
-                    .shadow(radius: 1, x: 2.5, y: 2.5)
             }
             .frame(width: 120)
             .modifier(GameStatsModifier())
@@ -45,7 +44,6 @@ struct GameStats: View {
                 Spacer()
                 Text(String(score))
                     .font(Font.custom("BricolageGrotesque-light", size: 25))
-                    .shadow(radius: 1, x: 2.5, y: 2.5)
             }
             .frame(width: 120)
             .modifier(GameStatsModifier())

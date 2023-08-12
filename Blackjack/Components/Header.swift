@@ -31,8 +31,7 @@ struct Header: View {
                 .tracking(2.5)
                 .shadow(radius: 1, x: 2.5, y: 2.5)
                 .foregroundColor(.accentColor)
-                .padding(.top, 5)
-                .padding(.bottom, 10)
+                .padding(.vertical, 5)
         }
     }
 }

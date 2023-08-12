@@ -1,68 +1,46 @@
-//
-//  UserStats.swift
-//  Blackjack
-//
-//  Created by Duy Nguyen Quang on 11/08/2023.
-//
-
+/*
+  RMIT University Vietnam
+  Course: COSC2659 iOS Development
+  Semester: 2023B
+  Assessment: Assignment 2
+  Author: Nguyen Quang Duy
+  ID: 3877991
+  Created  date: 11/08/2023
+  Last modified: To be added
+  Acknowledgement: YouTube
+*/
 import SwiftUI
 
 struct UserStats: View {
-    @Binding var showUserStats : Bool
+    var user: User
     
     var body: some View {
         // Pop-up box of user's gaming history
         ZStack {
             VStack {
-                Text("Username")
+                Text(user.username)
                     .font(Font.custom("BricolageGrotesque-Medium", size: 24))
                 
                 HStack(alignment: .top) {
-                    VStack {
-                        Text("Joined")
-                            .font(Font.custom("BricolageGrotesque-Light", size: 15))
-                            .multilineTextAlignment(.center)
-                        Text("10 Aug 2023")
-                            .font(Font.custom("BricolageGrotesque-Medium", size: 30))
-                            .multilineTextAlignment(.center)
-                    }
-                    .frame(width: 125.0)
-                    VStack {
-                        Text("High score")
-                            .font(Font.custom("BricolageGrotesque-Light", size: 15))
-                        Text("128")
-                            .font(Font.custom("BricolageGrotesque-Medium", size: 30))
-                    }
-                    .frame(width: 125.0)
+                    StatItem(name: "Joined", value: user.joinDate)
+                        .frame(width: 125.0)
+                    StatItem(name: "Highscore", value: String(user.highscore))
+                        .frame(width: 125.0)
                 }
                 .padding(.top, 1)
                 .padding(.bottom, 0.5)
                 
                 HStack(alignment: .top) {
-                    VStack {
-                        Text("Rounds played")
-                            .font(Font.custom("BricolageGrotesque-Light", size: 15))
-                            .multilineTextAlignment(.center)
-                        Text("32")
-                            .font(Font.custom("BricolageGrotesque-Medium", size: 30))
-                            .multilineTextAlignment(.center)
-                    }
-                    .frame(width: 125.0)
-                    VStack {
-                        Text("Winning rate")
-                            .font(Font.custom("BricolageGrotesque-Light", size: 15))
-                            .multilineTextAlignment(.center)
-                        Text("64%")
-                            .font(Font.custom("BricolageGrotesque-Medium", size: 30))
-                            .multilineTextAlignment(.center)
-                    }
-                    .frame(width: 125.0)
+                    StatItem(name: "Rounds played", value: String(user.roundsPlayed))
+                        .frame(width: 125.0)
+                    StatItem(name: "Winning rate", value: "\(user.roundsWon * 100 / user.roundsPlayed)%")
+                        .frame(width: 125.0)
                 }
                 .padding(.top, 0.5)
                 .padding(.bottom, 1)
                 
                 Button {
-                    showUserStats.toggle()
+                    
                 } label: {
                     Image(systemName: "xmark")
                         .iconModidifer()
@@ -70,17 +48,14 @@ struct UserStats: View {
                 }
                 .buttonStyle(CustomButton())
             }
-            .padding(.all, 15)
-            .background(Color.accentColor)
-            .cornerRadius(15)
+            .modifier(InnerModalModifier())
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.black.opacity(0.25))
+        .modifier(OuterModalModifier())
     }
 }
 
 struct UserStats_Previews: PreviewProvider {
     static var previews: some View {
-        UserStats(showUserStats: .constant(true))
+        UserStats(user: dummyUsers[0])
     }
 }

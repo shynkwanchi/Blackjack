@@ -44,7 +44,7 @@ struct GameStatsModifier: ViewModifier {
         content
             .padding(.all, 10)
             .foregroundColor(.accentColor)
-            .background(Color("player-stats"))
+            .background(Color("item-background"))
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .clipped()
             .shadow(radius: 1, x: 2.5, y: 2.5)
@@ -62,15 +62,40 @@ extension Image {
     }
 }
 
-// Customize the pop-up view
-struct BlurView : UIViewRepresentable {
-    func makeUIView(context: Context) -> some UIVisualEffectView {
-        let view = UIVisualEffectView(effect: UIBlurEffect(style: .systemUltraThinMaterial))
-        
-        return view
+// Customize the modal view
+struct InnerModalModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .padding(.all, 15)
+            .background(Color("inner-modal"))
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .clipped()
+            .shadow(radius: 1, x: 2.5, y: 2.5)
     }
+}
+
+struct OuterModalModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color("outer-modal"))
+    }
+}
+
+// Customize the user row based on their rank
+struct UserRowModifier: ViewModifier {
+    var rank: Int
     
-    func updateUIView(_ uiView: UIViewType, context: Context) {
-        
+    func body(content: Content) -> some View {
+        switch rank {
+        case 1:
+            content.foregroundColor(Color("color-gold"))
+        case 2:
+            content.foregroundColor(Color("color-silver"))
+        case 3:
+            content.foregroundColor(Color("color-bronze"))
+        default:
+            content.foregroundColor(Color.accentColor)
+        }
     }
 }

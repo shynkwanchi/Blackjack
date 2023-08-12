@@ -13,6 +13,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var userData = UserViewModel()
+    
     var body: some View {
         MenuView()
     }
