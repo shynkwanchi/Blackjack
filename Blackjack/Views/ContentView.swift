@@ -13,10 +13,10 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var userData = UserViewModel()
-    
+    @StateObject var userVM = UserViewModel()
     var body: some View {
         MenuView()
+            .environmentObject(userVM)
     }
 }
 

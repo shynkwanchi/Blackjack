@@ -9,53 +9,59 @@
   Last modified: To be added
   Acknowledgement: YouTube
 */
+
 import SwiftUI
 
+// Pop-up box of user's gaming history
 struct UserStats: View {
-    var user: User
+    @EnvironmentObject var userVM: UserViewModel
     
     var body: some View {
-        // Pop-up box of user's gaming history
-        ZStack {
-            VStack {
-                Text(user.username)
-                    .font(Font.custom("BricolageGrotesque-Medium", size: 24))
-                
-                HStack(alignment: .top) {
-                    StatItem(name: "Joined", value: user.joinDate)
-                        .frame(width: 125.0)
-                    StatItem(name: "Highscore", value: String(user.highscore))
-                        .frame(width: 125.0)
-                }
-                .padding(.top, 1)
-                .padding(.bottom, 0.5)
-                
-                HStack(alignment: .top) {
-                    StatItem(name: "Rounds played", value: String(user.roundsPlayed))
-                        .frame(width: 125.0)
-                    StatItem(name: "Winning rate", value: "\(user.roundsWon * 100 / user.roundsPlayed)%")
-                        .frame(width: 125.0)
-                }
-                .padding(.top, 0.5)
-                .padding(.bottom, 1)
-                
-                Button {
+        // Check if the selected user is cleared...
+        if (userVM.selectedUser != nil) {
+            ZStack {
+                VStack {
+                    Text(userVM.selectedUser.username)
+                        .font(Font.custom("BricolageGrotesque-Medium", size: 24))
                     
-                } label: {
-                    Image(systemName: "xmark")
-                        .iconModidifer()
-                        .frame(width: 30)
+                    HStack(alignment: .top) {
+                        StatItem(name: "Joined", value: userVM.selectedUser.joinDate)
+                            .frame(width: 125.0)
+                        StatItem(name: "Highscore", value: String(userVM.selectedUser.highscore))
+                            .frame(width: 125.0)
+                    }
+                    .padding(.top, 1)
+                    .padding(.bottom, 0.5)
+                    
+                    HStack(alignment: .top) {
+                        StatItem(name: "Rounds played", value: String(userVM.selectedUser.roundsPlayed))
+                            .frame(width: 125.0)
+                        StatItem(name: "Winning rate", value: "\(userVM.selectedUser.roundsWon * 100 / userVM.selectedUser.roundsPlayed)%")
+                            .frame(width: 125.0)
+                    }
+                    .padding(.top, 0.5)
+                    .padding(.bottom, 1)
+                    
+                    Button {
+                        userVM.showUser.toggle()
+                        userVM.selectedUser = nil
+                    } label: {
+                        Image(systemName: "xmark")
+                            .iconModidifer()
+                            .frame(width: 30)
+                    }
+                    .buttonStyle(CustomButton())
                 }
-                .buttonStyle(CustomButton())
+                .modifier(InnerModalModifier())
             }
-            .modifier(InnerModalModifier())
+            .modifier(OuterModalModifier())
         }
-        .modifier(OuterModalModifier())
     }
 }
 
 struct UserStats_Previews: PreviewProvider {
     static var previews: some View {
-        UserStats(user: dummyUsers[0])
+        UserStats()
+            .environmentObject(UserViewModel())
     }
 }

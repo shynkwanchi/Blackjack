@@ -33,3 +33,9 @@ final class UserViewModel: ObservableObject {
     // Storing a selected user for viewing users' gaming history
     @Published var selectedUser: User!
 }
+
+func sortUser(rawUsers: [User]) -> [User] {
+    return rawUsers.sorted{$0.highscore > $1.highscore}
+}
+
+let sortedUsers = sortUser(rawUsers: dummyUsers)

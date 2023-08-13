@@ -7,20 +7,22 @@
   ID: 3877991
   Created  date: 09/08/2023
   Last modified: 11/08/2023
-  Acknowledgement: None
+  Acknowledgement: YouTube
 */
 
 import SwiftUI
 
+// This struct is used for leaderboard and settings view
 struct Header: View {
+    @Environment(\.dismiss) var dismiss
     var viewName: String
     
     var body: some View {
         VStack {
             Button {
-                
+                dismiss()
             } label: {
-                Image(systemName: "house.fill")
+                Image(systemName: "arrowshape.backward.fill")
                     .iconModidifer()
                     .frame(width: 30)
             }

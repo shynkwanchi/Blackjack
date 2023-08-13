@@ -13,60 +13,42 @@
 import SwiftUI
 
 struct MenuView: View {
+    @EnvironmentObject var userVM: UserViewModel
+    
     var body: some View {
-        ZStack {
-            Background()
-            
-            VStack {
-                Spacer()
-                Logo()
+        NavigationView {
+            ZStack {
+                Background()
                 
-                Spacer()
-                VStack(alignment: .center) {
-                    Button {
-                        
-                    } label: {
-                        Image(systemName: "play.fill")
-                            .iconModidifer()
-                            .frame(width: 240)
-                    }
-                    .buttonStyle(CustomButton())
-                    .padding(.vertical, 5)
+                VStack {
+                    Spacer()
+                    Logo()
                     
-                    Button {
+                    Spacer()
+                    VStack(alignment: .center) {
+                        NavigationButton(destinationView: GameView(), icon: "play.fill", width: 240)                    .padding(.vertical, 5)
                         
-                    } label: {
-                        Image(systemName: "trophy.fill")
-                            .iconModidifer()
-                            .frame(width: 240)
+                        NavigationButton(destinationView: LeaderBoardView(), icon: "trophy.fill", width: 240)
+                            .padding(.vertical, 5)
+                        
+                        HStack {
+                            Button {
+                                
+                            } label: {
+                                Image(systemName: "questionmark")
+                                    .iconModidifer()
+                                    .frame(width: 95)
+                            }
+                            .buttonStyle(CustomButton())
+                                .padding(.all, 5)
+                            
+                            NavigationButton(destinationView: SettingsView(), icon: "gearshape.fill", width: 95)
+                                .padding(.all, 5)
+                        }
                     }
-                    .buttonStyle(CustomButton())
-                    .padding(.vertical, 5)
                     
-                    HStack {
-                        Button {
-                            
-                        } label: {
-                            Image(systemName: "questionmark")
-                                .iconModidifer()
-                                .frame(width: 95)
-                        }
-                        .buttonStyle(CustomButton())
-                        .padding(.all, 5)
-                        
-                        Button {
-                            
-                        } label: {
-                            Image(systemName: "gearshape.fill")
-                                .iconModidifer()
-                                .frame(width: 95)
-                        }
-                        .buttonStyle(CustomButton())
-                        .padding(.all, 5)
-                    }
+                    Spacer()
                 }
-                
-                Spacer()
             }
         }
     }
@@ -75,5 +57,6 @@ struct MenuView: View {
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
         MenuView()
+            .environmentObject(UserViewModel())
     }
 }

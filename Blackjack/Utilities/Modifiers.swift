@@ -30,7 +30,7 @@ struct CustomButton: ButtonStyle {
 struct ButtonTextModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .font(Font.custom("BricolageGrotesque-Light", size: 24))
+            .font(Font.custom("BricolageGrotesque-Medium", size: 24))
             .tracking(2.5)
             .frame(width: 120, height: 30)
             .shadow(radius: 1, x: 2.5, y: 2.5)

@@ -13,6 +13,7 @@
 import SwiftUI
 
 struct UserRow: View {
+    @EnvironmentObject var userVM: UserViewModel
     var user: User
     var rank: Int
     
@@ -35,7 +36,8 @@ struct UserRow: View {
             Spacer()
             
             Button {
-                
+                userVM.selectedUser = user
+                userVM.showUser.toggle()
             } label: {
                 Image(systemName: "info.circle")
                     .frame(width: 24, height: 24)

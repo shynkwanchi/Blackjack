@@ -13,6 +13,8 @@
 import SwiftUI
 
 struct GameView: View {
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
         ZStack{
             Background()
@@ -20,9 +22,9 @@ struct GameView: View {
             VStack{
                 HStack {
                     Button {
-                        
+                        dismiss()
                     } label: {
-                        Image(systemName: "house.fill")
+                        Image(systemName: "arrowshape.backward.fill")
                             .iconModidifer()
                             .frame(width: 30)
                     }
@@ -72,6 +74,7 @@ struct GameView: View {
             }
             .padding(.horizontal, 15.0)
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

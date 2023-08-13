@@ -29,6 +29,7 @@
 		693A4F3F2A83725700E5AF22 /* GameStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693A4F3E2A83725700E5AF22 /* GameStats.swift */; };
 		694F1B0A2A8736F200982F72 /* StatItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694F1B092A8736F200982F72 /* StatItem.swift */; };
 		694F1B0C2A8742E800982F72 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694F1B0B2A8742E800982F72 /* UserViewModel.swift */; };
+		69971F032A88AB7800AEBD3E /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69971F022A88AB7800AEBD3E /* NavigationButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		693A4F3E2A83725700E5AF22 /* GameStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStats.swift; sourceTree = "<group>"; };
 		694F1B092A8736F200982F72 /* StatItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatItem.swift; sourceTree = "<group>"; };
 		694F1B0B2A8742E800982F72 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		69971F022A88AB7800AEBD3E /* NavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 				69058D372A8617CA007053BA /* UserRow.swift */,
 				69058D392A862C6E007053BA /* UserStats.swift */,
 				694F1B092A8736F200982F72 /* StatItem.swift */,
+				69971F022A88AB7800AEBD3E /* NavigationButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				693A4F2A2A834B8E00E5AF22 /* Logo.swift in Sources */,
 				693A4F252A833DFC00E5AF22 /* MenuView.swift in Sources */,
 				69058D3A2A862C6E007053BA /* UserStats.swift in Sources */,
+				69971F032A88AB7800AEBD3E /* NavigationButton.swift in Sources */,
 				69058D382A8617CA007053BA /* UserRow.swift in Sources */,
 				693A4F162A833CA000E5AF22 /* Blackjack.swift in Sources */,
 				69058D322A85FEAB007053BA /* User.swift in Sources */,
