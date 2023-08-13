@@ -55,7 +55,7 @@ struct GameView: View {
                     Button {
                         
                     } label: {
-                        Text("DRAW")
+                        Text("HIT")
                             .modifier(ButtonTextModifier())
                     }
                     .buttonStyle(CustomButton())
@@ -63,7 +63,7 @@ struct GameView: View {
                     Button {
                         
                     } label: {
-                        Text("CHECK")
+                        Text("STAY")
                             .modifier(ButtonTextModifier())
                     }
                     .buttonStyle(CustomButton())
