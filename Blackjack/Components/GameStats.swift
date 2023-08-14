@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 09/08/2023
-  Last modified: 11/08/2023
+  Last modified: To be updated
   Acknowledgement: None
 */
 
@@ -32,6 +32,7 @@ struct GameStats: View {
                 Spacer()
                 Text(String(money))
                     .font(Font.custom("BricolageGrotesque-light", size: 25))
+                    .modifier(TextModifier())
             }
             .frame(width: 120)
             .modifier(GameStatsModifier())
@@ -44,6 +45,7 @@ struct GameStats: View {
                 Spacer()
                 Text(String(score))
                     .font(Font.custom("BricolageGrotesque-light", size: 25))
+                    .modifier(TextModifier())
             }
             .frame(width: 120)
             .modifier(GameStatsModifier())

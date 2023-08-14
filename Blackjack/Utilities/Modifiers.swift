@@ -27,27 +27,11 @@ struct CustomButton: ButtonStyle {
 }
 
 // Customize the text inside the button
-struct ButtonTextModifier: ViewModifier {
+struct TextModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .font(Font.custom("BricolageGrotesque-Medium", size: 24))
-            .tracking(2.5)
-            .frame(width: 120, height: 30)
             .shadow(radius: 1, x: 2.5, y: 2.5)
             .foregroundColor(.accentColor)
-    }
-}
-
-// Customize the style of player's game stats
-struct GameStatsModifier: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .padding(.all, 10)
-            .foregroundColor(.accentColor)
-            .background(Color("item-background"))
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-            .clipped()
-            .shadow(radius: 1, x: 2.5, y: 2.5)
     }
 }
 
@@ -58,6 +42,7 @@ extension Image {
             .resizable()
             .aspectRatio(contentMode: .fit)
             .frame(height: 30)
+            .foregroundColor(.accentColor)
             .shadow(radius: 1, x: 2.5, y: 2.5)
     }
 }
@@ -82,6 +67,18 @@ struct OuterModalModifier: ViewModifier {
     }
 }
 
+// Customize the style of player's game stats
+struct GameStatsModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .padding(.all, 10)
+            .background(Color("item-background"))
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .clipped()
+            .shadow(radius: 1, x: 2.5, y: 2.5)
+    }
+}
+
 // Customize the user row based on their rank
 struct UserRowModifier: ViewModifier {
     var rank: Int
@@ -98,4 +95,37 @@ struct UserRowModifier: ViewModifier {
             content.foregroundColor(Color.accentColor)
         }
     }
+}
+
+// Customize the list of highscores in leaderboard view
+struct ListModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .background(Color("item-background"))
+            .clipShape(RoundedRectangle(cornerRadius: 15))
+            .clipped()
+    }
+}
+
+// Customize the toggle button
+struct CustomToggle: ToggleStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        HStack {
+            configuration.label
+            Spacer()
+            Rectangle()
+                .foregroundColor(configuration.isOn ? Color("button") : Color("inactive-toggle"))
+                .frame(width: 60, height: 30, alignment: .center)
+                .animation(.easeInOut(duration: 0.25), value: configuration.isOn)
+                .overlay(
+                    Circle()
+                        .foregroundColor(.white)
+                        .padding(.all, 3)
+                        .offset(x: configuration.isOn ? 15 : -15, y: 0)
+                        .animation(.spring(), value: configuration.isOn)
+                ).cornerRadius(15)
+                .onTapGesture { configuration.isOn.toggle() }
+        }
+    }
+    
 }

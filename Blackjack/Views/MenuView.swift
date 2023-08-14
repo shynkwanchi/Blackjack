@@ -28,7 +28,7 @@ struct MenuView: View {
                     VStack(alignment: .center) {
                         NavigationButton(destinationView: GameView(), icon: "play.fill", width: 240)                    .padding(.vertical, 5)
                         
-                        NavigationButton(destinationView: LeaderBoardView(), icon: "trophy.fill", width: 240)
+                        NavigationButton(destinationView: LeaderBoardView(userVM: userVM), icon: "trophy.fill", width: 240)
                             .padding(.vertical, 5)
                         
                         HStack {

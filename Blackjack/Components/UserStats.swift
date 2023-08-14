@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 11/08/2023
-  Last modified: To be added
+  Last modified: To be updated
   Acknowledgement: YouTube
 */
 
@@ -14,7 +14,11 @@ import SwiftUI
 
 // Pop-up box of user's gaming history
 struct UserStats: View {
-    @EnvironmentObject var userVM: UserViewModel
+    var userVM: UserViewModel
+    
+    init(userVM: UserViewModel) {
+        self.userVM = userVM
+    }
     
     var body: some View {
         // Check if the selected user is cleared...
@@ -61,7 +65,6 @@ struct UserStats: View {
 
 struct UserStats_Previews: PreviewProvider {
     static var previews: some View {
-        UserStats()
-            .environmentObject(UserViewModel())
+        UserStats(userVM: UserViewModel())
     }
 }

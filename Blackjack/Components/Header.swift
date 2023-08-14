@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 09/08/2023
-  Last modified: 11/08/2023
+  Last modified: To be updated
   Acknowledgement: YouTube
 */
 
@@ -31,9 +31,8 @@ struct Header: View {
             Text(viewName.uppercased())
                 .font(Font.custom("BricolageGrotesque-Bold", size: 40))
                 .tracking(2.5)
-                .shadow(radius: 1, x: 2.5, y: 2.5)
-                .foregroundColor(.accentColor)
                 .padding(.vertical, 5)
+                .modifier(TextModifier())
         }
     }
 }

@@ -34,8 +34,7 @@ struct GameView: View {
                     Text("ROUND 3")
                         .font(Font.custom("BricolageGrotesque-Bold", size: 30))
                         .tracking(2.5)
-                        .shadow(radius: 1, x: 2.5, y: 2.5)
-                        .foregroundColor(.accentColor)
+                        .modifier(TextModifier())
                     Spacer()
                     
                     Button {
@@ -58,7 +57,10 @@ struct GameView: View {
                         
                     } label: {
                         Text("HIT")
-                            .modifier(ButtonTextModifier())
+                            .font(Font.custom("BricolageGrotesque-Medium", size: 24))
+                            .tracking(2.5)
+                            .frame(width: 120, height: 30)
+                            .modifier(TextModifier())
                     }
                     .buttonStyle(CustomButton())
                     
@@ -66,7 +68,10 @@ struct GameView: View {
                         
                     } label: {
                         Text("STAY")
-                            .modifier(ButtonTextModifier())
+                            .font(Font.custom("BricolageGrotesque-Medium", size: 24))
+                            .tracking(2.5)
+                            .frame(width: 120, height: 30)
+                            .modifier(TextModifier())
                     }
                     .buttonStyle(CustomButton())
                 }

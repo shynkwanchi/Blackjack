@@ -13,7 +13,13 @@
 import SwiftUI
 
 struct LeaderBoardView: View {
-    @EnvironmentObject var userVM: UserViewModel
+    var userVM: UserViewModel
+    var sortedUsers: [User] = []
+    
+    init(userVM: UserViewModel) {
+        self.userVM = userVM
+        sortedUsers = userVM.sortUsers()
+    }
     
     var body: some View {
         ZStack {
@@ -37,30 +43,30 @@ struct LeaderBoardView: View {
                                 }
                             }
                         }
-                        .background(Color("item-background"))
-                        .clipShape(RoundedRectangle(cornerRadius: 15))
-                        .clipped()
-                        .padding(.horizontal)
                     }
+                    .modifier(ListModifier())
                 }
                 else {
-                    VStack {
+                    VStack(alignment: .center) {
                         Spacer()
                         Text("The list of highscores will appear here.")
                             .font(Font.custom("BricolageGrotesque-Medium", size: 24))
+                            .shadow(radius: 1, x: 2.5, y: 2.5)
+                            .foregroundColor(.accentColor)
                             .multilineTextAlignment(.center)
-                            .padding()
                         Spacer()
                     }
-                    .background(Color("item-background"))
-                    .clipShape(RoundedRectangle(cornerRadius: 15))
-                    .clipped()
+                    .padding(.top, 10)
+                    .frame(width: UIScreen.main.bounds.width - 20)
+                    .modifier(ListModifier())
                 }
+                
             }
+            .padding(.horizontal, 10)
             .overlay {
                 ZStack {
                     if userVM.showUser {
-                        UserStats()
+                        UserStats(userVM: userVM)
                     }
                 }
             }
@@ -71,7 +77,6 @@ struct LeaderBoardView: View {
 
 struct LeaderboardView_Previews: PreviewProvider {
     static var previews: some View {
-        LeaderBoardView()
-            .environmentObject(UserViewModel())
+        LeaderBoardView(userVM: UserViewModel())
     }
 }

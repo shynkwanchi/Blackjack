@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 13/08/2023
-  Last modified: To be added
+  Last modified: 14/08/2023
   Acknowledgement: Stack Overflow
 */
 
@@ -36,7 +36,7 @@ struct NavigationButton<Content: View>: View {
 struct NavigationButton_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            NavigationButton(destinationView: LeaderBoardView(), icon: "trophy.fill", width: 240)
+            NavigationButton(destinationView: LeaderBoardView(userVM: UserViewModel()), icon: "trophy.fill", width: 240)
         }
     }
 }

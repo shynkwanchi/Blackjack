@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 12/08/2023
-  Last modified: To be added
+  Last modified: To be updated
   Acknowledgement: YouTube
 */
 
@@ -28,14 +28,24 @@ let dummyUsers = [
 ]
 
 final class UserViewModel: ObservableObject {
+    // List of users
+    @Published var users: [User] = []
+    
+    // Display user in pop-up view
     @Published var showUser = false
     
     // Storing a selected user for viewing users' gaming history
     @Published var selectedUser: User!
+    
+    init() {
+        // Add users from dummy data
+        for user in dummyUsers {
+            users.append(user)
+        }
+    }
+    
+    // Sort users descending by their highscores
+    func sortUsers() -> [User] {
+        return users.sorted{ $0.highscore > $1.highscore }
+    }
 }
-
-func sortUser(rawUsers: [User]) -> [User] {
-    return rawUsers.sorted{$0.highscore > $1.highscore}
-}
-
-let sortedUsers = sortUser(rawUsers: dummyUsers)
