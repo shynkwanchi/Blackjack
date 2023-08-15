@@ -6,8 +6,8 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 11/08/2023
-  Last modified: To be updated
-  Acknowledgement: YouTube
+  Last modified: 15/08/2023
+  Acknowledgement: None
 */
 
 import Foundation
@@ -17,5 +17,6 @@ struct User: Identifiable, Codable {
     var id = UUID().uuidString
     var username: String
     var money, highscore, roundsPlayed, roundsWon: Int
+    var badge: BadgeEnum
     var joinDate: String
 }

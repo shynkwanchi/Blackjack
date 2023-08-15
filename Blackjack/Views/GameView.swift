@@ -16,70 +16,66 @@ struct GameView: View {
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
-        ZStack{
-            Background()
-            
-            VStack{
-                HStack {
-                    Button {
-                        dismiss()
-                    } label: {
-                        Image(systemName: "arrowshape.backward.fill")
-                            .iconModidifer()
-                            .frame(width: 30)
-                    }
-                    .buttonStyle(CustomButton())
-                    Spacer()
-                    
-                    Text("ROUND 3")
-                        .font(Font.custom("BricolageGrotesque-Bold", size: 30))
-                        .tracking(2.5)
-                        .modifier(TextModifier())
-                    Spacer()
-                    
-                    Button {
-                        
-                    } label: {
-                        Image(systemName: "questionmark")
-                            .iconModidifer()
-                            .frame(width: 30)
-                    }
-                    .buttonStyle(CustomButton())
+        VStack{
+            HStack {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "arrowshape.backward.fill")
+                        .iconModidifer()
+                        .frame(width: 30)
                 }
-                .padding(.bottom, 10.0)
-                GameStats(icon: "laptopcomputer", money: 250, score: 20)
-                
+                .buttonStyle(CustomButton())
                 Spacer()
                 
-                GameStats(icon: "person.fill", money: 500, score: 21)
-                HStack(spacing: 40.0) {
-                    Button {
-                        
-                    } label: {
-                        Text("HIT")
-                            .font(Font.custom("BricolageGrotesque-Medium", size: 24))
-                            .tracking(2.5)
-                            .frame(width: 120, height: 30)
-                            .modifier(TextModifier())
-                    }
-                    .buttonStyle(CustomButton())
+                Text("ROUND 3")
+                    .font(Font.custom("BricolageGrotesque-Bold", size: 30))
+                    .tracking(2.5)
+                    .modifier(TextModifier())
+                Spacer()
+                
+                Button {
                     
-                    Button {
-                        
-                    } label: {
-                        Text("STAY")
-                            .font(Font.custom("BricolageGrotesque-Medium", size: 24))
-                            .tracking(2.5)
-                            .frame(width: 120, height: 30)
-                            .modifier(TextModifier())
-                    }
-                    .buttonStyle(CustomButton())
+                } label: {
+                    Image(systemName: "questionmark")
+                        .iconModidifer()
+                        .frame(width: 30)
                 }
-                .padding(.top, 10.0)
+                .buttonStyle(CustomButton())
             }
-            .padding(.horizontal, 15.0)
+            .padding(.bottom, 10.0)
+            GameStats(icon: "laptopcomputer", money: 250, score: 20)
+            
+            Spacer()
+            
+            GameStats(icon: "person.fill", money: 500, score: 21)
+            HStack(spacing: 40.0) {
+                Button {
+                    
+                } label: {
+                    Text("HIT")
+                        .font(Font.custom("BricolageGrotesque-Medium", size: 24))
+                        .tracking(2.5)
+                        .frame(width: 120, height: 30)
+                        .modifier(TextModifier())
+                }
+                .buttonStyle(CustomButton())
+                
+                Button {
+                    
+                } label: {
+                    Text("STAY")
+                        .font(Font.custom("BricolageGrotesque-Medium", size: 24))
+                        .tracking(2.5)
+                        .frame(width: 120, height: 30)
+                        .modifier(TextModifier())
+                }
+                .buttonStyle(CustomButton())
+            }
+            .padding(.top, 10.0)
         }
-        .navigationBarBackButtonHidden(true)
+        .background(Background())
+        .padding(.horizontal, 15.0)
     }
 }
 

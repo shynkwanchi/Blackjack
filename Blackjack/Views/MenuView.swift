@@ -17,40 +17,38 @@ struct MenuView: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
-                Background()
+            VStack {
+                Spacer()
+                Logo()
                 
-                VStack {
-                    Spacer()
-                    Logo()
+                Spacer()
+                VStack(alignment: .center) {
+                    NavigationButton(destinationView: GameView(), icon: "play.fill", width: 240)                    .padding(.vertical, 5)
                     
-                    Spacer()
-                    VStack(alignment: .center) {
-                        NavigationButton(destinationView: GameView(), icon: "play.fill", width: 240)                    .padding(.vertical, 5)
-                        
-                        NavigationButton(destinationView: LeaderBoardView(userVM: userVM), icon: "trophy.fill", width: 240)
-                            .padding(.vertical, 5)
-                        
-                        HStack {
-                            Button {
-                                
-                            } label: {
-                                Image(systemName: "questionmark")
-                                    .iconModidifer()
-                                    .frame(width: 95)
-                            }
-                            .buttonStyle(CustomButton())
-                                .padding(.all, 5)
+                    NavigationButton(destinationView: LeaderBoardView(userVM: userVM), icon: "trophy.fill", width: 240)
+                        .padding(.vertical, 5)
+                    
+                    HStack {
+                        Button {
                             
-                            NavigationButton(destinationView: SettingsView(), icon: "gearshape.fill", width: 95)
-                                .padding(.all, 5)
+                        } label: {
+                            Image(systemName: "questionmark")
+                                .iconModidifer()
+                                .frame(width: 95)
                         }
+                        .buttonStyle(CustomButton())
+                        .padding(.all, 5)
+                        
+                        NavigationButton(destinationView: SettingsView(), icon: "gearshape.fill", width: 95)
+                            .padding(.all, 5)
                     }
-                    
-                    Spacer()
                 }
+                
+                Spacer()
             }
+            .background(Background())
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

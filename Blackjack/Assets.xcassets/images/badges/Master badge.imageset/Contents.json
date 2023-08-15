@@ -1,14 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "master-badge.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "master-badge@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "master-badge@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

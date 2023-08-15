@@ -1,14 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "expert-badge.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "expert-badge@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "expert-badge@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 11/08/2023
-  Last modified: To be updated
+  Last modified: 15/08/2023
   Acknowledgement: YouTube
 */
 
@@ -27,6 +27,8 @@ struct UserStats: View {
                 VStack {
                     Text(userVM.selectedUser.username)
                         .font(Font.custom("BricolageGrotesque-Medium", size: 24))
+                    
+                    Badge(badge: userVM.selectedUser.badge, size: 125)
                     
                     HStack(alignment: .top) {
                         StatItem(name: "Joined", value: userVM.selectedUser.joinDate)

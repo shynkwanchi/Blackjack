@@ -79,6 +79,16 @@ struct GameStatsModifier: ViewModifier {
     }
 }
 
+// Customize the list of highscores in leaderboard view
+struct ListModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .background(Color("item-background"))
+            .clipShape(RoundedRectangle(cornerRadius: 15))
+            .clipped()
+    }
+}
+
 // Customize the user row based on their rank
 struct UserRowModifier: ViewModifier {
     var rank: Int
@@ -97,13 +107,14 @@ struct UserRowModifier: ViewModifier {
     }
 }
 
-// Customize the list of highscores in leaderboard view
-struct ListModifier: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .background(Color("item-background"))
-            .clipShape(RoundedRectangle(cornerRadius: 15))
-            .clipped()
+// Customize the badge
+extension Image {
+    func badgeModidifer(size: Double) -> some View {
+        self
+            .resizable()
+            .scaledToFit()
+            .frame(width: size, height: size)
+            .shadow(radius: 1, x: 2.5, y: 2.5)
     }
 }
 
@@ -115,17 +126,16 @@ struct CustomToggle: ToggleStyle {
             Spacer()
             Rectangle()
                 .foregroundColor(configuration.isOn ? Color("button") : Color("inactive-toggle"))
-                .frame(width: 60, height: 30, alignment: .center)
+                .frame(width: 70, height: 40, alignment: .center)
                 .animation(.easeInOut(duration: 0.25), value: configuration.isOn)
                 .overlay(
                     Circle()
                         .foregroundColor(.white)
-                        .padding(.all, 3)
+                        .padding(.all, 4)
                         .offset(x: configuration.isOn ? 15 : -15, y: 0)
                         .animation(.spring(), value: configuration.isOn)
-                ).cornerRadius(15)
+                ).cornerRadius(20)
                 .onTapGesture { configuration.isOn.toggle() }
         }
     }
-    
 }

@@ -16,75 +16,71 @@ struct SettingsView: View {
     @State private var isSoundOn = true
     
     var body: some View {
-        ZStack {
-            Background()
+        VStack {
+            Header(viewName: "settings")
             
-            VStack {
-                Header(viewName: "settings")
-                
-                VStack(spacing: 0) {
-                    // Display options
-                    VStack(alignment: .leading) {
-                        Text("Appearances")
-                            .font(Font.custom("BricolageGrotesque-Medium", size: 20))
-                            .modifier(TextModifier())
-                        
-                    }
-                    .padding(.vertical, 20)
-                    
-                    Divider()
-                        .background(Color.accentColor)
-                    
-                    // Sound options
-                    Toggle(isOn: $isSoundOn, label: {
-                        Text("Sounds")
-                            .font(Font.custom("BricolageGrotesque-Medium", size: 20))
-                            .modifier(TextModifier())
-                    })
-                    .toggleStyle(CustomToggle())
-                    .padding(.vertical, 20)
-                    
-                    Divider()
-                        .background(Color.accentColor)
-                    
-                    // Difficulty options
-                    VStack(alignment: .leading) {
-                        Text("Difficulties")
-                            .font(Font.custom("BricolageGrotesque-Medium", size: 20))
-                            .modifier(TextModifier())
-                        
-                    }
-                    .padding(.vertical, 20)
-                    
-                    Divider()
-                        .background(Color.accentColor)
-                    
-                    // Reset leaderboard
-                    HStack {
-                        Text("Reset leaderboard")
-                            .font(Font.custom("BricolageGrotesque-Medium", size: 20))
-                            .modifier(TextModifier())
-                        Spacer()
-                        
-                        Button {
-                            
-                        } label: {
-                            Text("RESET")
-                                .font(Font.custom("BricolageGrotesque-Medium", size: 18))
-                                .tracking(2.5)
-                                .frame(width: 90, height: 24)
-                                .modifier(TextModifier())
-                        }
-                        .buttonStyle(CustomButton())
-                    }
-                    .padding(.vertical, 20)
+            VStack(spacing: 0) {
+                // Display options
+                VStack(alignment: .leading) {
+                    Text("Appearances")
+                        .font(Font.custom("BricolageGrotesque-Medium", size: 20))
+                        .modifier(TextModifier())
+//                    SegmentControl(isSelected: 0)
                 }
-                .padding(.horizontal, 20)
+                .padding(.vertical, 20)
                 
-                Spacer()
+                Divider()
+                    .background(Color.accentColor)
+                
+                // Sound options
+                Toggle(isOn: $isSoundOn, label: {
+                    Text("Sounds")
+                        .font(Font.custom("BricolageGrotesque-Medium", size: 20))
+                        .modifier(TextModifier())
+                })
+                .toggleStyle(CustomToggle())
+                .padding(.vertical, 20)
+                
+                Divider()
+                    .background(Color.accentColor)
+                
+                // Difficulty options
+                VStack(alignment: .leading) {
+                    Text("Difficulties")
+                        .font(Font.custom("BricolageGrotesque-Medium", size: 20))
+                        .modifier(TextModifier())
+                    SegmentControl(isSelected: 0)
+                }
+                .padding(.vertical, 20)
+                
+                Divider()
+                    .background(Color.accentColor)
+                
+                // Reset leaderboard
+                HStack {
+                    Text("Reset leaderboard")
+                        .font(Font.custom("BricolageGrotesque-Medium", size: 20))
+                        .modifier(TextModifier())
+                    Spacer()
+                    
+                    Button {
+                        
+                    } label: {
+                        Text("RESET")
+                            .font(Font.custom("BricolageGrotesque-Medium", size: 18))
+                            .tracking(2.5)
+                            .frame(width: 90, height: 18)
+                            .modifier(TextModifier())
+                    }
+                    .buttonStyle(CustomButton())
+                }
+                .padding(.vertical, 20)
             }
+            .padding(.horizontal, 10)
+            
+            Spacer()
         }
-        .navigationBarBackButtonHidden(true)
+        .background(Background())
     }
 }
 

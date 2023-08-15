@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 11/08/2023
-  Last modified: To be updated
+  Last modified: 15/08/2023
   Acknowledgement: None
 */
 
@@ -34,6 +34,8 @@ struct UserRow: View {
             }
             
             Spacer()
+            
+            Badge(badge: user.badge, size: 50)
             
             Button {
                 userVM.selectedUser = user

@@ -6,8 +6,8 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 09/08/2023
-  Last modified: To be updated
-  Acknowledgement: YouTube
+  Last modified: 13/08/2023
+  Acknowledgement: None
 */
 
 import SwiftUI
