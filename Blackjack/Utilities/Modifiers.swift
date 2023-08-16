@@ -26,6 +26,15 @@ struct CustomButton: ButtonStyle {
     }
 }
 
+struct ShowMoreButton: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .padding(.all, 10.0)
+            .scaleEffect(configuration.isPressed ? 1.25 : 1)
+            .animation(.easeOut(duration: 0.25), value: configuration.isPressed)
+    }
+}
+
 // Customize the text inside the button
 struct TextModifier: ViewModifier {
     func body(content: Content) -> some View {

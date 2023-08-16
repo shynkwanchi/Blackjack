@@ -5,17 +5,17 @@
   Assessment: Assignment 2
   Author: Nguyen Quang Duy
   ID: 3877991
-  Created  date: 15/08/2023
+  Created  date: 16/08/2023
   Last modified: To be updated
   Acknowledgement: None
 */
 
 import Foundation
 
-enum Difficulty: String, CaseIterable, CustomStringConvertible, Identifiable {
-    case easy = "Easy"
-    case medium = "Medium"
-    case hard = "Hard"
+enum Appearance: String, CaseIterable, CustomStringConvertible, Identifiable {
+    case light = "Light"
+    case dark = "Dark"
+    case auto = "Auto"
     
     // Identifiable
     var id: String {
@@ -27,4 +27,3 @@ enum Difficulty: String, CaseIterable, CustomStringConvertible, Identifiable {
         self.rawValue
     }
 }
-

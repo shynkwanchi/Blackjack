@@ -13,7 +13,9 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @State private var isSoundOn = true
+    @Binding var appearance: Appearance
+    @State var isSoundOn: Bool = true
+    @Binding var difficulty: Difficulty
     
     var body: some View {
         VStack {
@@ -25,7 +27,7 @@ struct SettingsView: View {
                     Text("Appearances")
                         .font(Font.custom("BricolageGrotesque-Medium", size: 20))
                         .modifier(TextModifier())
-//                    SegmentControl(isSelected: 0)
+                    SegmentControl(option: $appearance)
                 }
                 .padding(.vertical, 20)
                 
@@ -49,7 +51,7 @@ struct SettingsView: View {
                     Text("Difficulties")
                         .font(Font.custom("BricolageGrotesque-Medium", size: 20))
                         .modifier(TextModifier())
-                    SegmentControl(isSelected: 0)
+                    SegmentControl(option: $difficulty)
                 }
                 .padding(.vertical, 20)
                 
@@ -86,6 +88,6 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView()
+        SettingsView(appearance: .constant(Appearance.light), isSoundOn: true, difficulty: .constant(Difficulty.easy))
     }
 }

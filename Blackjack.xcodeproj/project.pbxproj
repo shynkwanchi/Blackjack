@@ -34,6 +34,7 @@
 		694F1B0A2A8736F200982F72 /* StatItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694F1B092A8736F200982F72 /* StatItem.swift */; };
 		694F1B0C2A8742E800982F72 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694F1B0B2A8742E800982F72 /* UserViewModel.swift */; };
 		69971F032A88AB7800AEBD3E /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69971F022A88AB7800AEBD3E /* NavigationButton.swift */; };
+		69E20F732A8CA072001F3009 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E20F722A8CA072001F3009 /* Appearance.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		694F1B092A8736F200982F72 /* StatItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatItem.swift; sourceTree = "<group>"; };
 		694F1B0B2A8742E800982F72 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		69971F022A88AB7800AEBD3E /* NavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
+		69E20F722A8CA072001F3009 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				692DB8672A8B2B9F0066BE41 /* BadgeEnum.swift */,
+				69E20F722A8CA072001F3009 /* Appearance.swift */,
 				692DB86D2A8B86480066BE41 /* Difficulty.swift */,
 			);
 			path = Enums;
@@ -287,6 +290,7 @@
 				693A4F162A833CA000E5AF22 /* Blackjack.swift in Sources */,
 				69058D322A85FEAB007053BA /* User.swift in Sources */,
 				693A4F3F2A83725700E5AF22 /* GameStats.swift in Sources */,
+				69E20F732A8CA072001F3009 /* Appearance.swift in Sources */,
 				693A4F372A8364A600E5AF22 /* GameView.swift in Sources */,
 				692DB8662A8B29E80066BE41 /* Badge.swift in Sources */,
 			);

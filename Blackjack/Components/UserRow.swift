@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 11/08/2023
-  Last modified: 15/08/2023
+  Last modified: 16/08/2023
   Acknowledgement: None
 */
 
@@ -44,7 +44,7 @@ struct UserRow: View {
                 Image(systemName: "info.circle")
                     .frame(width: 24, height: 24)
             }
-            .padding(.horizontal, 10.0)
+            .buttonStyle(ShowMoreButton())
         }
         .frame(height: 80.0)
         .shadow(radius: 1, x: 2.5, y: 2.5)
