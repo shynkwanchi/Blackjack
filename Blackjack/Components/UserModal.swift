@@ -6,14 +6,13 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 11/08/2023
-  Last modified: 15/08/2023
+  Last modified: 16/08/2023
   Acknowledgement: YouTube
 */
 
 import SwiftUI
 
-// Pop-up box of user's gaming history
-struct UserStats: View {
+struct UserModal: View {
     var userVM: UserViewModel
     
     init(userVM: UserViewModel) {
@@ -65,8 +64,8 @@ struct UserStats: View {
     }
 }
 
-struct UserStats_Previews: PreviewProvider {
+struct UserModal_Previews: PreviewProvider {
     static var previews: some View {
-        UserStats(userVM: UserViewModel())
+        UserModal(userVM: UserViewModel())
     }
 }

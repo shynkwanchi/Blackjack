@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 09/08/2023
-  Last modified: 15/08/2023
+  Last modified: 16/08/2023
   Acknowledgement: None
 */
 
@@ -23,7 +23,7 @@ struct LeaderBoardView: View {
     
     var body: some View {
         VStack {
-            Header(viewName: "leader board")
+            Header(viewName: "Leader Board")
             
             // Check if the user data is empty
             if (!sortedUsers.isEmpty) {
@@ -48,23 +48,21 @@ struct LeaderBoardView: View {
                     Spacer()
                     Text("The list of highscores will appear here.")
                         .font(Font.custom("BricolageGrotesque-Medium", size: 24))
-                        .shadow(radius: 1, x: 2.5, y: 2.5)
-                        .foregroundColor(.accentColor)
+                        .modifier(TextModifier())
                         .multilineTextAlignment(.center)
                     Spacer()
                 }
-                .padding(.top, 10)
+                .padding(.all, 10)
                 .frame(width: UIScreen.main.bounds.width - 20)
                 .modifier(ListModifier())
             }
-            
         }
         .background(Background())
         .padding(.horizontal, 10)
         .overlay {
             ZStack {
                 if userVM.showUser {
-                    UserStats(userVM: userVM)
+                    UserModal(userVM: userVM)
                 }
             }
         }

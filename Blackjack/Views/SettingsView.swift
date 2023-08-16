@@ -19,7 +19,7 @@ struct SettingsView: View {
     
     var body: some View {
         VStack {
-            Header(viewName: "settings")
+            Header(viewName: "Settings")
             
             VStack(spacing: 0) {
                 // Display options

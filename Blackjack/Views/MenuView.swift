@@ -33,15 +33,8 @@ struct MenuView: View {
                         .padding(.vertical, 5)
                     
                     HStack {
-                        Button {
-                            
-                        } label: {
-                            Image(systemName: "questionmark")
-                                .iconModidifer()
-                                .frame(width: 95)
-                        }
-                        .buttonStyle(CustomButton())
-                        .padding(.all, 5)
+                        NavigationButton(destinationView: HowToPlayView(), icon: "questionmark", width: 95)
+                            .padding(.vertical, 5)
                         
                         NavigationButton(destinationView: SettingsView(appearance: $appearance, isSoundOn: true, difficulty: $difficulty), icon: "gearshape.fill", width: 95)
                             .padding(.all, 5)
