@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 11/08/2023
-  Last modified: 16/08/2023
+  Last modified: 18/08/2023
   Acknowledgement: YouTube
 */
 
@@ -25,7 +25,7 @@ struct UserModal: View {
             ZStack {
                 VStack {
                     Text(userVM.selectedUser.username)
-                        .font(Font.custom("BricolageGrotesque-Medium", size: 24))
+                        .font(Font.custom("Poppins-Medium", size: 24))
                     
                     Badge(badge: userVM.selectedUser.badge, size: 125)
                     
@@ -35,7 +35,7 @@ struct UserModal: View {
                         StatItem(name: "Highscore", value: String(userVM.selectedUser.highscore))
                             .frame(width: 125.0)
                     }
-                    .padding(.top, 1)
+                    .padding(.top, 2.5)
                     .padding(.bottom, 0.5)
                     
                     HStack(alignment: .top) {
@@ -45,7 +45,7 @@ struct UserModal: View {
                             .frame(width: 125.0)
                     }
                     .padding(.top, 0.5)
-                    .padding(.bottom, 1)
+                    .padding(.bottom, 2.5)
                     
                     Button {
                         userVM.showUser.toggle()

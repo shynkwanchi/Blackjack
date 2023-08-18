@@ -95,6 +95,7 @@ struct ListModifier: ViewModifier {
             .background(Color("item-background"))
             .clipShape(RoundedRectangle(cornerRadius: 15))
             .clipped()
+            .shadow(radius: 1, x: 2.5, y: 2.5)
     }
 }
 
@@ -146,5 +147,16 @@ struct CustomToggle: ToggleStyle {
                 ).cornerRadius(20)
                 .onTapGesture { configuration.isOn.toggle() }
         }
+    }
+}
+
+// Customize the information section view
+struct SectionModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .padding(.all, 10.0)
+            .frame(width: UIScreen.main.bounds.width - 20)
+            .modifier(TextModifier())
+            .modifier(ListModifier())
     }
 }

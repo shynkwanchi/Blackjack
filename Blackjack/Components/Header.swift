@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 09/08/2023
-  Last modified: 13/08/2023
+  Last modified: 18/08/2023
   Acknowledgement: None
 */
 
@@ -29,7 +29,7 @@ struct Header: View {
             .buttonStyle(CustomButton())
             
             Text(viewName.uppercased())
-                .font(Font.custom("BricolageGrotesque-Bold", size: 40))
+                .font(Font.custom("Poppins-Bold", size: 40))
                 .tracking(2.5)
                 .padding(.vertical, 5)
                 .modifier(TextModifier())
@@ -39,6 +39,6 @@ struct Header: View {
 
 struct Header_Previews: PreviewProvider {
     static var previews: some View {
-        Header(viewName: "leaderboard")
+        Header(viewName: "Leaderboard")
     }
 }

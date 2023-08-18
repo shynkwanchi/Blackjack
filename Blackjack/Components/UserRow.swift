@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 11/08/2023
-  Last modified: 16/08/2023
+  Last modified: 18/08/2023
   Acknowledgement: None
 */
 
@@ -21,16 +21,16 @@ struct UserRow: View {
         // List item of user and their highscore and achievement
         HStack {
             Text(String(rank))
-                .font(Font.custom("BricolageGrotesque-Medium", size: 30))
+                .font(Font.custom("Poppins-Medium", size: 30))
                 .frame(width: 70.0)
                 .padding(.horizontal, 5)
             
             VStack(alignment: .leading) {
                 Text(user.username)
-                    .font(Font.custom("BricolageGrotesque-Medium", size: 20))
+                    .font(Font.custom("Poppins-Medium", size: 20))
                     .lineLimit(1)
                 Text(String(user.highscore))
-                    .font(Font.custom("BricolageGrotesque-Light", size: 18))
+                    .font(Font.custom("Poppins-Light", size: 18))
             }
             
             Spacer()

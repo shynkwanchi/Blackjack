@@ -22,7 +22,18 @@ struct MenuView: View {
         NavigationView {
             VStack {
                 Spacer()
-                Logo()
+                VStack {
+                    Image("logo")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .padding(.bottom, 10.0)
+                        .frame(width: 200)
+                    Text("BLACKJACK")
+                        .font(Font.custom("Poppins-Bold", size: 40))
+                        .tracking(5)
+                        .shadow(radius: 1, x: 2.5, y: 2.5)
+                        .foregroundColor(.accentColor)
+                }
                 
                 Spacer()
                 VStack(alignment: .center) {
@@ -46,6 +57,7 @@ struct MenuView: View {
             .background(Background())
         }
         .navigationViewStyle(StackNavigationViewStyle())
+        .frame(maxWidth: .infinity)
         .preferredColorScheme(appearance == .light ? .light : appearance == .dark ? .dark : nil)
     }
 }

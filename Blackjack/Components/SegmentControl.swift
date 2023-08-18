@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 15/08/2023
-  Last modified: 16/08/2023
+  Last modified: 18/08/2023
   Acknowledgement: YouTube, Stack Overflow
 */
 
@@ -25,7 +25,7 @@ struct SegmentControl<T: CaseIterable & Identifiable & Hashable & CustomStringCo
                 } label: {
                     Text(option.description)
                         .modifier(TextModifier())
-                        .font(option == option ? Font.custom("BricolageGrotesque-Bold", size: 18) : Font.custom("BricolageGrotesque-Medium", size: 18))
+                        .font(self.option == option ? Font.custom("Poppins-Bold", size: 18) : Font.custom("Poppins-Medium", size: 15))
                         .frame(maxWidth: .infinity, maxHeight: 36)
                         .background(
                             ZStack {
