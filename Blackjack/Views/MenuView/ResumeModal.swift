@@ -9,6 +9,7 @@
   Last modified: To be updated
   Acknowledgement: None
 */
+
 import SwiftUI
 
 struct ResumeModal: View {
