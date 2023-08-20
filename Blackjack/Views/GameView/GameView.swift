@@ -16,59 +16,93 @@ struct GameView: View {
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
-        VStack{
-            HStack {
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "arrowshape.backward.fill")
-                        .iconModidifer()
-                        .frame(width: 30)
+        ZStack {
+            VStack(spacing: 20.0) {
+                VStack(spacing: 5.0) {
+                    ZStack {
+                        Card(cardName: "Diamond K")
+                            .offset(x: -30)
+                        Card(cardName: "Club A")
+                            .offset(x: 30)
+                    }
+                
+                    Text("BUST")
+                        .font(Font.custom("BeVietnamPro-Bold", size: 30))
+//                        .background(Color(.red))
+                        .modifier(TextModifier())
                 }
-                .buttonStyle(CustomButton())
-                Spacer()
                 
-                Text("ROUND 3")
-                    .font(Font.custom("BeVietnamPro-Bold", size: 30))
-                    .tracking(2.5)
-                    .modifier(TextModifier())
-                Spacer()
-                
-                NavigationButton(destinationView: HowToPlayView(), icon: "questionmark", width: 30)
+                VStack(spacing: 5.0) {
+                    Text("21 POINTS")
+                        .font(Font.custom("BeVietnamPro-Bold", size: 30))
+//                        .background(Color(.blue))
+                        .modifier(TextModifier())
+                                
+                    ZStack {
+                        Card(cardName: "Spade 10")
+                            .offset(x: -30)
+                        Card(cardName: "Heart A")
+                            .offset(x: 30)
+                    }
+                }
+            }
+            
+            VStack{
+                HStack {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "arrowshape.backward.fill")
+                            .iconModidifer()
+                            .frame(width: 30)
+                    }
                     .buttonStyle(CustomButton())
-            }
-            .padding(.bottom, 5.0)
-            GameStats(icon: "laptopcomputer", money: 250, score: 20)
-            
-            Spacer()
-            
-            GameStats(icon: "person.fill", money: 500, score: 21)
-            HStack(spacing: 40.0) {
-                Button {
+                    Spacer()
                     
-                } label: {
-                    Text("HIT")
-                        .font(Font.custom("BeVietnamPro-Medium", size: 24))
+                    Text("ROUND 3")
+                        .font(Font.custom("BeVietnamPro-Bold", size: 30))
                         .tracking(2.5)
-                        .frame(width: 120, height: 24)
                         .modifier(TextModifier())
+                    Spacer()
+                    
+                    NavigationButton(destinationView: HowToPlayView(), icon: "questionmark", width: 30)
+                        .buttonStyle(CustomButton())
                 }
-                .buttonStyle(CustomButton())
+                .padding(.bottom, 5.0)
                 
-                Button {
+                GameStats(icon: "laptopcomputer", money: 250, score: 20)
+                
+                Spacer()
+                
+                GameStats(icon: "person.fill", money: 500, score: 21)
+                
+                HStack(spacing: 40.0) {
+                    Button {
+                        
+                    } label: {
+                        Text("HIT")
+                            .font(Font.custom("BeVietnamPro-Medium", size: 24))
+                            .tracking(2.5)
+                            .frame(width: 120, height: 24)
+                            .modifier(TextModifier())
+                    }
+                    .buttonStyle(CustomButton())
                     
-                } label: {
-                    Text("STAY")
-                        .font(Font.custom("BeVietnamPro-Medium", size: 24))
-                        .tracking(2.5)
-                        .frame(width: 120, height: 24)
-                        .modifier(TextModifier())
+                    Button {
+                        
+                    } label: {
+                        Text("STAY")
+                            .font(Font.custom("BeVietnamPro-Medium", size: 24))
+                            .tracking(2.5)
+                            .frame(width: 120, height: 24)
+                            .modifier(TextModifier())
+                    }
+                    .buttonStyle(CustomButton())
                 }
-                .buttonStyle(CustomButton())
+                .padding(.top, 5.0)
             }
-            .padding(.top, 5.0)
+            .padding(.horizontal, 10.0)
         }
-        .padding(.horizontal, 10.0)
         .background(Background())
     }
 }

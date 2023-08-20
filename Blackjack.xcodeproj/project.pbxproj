@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		69058D2F2A85EA8B007053BA /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69058D2E2A85EA8B007053BA /* Modifiers.swift */; };
 		69058D322A85FEAB007053BA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69058D312A85FEAB007053BA /* User.swift */; };
-		69058D342A85FEC8007053BA /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69058D332A85FEC8007053BA /* Card.swift */; };
+		69058D342A85FEC8007053BA /* PlayingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69058D332A85FEC8007053BA /* PlayingCard.swift */; };
 		69058D382A8617CA007053BA /* UserRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69058D372A8617CA007053BA /* UserRow.swift */; };
 		69058D3A2A862C6E007053BA /* UserModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69058D392A862C6E007053BA /* UserModal.swift */; };
 		692DB8662A8B29E80066BE41 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692DB8652A8B29E80066BE41 /* Badge.swift */; };
@@ -36,6 +36,7 @@
 		69E32B552A91E1B300F24CF1 /* BeVietnamPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69E32B522A91E1B300F24CF1 /* BeVietnamPro-Bold.ttf */; };
 		69E32B562A91E1B300F24CF1 /* BeVietnamPro-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69E32B532A91E1B300F24CF1 /* BeVietnamPro-Medium.ttf */; };
 		69E32B572A91E1B300F24CF1 /* BeVietnamPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 69E32B542A91E1B300F24CF1 /* BeVietnamPro-Light.ttf */; };
+		69E32B592A91F62200F24CF1 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E32B582A91F62200F24CF1 /* Card.swift */; };
 		69EAC63B2A8F2A620023FBE6 /* InformationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69EAC63A2A8F2A620023FBE6 /* InformationSection.swift */; };
 		69EAC6492A8F573C0023FBE6 /* RoundResultModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69EAC6482A8F573C0023FBE6 /* RoundResultModal.swift */; };
 		69EAC64B2A8F57EA0023FBE6 /* ResultStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69EAC64A2A8F57EA0023FBE6 /* ResultStatus.swift */; };
@@ -48,7 +49,7 @@
 /* Begin PBXFileReference section */
 		69058D2E2A85EA8B007053BA /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		69058D312A85FEAB007053BA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		69058D332A85FEC8007053BA /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		69058D332A85FEC8007053BA /* PlayingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingCard.swift; sourceTree = "<group>"; };
 		69058D372A8617CA007053BA /* UserRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRow.swift; sourceTree = "<group>"; };
 		69058D392A862C6E007053BA /* UserModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModal.swift; sourceTree = "<group>"; };
 		692DB8652A8B29E80066BE41 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
@@ -77,6 +78,7 @@
 		69E32B522A91E1B300F24CF1 /* BeVietnamPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BeVietnamPro-Bold.ttf"; sourceTree = "<group>"; };
 		69E32B532A91E1B300F24CF1 /* BeVietnamPro-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BeVietnamPro-Medium.ttf"; sourceTree = "<group>"; };
 		69E32B542A91E1B300F24CF1 /* BeVietnamPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BeVietnamPro-Light.ttf"; sourceTree = "<group>"; };
+		69E32B582A91F62200F24CF1 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		69EAC63A2A8F2A620023FBE6 /* InformationSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationSection.swift; sourceTree = "<group>"; };
 		69EAC6482A8F573C0023FBE6 /* RoundResultModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundResultModal.swift; sourceTree = "<group>"; };
 		69EAC64A2A8F57EA0023FBE6 /* ResultStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultStatus.swift; sourceTree = "<group>"; };
@@ -109,7 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				69058D312A85FEAB007053BA /* User.swift */,
-				69058D332A85FEC8007053BA /* Card.swift */,
+				69058D332A85FEC8007053BA /* PlayingCard.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -200,6 +202,7 @@
 				692DB8692A8B42B70066BE41 /* SegmentControl.swift */,
 				694F1B092A8736F200982F72 /* StatItem.swift */,
 				69058D372A8617CA007053BA /* UserRow.swift */,
+				69E32B582A91F62200F24CF1 /* Card.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -348,7 +351,7 @@
 				692DB86C2A8B4EF20066BE41 /* Background.swift in Sources */,
 				69EAC64D2A8F609B0023FBE6 /* GameResultModal.swift in Sources */,
 				693A4F3B2A8364D200E5AF22 /* SettingsView.swift in Sources */,
-				69058D342A85FEC8007053BA /* Card.swift in Sources */,
+				69058D342A85FEC8007053BA /* PlayingCard.swift in Sources */,
 				69EAC64B2A8F57EA0023FBE6 /* ResultStatus.swift in Sources */,
 				693A4F252A833DFC00E5AF22 /* MenuView.swift in Sources */,
 				69058D3A2A862C6E007053BA /* UserModal.swift in Sources */,
@@ -365,6 +368,7 @@
 				693A4F372A8364A600E5AF22 /* GameView.swift in Sources */,
 				69EAC6512A8F6D170023FBE6 /* ContinueModal.swift in Sources */,
 				692DB8662A8B29E80066BE41 /* Badge.swift in Sources */,
+				69E32B592A91F62200F24CF1 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
