@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 16/08/2023
-  Last modified: To be updated
+  Last modified: 20/08/2023
   Acknowledgement: None
 */
 
@@ -61,7 +61,7 @@ struct HowToPlayView: View {
 
                     VStack(alignment: .leading,spacing: 10) {
                         Text("Achievements")
-                            .font(Font.custom("Poppins-Medium", size: 20))
+                            .font(Font.custom("BeVietnamPro-Medium", size: 20))
                         
                         Group {
                             Text("1. During the game, if you reach a certain milestone score, you will achieve a badge.")
@@ -90,7 +90,7 @@ struct HowToPlayView: View {
                                 Text("Legend badge - reach 1000 points.")
                             }
                         }
-                        .font(Font.custom("Poppins-Light", size: 15))
+                        .font(Font.custom("BeVietnamPro-Light", size: 15))
                     }
                     .modifier(SectionModifier())
                 }

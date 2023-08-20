@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 18/08/2023
-  Last modified: 18/08/2023
+  Last modified: 20/08/2023
   Acknowledgement: None
 */
 
@@ -19,18 +19,18 @@ struct InformationSection: View {
     var body: some View {
         VStack(alignment: .leading,spacing: 10) {
             Text(title)
-                .font(Font.custom("Poppins-Medium", size: 20))
+                .font(Font.custom("BeVietnamPro-Medium", size: 20))
             
             ForEach(0..<textParagraphs.count, id: \.self) { index in
                 if index != textParagraphs.count - 1 {
                     Text("\(index + 1). \(textParagraphs[index])")         // Add row divider between paragraph
-                        .font(Font.custom("Poppins-Light", size: 15))
+                        .font(Font.custom("BeVietnamPro-Light", size: 15))
                     Divider()
                         .background(Color.accentColor)
                 }
                 else {
                     Text("\(index + 1). \(textParagraphs[index])")         // Except the last paragraph
-                        .font(Font.custom("Poppins-Light", size: 15))
+                        .font(Font.custom("BeVietnamPro-Light", size: 15))
                 }
             }
         }

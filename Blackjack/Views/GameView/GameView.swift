@@ -29,7 +29,7 @@ struct GameView: View {
                 Spacer()
                 
                 Text("ROUND 3")
-                    .font(Font.custom("Poppins-Bold", size: 30))
+                    .font(Font.custom("BeVietnamPro-Bold", size: 30))
                     .tracking(2.5)
                     .modifier(TextModifier())
                 Spacer()
@@ -48,9 +48,9 @@ struct GameView: View {
                     
                 } label: {
                     Text("HIT")
-                        .font(Font.custom("Poppins-Medium", size: 24))
+                        .font(Font.custom("BeVietnamPro-Medium", size: 24))
                         .tracking(2.5)
-                        .frame(width: 120, height: 25)
+                        .frame(width: 120, height: 24)
                         .modifier(TextModifier())
                 }
                 .buttonStyle(CustomButton())
@@ -59,9 +59,9 @@ struct GameView: View {
                     
                 } label: {
                     Text("STAY")
-                        .font(Font.custom("Poppins-Medium", size: 24))
+                        .font(Font.custom("BeVietnamPro-Medium", size: 24))
                         .tracking(2.5)
-                        .frame(width: 120, height: 25)
+                        .frame(width: 120, height: 24)
                         .modifier(TextModifier())
                 }
                 .buttonStyle(CustomButton())

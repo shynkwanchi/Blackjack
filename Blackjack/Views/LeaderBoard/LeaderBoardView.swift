@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 09/08/2023
-  Last modified: 18/08/2023
+  Last modified: 20/08/2023
   Acknowledgement: None
 */
 
@@ -46,8 +46,10 @@ struct LeaderBoardView: View {
             else {
                 VStack(alignment: .center) {
                     Spacer()
+                    Image(systemName: "trophy.fill")
+                        .iconModidifer()
                     Text("The list of highscores will appear here.")
-                        .font(Font.custom("Poppins-Medium", size: 24))
+                        .font(Font.custom("BeVietnamPro-Medium", size: 24))
                         .modifier(TextModifier())
                         .multilineTextAlignment(.center)
                     Spacer()

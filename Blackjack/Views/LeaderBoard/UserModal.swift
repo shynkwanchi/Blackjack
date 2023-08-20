@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 11/08/2023
-  Last modified: 18/08/2023
+  Last modified: 20/08/2023
   Acknowledgement: YouTube
 */
 
@@ -24,8 +24,21 @@ struct UserModal: View {
         if (userVM.selectedUser != nil) {
             ZStack {
                 VStack {
+                    HStack {
+                        Spacer()
+                        Button {
+                            userVM.showUser.toggle()
+                            userVM.selectedUser = nil
+                        } label: {
+                            Image(systemName: "xmark")
+                        }
+                        .buttonStyle(ModalButton())
+                    }
+                    .padding(.bottom, 1.0)
+                    
                     Text(userVM.selectedUser.username)
-                        .font(Font.custom("Poppins-Medium", size: 24))
+                        .font(Font.custom("BeVietnamPro-Medium", size: 24))
+                        .padding(.bottom, 2.5)
                     
                     Badge(badge: userVM.selectedUser.badge, size: 125)
                     
@@ -46,16 +59,6 @@ struct UserModal: View {
                     }
                     .padding(.top, 0.5)
                     .padding(.bottom, 2.5)
-                    
-                    Button {
-                        userVM.showUser.toggle()
-                        userVM.selectedUser = nil
-                    } label: {
-                        Image(systemName: "xmark")
-                            .iconModidifer()
-                            .frame(width: 30)
-                    }
-                    .buttonStyle(CustomButton())
                 }
                 .modifier(InnerModalModifier())
             }

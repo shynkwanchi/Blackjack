@@ -29,7 +29,7 @@ struct MenuView: View {
                         .padding(.bottom, 10.0)
                         .frame(width: 200)
                     Text("BLACKJACK")
-                        .font(Font.custom("Poppins-Bold", size: 40))
+                        .font(Font.custom("BeVietnamPro-Bold", size: 40))
                         .tracking(5)
                         .shadow(radius: 1, x: 2.5, y: 2.5)
                         .foregroundColor(.accentColor)
@@ -45,7 +45,7 @@ struct MenuView: View {
                     
                     HStack {
                         NavigationButton(destinationView: HowToPlayView(), icon: "questionmark", width: 95)
-                            .padding(.vertical, 5)
+                            .padding(.all, 5)
                         
                         NavigationButton(destinationView: SettingsView(appearance: $appearance, isSoundOn: true, difficulty: $difficulty), icon: "gearshape.fill", width: 95)
                             .padding(.all, 5)

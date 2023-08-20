@@ -26,7 +26,7 @@ struct SettingsView: View {
                     // Display options
                     VStack(alignment: .leading) {
                         Text("Appearances")
-                            .font(Font.custom("Poppins-Medium", size: 20))
+                            .font(Font.custom("BeVietnamPro-Medium", size: 20))
                             .modifier(TextModifier())
                         SegmentControl(option: $appearance)
                     }
@@ -38,7 +38,7 @@ struct SettingsView: View {
                     // Sound options
                     Toggle(isOn: $isSoundOn, label: {
                         Text("Sounds")
-                            .font(Font.custom("Poppins-Medium", size: 20))
+                            .font(Font.custom("BeVietnamPro-Medium", size: 20))
                             .modifier(TextModifier())
                     })
                     .toggleStyle(CustomToggle())
@@ -50,7 +50,7 @@ struct SettingsView: View {
                     // Difficulty options
                     VStack(alignment: .leading) {
                         Text("Difficulties")
-                            .font(Font.custom("Poppins-Medium", size: 20))
+                            .font(Font.custom("BeVietnamPro-Medium", size: 20))
                             .modifier(TextModifier())
                         SegmentControl(option: $difficulty)
                     }
@@ -62,7 +62,7 @@ struct SettingsView: View {
                     // Reset leaderboard
                     HStack {
                         Text("Reset leaderboard")
-                            .font(Font.custom("Poppins-Medium", size: 20))
+                            .font(Font.custom("BeVietnamPro-Medium", size: 20))
                             .modifier(TextModifier())
                         Spacer()
                         
@@ -70,7 +70,7 @@ struct SettingsView: View {
                             
                         } label: {
                             Text("RESET")
-                                .font(Font.custom("Poppins-Medium", size: 18))
+                                .font(Font.custom("BeVietnamPro-Medium", size: 18))
                                 .tracking(2.5)
                                 .frame(width: 90, height: 18)
                                 .modifier(TextModifier())

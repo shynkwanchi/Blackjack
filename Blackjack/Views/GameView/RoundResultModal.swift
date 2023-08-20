@@ -23,25 +23,25 @@ struct RoundResultModal: View {
                 case .win:
                     VStack {
                         Text("NICE PLAY!")
-                            .font(Font.custom("Poppins-Medium", size: 40))
+                            .font(Font.custom("BeVietnamPro-Medium", size: 40))
                         Text("You won $\(money).")
-                            .font(Font.custom("Poppins-Light", size: 24))
+                            .font(Font.custom("BeVietnamPro-Light", size: 24))
                     }
                     .foregroundColor(Color.blue)
                 case .lose:
                     VStack {
                         Text("TOO BAD!")
-                            .font(Font.custom("Poppins-Medium", size: 40))
+                            .font(Font.custom("BeVietnamPro-Medium", size: 40))
                         Text("You lost $\(money).")
-                            .font(Font.custom("Poppins-Light", size: 24))
+                            .font(Font.custom("BeVietnamPro-Light", size: 24))
                     }
                     .foregroundColor(Color.red)
                 case .tie:
                     VStack {
                         Text("TIE!")
-                            .font(Font.custom("Poppins-Medium", size: 40))
+                            .font(Font.custom("BeVietnamPro-Medium", size: 40))
                         Text("You didn't lose any money.")
-                            .font(Font.custom("Poppins-Light", size: 24))
+                            .font(Font.custom("BeVietnamPro-Light", size: 24))
                     }
                 }
                 

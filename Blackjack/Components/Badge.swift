@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 15/08/2023
-  Last modified: 15/08/2023
+  Last modified: 20/08/2023
   Acknowledgement: None
 */
 
@@ -38,6 +38,6 @@ struct Badge: View {
 
 struct Badge_Previews: PreviewProvider {
     static var previews: some View {
-        Badge(badge: BadgeEnum.novice, size: 40)
+        Badge(badge: BadgeEnum.legend, size: 125)
     }
 }

@@ -14,7 +14,39 @@ import SwiftUI
 
 struct ResetModal: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            VStack(spacing: 10.0) {
+                Text("Are you sure?")
+                    .font(Font.custom("BeVietnamPro-Medium", size: 24))
+                    .multilineTextAlignment(.center)
+                
+                Text("Resetting leaderboard will delete all of the available users records and cannot be undone.")
+                    .font(Font.custom("BeVietnamPro-Light", size: 15))
+                    .multilineTextAlignment(.center)
+                
+                HStack(spacing: 40.0) {
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "xmark")
+                            .iconModidifer()
+                            .frame(width: 30)
+                    }
+                    .buttonStyle(CustomButton())
+                    
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "checkmark")
+                            .iconModidifer()
+                            .frame(width: 30)
+                    }
+                    .buttonStyle(CustomButton())
+                }
+            }
+            .modifier(InnerModalModifier())
+        }
+        .modifier(OuterModalModifier())
     }
 }
 

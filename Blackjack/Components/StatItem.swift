@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 12/08/2023
-  Last modified: 18/08/2023
+  Last modified: 20/08/2023
   Acknowledgement: None
 */
 
@@ -18,11 +18,11 @@ struct StatItem: View {
     var body: some View {
         VStack {
             Text(name)
-                .font(Font.custom("Poppins-Light", size: 15))
+                .font(Font.custom("BeVietnamPro-Light", size: 15))
                 .multilineTextAlignment(.center)
                 .foregroundColor(.gray)
             Text(value)
-                .font(Font.custom("Poppins-Medium", size: 30))
+                .font(Font.custom("BeVietnamPro-Medium", size: 30))
                 .multilineTextAlignment(.center)
         }
     }

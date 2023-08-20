@@ -22,18 +22,18 @@ struct GameResultModal: View {
                 if (gameResult == .win) {
                     VStack {
                         Text("YOU WON!")
-                            .font(Font.custom("Poppins-Medium", size: 40))
+                            .font(Font.custom("BeVietnamPro-Medium", size: 40))
                         Text("Congratulations!\nYou are a Blackjack Star.")
-                            .font(Font.custom("Poppins-Light", size: 18))
+                            .font(Font.custom("BeVietnamPro-Light", size: 18))
                             .multilineTextAlignment(.center)
                     }
                     .foregroundColor(Color.blue)
                 } else if (gameResult == .lose) {
                     VStack {
                         Text("GAME OVER!")
-                            .font(Font.custom("Poppins-Medium", size: 40))
+                            .font(Font.custom("BeVietnamPro-Medium", size: 40))
                         Text("Out of money!\nBetter luck next time.")
-                            .font(Font.custom("Poppins-Light", size: 18))
+                            .font(Font.custom("BeVietnamPro-Light", size: 18))
                             .multilineTextAlignment(.center)
                     }
                     .foregroundColor(Color.red)
@@ -41,7 +41,7 @@ struct GameResultModal: View {
                 
                 VStack(spacing: 0.0) {
                     Text(currentUser.username)
-                        .font(Font.custom("Poppins-Medium", size: 24))
+                        .font(Font.custom("BeVietnamPro-Medium", size: 24))
                     
                     Badge(badge: currentUser.badge, size: 125)
                         .padding(.vertical)

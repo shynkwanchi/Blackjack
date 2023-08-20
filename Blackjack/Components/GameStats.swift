@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 09/08/2023
-  Last modified: 18/08/2023
+  Last modified: 20/08/2023
   Acknowledgement: None
 */
 
@@ -31,7 +31,7 @@ struct GameStats: View {
                     .frame(width: 30)
                 Spacer()
                 Text(String(money))
-                    .font(Font.custom("Poppins-Light", size: 24))
+                    .font(Font.custom("BeVietnamPro-Light", size: 24))
                     .modifier(TextModifier())
             }
             .frame(width: 120)
@@ -44,7 +44,7 @@ struct GameStats: View {
                     .frame(width: 30)
                 Spacer()
                 Text(String(score))
-                    .font(Font.custom("Poppins-Light", size: 24))
+                    .font(Font.custom("BeVietnamPro-Light", size: 24))
                     .modifier(TextModifier())
             }
             .frame(width: 120)

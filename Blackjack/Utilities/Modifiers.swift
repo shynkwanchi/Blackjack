@@ -26,10 +26,9 @@ struct CustomButton: ButtonStyle {
     }
 }
 
-struct ShowMoreButton: ButtonStyle {
+struct ModalButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .padding(.all, 10.0)
             .scaleEffect(configuration.isPressed ? 1.25 : 1)
             .animation(.easeOut(duration: 0.25), value: configuration.isPressed)
     }
@@ -60,10 +59,10 @@ extension Image {
 struct InnerModalModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .padding(.all, 15)
+            .padding(.all, 20)
             .background(Color("inner-modal"))
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-            .clipped()
+            .cornerRadius(10)
+            .frame(maxWidth: 325)
             .shadow(radius: 1, x: 2.5, y: 2.5)
     }
 }
@@ -82,8 +81,7 @@ struct GameStatsModifier: ViewModifier {
         content
             .padding(.all, 10)
             .background(Color("item-background"))
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-            .clipped()
+            .cornerRadius(10)
             .shadow(radius: 1, x: 2.5, y: 2.5)
     }
 }
@@ -158,5 +156,18 @@ struct SectionModifier: ViewModifier {
             .frame(width: UIScreen.main.bounds.width - 20)
             .modifier(TextModifier())
             .modifier(ListModifier())
+    }
+}
+
+// Customize the text field
+struct CustomTextField: TextFieldStyle {
+    func _body(configuration: TextField<Self._Label>) -> some View {
+        configuration
+            .foregroundColor(.black)
+            .font(Font.custom("BeVietnamPro-Light", size: 18))
+            .multilineTextAlignment(.center)
+            .padding(.all, 10)
+            .background(Color("text-field"))
+            .cornerRadius(10)
     }
 }
