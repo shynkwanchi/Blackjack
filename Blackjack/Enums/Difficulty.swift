@@ -27,4 +27,3 @@ enum Difficulty: String, CaseIterable, CustomStringConvertible, Identifiable {
         self.rawValue
     }
 }
-

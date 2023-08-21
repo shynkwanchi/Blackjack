@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 16/08/2023
-  Last modified: 20/08/2023
+  Last modified: To be updated
   Acknowledgement: None
 */
 
@@ -34,7 +34,7 @@ struct HowToPlayView: View {
                         title: "Scoring",
                         textParagraphs: [
                             "The cards with different categories has different scores:\n+ Categories between 2 and 10 have the same score as its category.\n+ Categories J, Q, K have 10 points.\n+ Category A has flexible score depending on the current total score of the cards, which can be 1, 10 or 11.",
-                            "Based on the number of cards and their total scores, there are 5 cases:\n+ Double Ace: two cards with category A.\n+ Blackjack: two cards, one with category A and one with 10 points (10, J, Q, K).\n+ Magic Five: five cards with total score at most 21.\n+ Regular: total score between 16 and 21.\n+ Bust: total score over 21."
+                            "Based on the number of handed cards and their total scores, there are 5 cases:\n+ Double Ace: two cards with category A.\n+ Blackjack: two cards, one with category A and one with 10 points (10, J, Q, K).\n+ Magic Five: five cards with total score at most 21.\n+ Regular: total score between 16 and 21.\n+ Bust: total score over 21."
                         ]
                     )
                     

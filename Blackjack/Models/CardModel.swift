@@ -11,3 +11,9 @@
 */
 
 import Foundation
+
+struct CardModel: Identifiable {
+    var id = UUID()
+    var suit: Suit
+    var rank: Rank
+}

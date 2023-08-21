@@ -13,50 +13,42 @@
 import SwiftUI
 
 struct Card: View {
-    @State private var animating = false
-    @State private var isCardFlipped = false
-    @State private var rotation: Double = 0
+    var card: CardModel
+    var hand: Player
+    let duration: CGFloat = 0.25
     
-    var cardName: String
+    @State var isFlipped: Bool = false
+    @State private var backDegree: Double = 0.0
+    @State private var frontDegree: Double = -90.0
+    
+    func flip() {
+        isFlipped = !isFlipped
+        if isFlipped {
+            withAnimation(.linear(duration: duration)) {
+                backDegree = 90.0
+            }
+            withAnimation(.linear(duration: duration).delay(duration)) {
+                frontDegree = 0
+            }
+        }
+    }
     
     var body: some View {
         ZStack {
-            if isCardFlipped {
-                Image("card-back")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 125.0)
-                    .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
-            }
-            else {
-                Image(cardName)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 125.0)
-            }
+            Image("\(card.suit.rawValue) \(card.rank.rawValue)")
+                .resizable()
+                .scaledToFit()
+                .scaleEffect(0.5)
+                .rotation3DEffect(.degrees(frontDegree), axis: (x: 0, y: 1, z: 0))
+            Image("card-back")
+                .resizable()
+                .scaledToFit()
+                .scaleEffect(0.5)
+                .rotation3DEffect(.degrees(backDegree), axis: (x: 0, y: 1, z: 0))
         }
-        .rotation3DEffect(.degrees(rotation), axis: (x: 0, y: 1, z: 0))
         .onTapGesture {
-            withAnimation(Animation.linear(duration: 0.3)) {
-                self.animating.toggle()
-            }
-        }
-        .onAppear {
-            Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { _ in
-                if self.animating {
-                    withAnimation(Animation.linear(duration: 0.01)) {
-                        self.rotation += 3
-                    }
-                    if self.rotation == 90 || self.rotation == 270 {
-                        self.isCardFlipped.toggle()
-                    } else if self.rotation == 360 || self.rotation == 180 {
-                        self.animating = false
-                    }
-                    
-                    if self.rotation == 360 {
-                        self.rotation = 0
-                    }
-                }
+            if (hand == .you) {
+                flip()
             }
         }
     }
@@ -64,6 +56,6 @@ struct Card: View {
 
 struct Card_Previews: PreviewProvider {
     static var previews: some View {
-        Card(cardName: "Spade A")
+        Card(card: CardModel(suit: .spade, rank: .ace), hand: .you)
     }
 }

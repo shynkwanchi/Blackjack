@@ -14,38 +14,60 @@ import SwiftUI
 
 struct GameView: View {
     @Environment(\.dismiss) var dismiss
+//    var cardVM: CardViewModel
+//    var cards: [CardModel] = []
+    
+    // Properties for player and the opponent
+    @State private var opponentMoney: Int = 5000
+    @State private var opponentScore: Int = 0
+    
+    // Properties for game
+    @State private var currentRound: Int = 1
+    @State private var playerStay: Bool = false
+    @State private var opponentStay: Bool = false
+    @State private var showRoundResult: Bool = false
+    @State private var showGameResult: Bool = false
+    
+//    init() {
+//        self.cardVM = CardViewModel()
+//        self.cards = cardVM.cards
+//        print(cards)
+//    }
     
     var body: some View {
         ZStack {
-            VStack(spacing: 20.0) {
-                VStack(spacing: 5.0) {
-                    ZStack {
-                        Card(cardName: "Diamond K")
-                            .offset(x: -30)
-                        Card(cardName: "Club A")
-                            .offset(x: 30)
-                    }
-                
-                    Text("BUST")
-                        .font(Font.custom("BeVietnamPro-Bold", size: 30))
-//                        .background(Color(.red))
-                        .modifier(TextModifier())
+            VStack {
+                ZStack {
+                    Card(card: CardModel(suit: .club, rank: .king), hand: .opponent)
+                        .offset(x: -30)
+                    Card(card: CardModel(suit: .heart, rank: .queen), hand: .opponent)
+                        .offset(x: 30)
                 }
-                
-                VStack(spacing: 5.0) {
-                    Text("21 POINTS")
-                        .font(Font.custom("BeVietnamPro-Bold", size: 30))
-//                        .background(Color(.blue))
-                        .modifier(TextModifier())
+                .offset(y: 40)
                                 
-                    ZStack {
-                        Card(cardName: "Spade 10")
-                            .offset(x: -30)
-                        Card(cardName: "Heart A")
-                            .offset(x: 30)
-                    }
+                ZStack {
+                    Card(card: CardModel(suit: .diamond, rank: .ace), hand: .you)
+                        .offset(x: -30)
+                    Card(card: CardModel(suit: .spade, rank: .jack), hand: .you)
+                        .offset(x: 30)
                 }
+                .offset(y: -35)
             }
+            
+            VStack() {
+                VStack {
+                    Text("20 POINTS")
+                        .font(Font.custom("BeVietnamPro-Bold", size: 30))
+                }
+                .offset(y: -20)
+                
+                VStack {
+                    Text("BLACKJACK")
+                        .font(Font.custom("BeVietnamPro-Bold", size: 30))
+                }
+                .offset(y: 25)
+            }
+            .modifier(TextModifier())
             
             VStack{
                 HStack {
@@ -59,7 +81,7 @@ struct GameView: View {
                     .buttonStyle(CustomButton())
                     Spacer()
                     
-                    Text("ROUND 3")
+                    Text("ROUND \(currentRound)")
                         .font(Font.custom("BeVietnamPro-Bold", size: 30))
                         .tracking(2.5)
                         .modifier(TextModifier())
@@ -70,10 +92,12 @@ struct GameView: View {
                 }
                 .padding(.bottom, 5.0)
                 
-                GameStats(icon: "laptopcomputer", money: 250, score: 20)
+                // The opponent's stats
+                GameStats(icon: "laptopcomputer", money: opponentMoney, score: opponentScore)
                 
                 Spacer()
                 
+                // The player's stats
                 GameStats(icon: "person.fill", money: 500, score: 21)
                 
                 HStack(spacing: 40.0) {
@@ -89,7 +113,7 @@ struct GameView: View {
                     .buttonStyle(CustomButton())
                     
                     Button {
-                        
+                        self.playerStay = true
                     } label: {
                         Text("STAY")
                             .font(Font.custom("BeVietnamPro-Medium", size: 24))

@@ -57,7 +57,6 @@ struct MenuView: View {
             .background(Background())
         }
         .navigationViewStyle(StackNavigationViewStyle())
-        .frame(maxWidth: .infinity)
         .preferredColorScheme(appearance == .light ? .light : appearance == .dark ? .dark : nil)
     }
 }
