@@ -7,7 +7,7 @@
   ID: 3877991
   Created  date: 12/08/2023
   Last modified: To be updated
-  Acknowledgement: YouTube
+  Acknowledgement: YouTube, Sarunw
 */
 
 import Foundation
@@ -39,9 +39,34 @@ final class UserViewModel: ObservableObject {
     
     init() {
         // Add users from dummy data
-        for user in dummyUsers {
-            users.append(user)
+//        for user in dummyUsers {
+//            users.append(user)
+//        }
+        loadUsers()
+    }
+    
+    // Load user data from UserDefault
+    func loadUsers() {
+        if let savedUsers = UserDefaults.standard.object(forKey: "users") as? Data {
+            do {
+                self.users = try JSONDecoder().decode([User].self, from: savedUsers)
+            }
+            catch {
+                fatalError("Failed to load users!")
+            }
         }
+    }
+    
+    // Add a new user in UserDefault
+    func addUser(newUser: User) {
+        users.append(newUser)
+        UserDefaults.standard.set(try? JSONEncoder().encode(users), forKey: "users")
+    }
+    
+    // Remove all users in UserDefault
+    func deleteUsers() {
+        users.removeAll()
+        UserDefaults.standard.set(try? JSONEncoder().encode(users), forKey: "users")
     }
     
     // Sort users descending by their highscores

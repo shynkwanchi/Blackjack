@@ -12,22 +12,23 @@
 
 import SwiftUI
 
-struct ContinueModal: View {
+struct ResumeModal: View {
+    private var userVM: UserViewModel
+    @Binding var resume: Bool
+    @Binding var difficulty: Difficulty
+    @Binding var currentUser: String
+    
+    init(userVM: UserViewModel, difficulty: Binding<Difficulty>, resume: Binding<Bool>, currentUser: Binding<String>) {
+        self.userVM = userVM
+        self._difficulty = difficulty
+        self._resume = resume
+        self._currentUser = currentUser
+    }
+    
     var body: some View {
         ZStack {
             VStack (spacing: 10.0) {
-                HStack {
-                    Spacer()
-                    Button {
-                        
-                    } label: {
-                        Image(systemName: "xmark")
-                    }
-                    .buttonStyle(ModalButton())
-                }
-                .padding(.bottom, 1.0)
-                
-                Text("Continue as Toad?")
+                Text("Continue as \(currentUser)?")
                     .font(Font.custom("BeVietnamPro-Medium", size: 24))
                     .multilineTextAlignment(.center)
                 
@@ -43,7 +44,7 @@ struct ContinueModal: View {
                 
                 HStack() {
                     Button {
-                        
+                        resume = false
                     } label: {
                         Text("NEW GAME")
                             .font(Font.custom("BeVietnamPro-Medium", size: 18))
@@ -54,9 +55,7 @@ struct ContinueModal: View {
                     
                     Spacer()
                     
-                    Button {
-                        
-                    } label: {
+                    NavigationLink(destination: GameView(userVM: UserViewModel(), difficulty: $difficulty, resume: $resume, currentUser: $currentUser).navigationBarBackButtonHidden(true)) {
                         Text("CONTINUE")
                             .font(Font.custom("BeVietnamPro-Medium", size: 18))
                             .frame(height: 18)
@@ -73,6 +72,6 @@ struct ContinueModal: View {
 
 struct ContinueModal_Previews: PreviewProvider {
     static var previews: some View {
-        ContinueModal()
+        ResumeModal(userVM: UserViewModel(), difficulty: .constant(Difficulty.easy), resume: .constant(false), currentUser: .constant("Duy"))
     }
 }

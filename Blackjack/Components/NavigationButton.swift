@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 13/08/2023
-  Last modified: 15/08/2023
+  Last modified: 23/08/2023
   Acknowledgement: Stack Overflow
 */
 
@@ -24,7 +24,7 @@ struct NavigationButton<Content: View>: View {
     }
     
     var body: some View {
-        NavigationLink(destination: destinationView.navigationBarHidden(true)) {
+        NavigationLink(destination: destinationView.navigationBarBackButtonHidden(true)) {
             Image(systemName: icon)
                 .iconModidifer()
                 .frame(width: width)

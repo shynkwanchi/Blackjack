@@ -14,45 +14,58 @@ import SwiftUI
 
 struct MenuView: View {
     @EnvironmentObject var userVM: UserViewModel
-    
+   
+    @AppStorage("currentUser") private var currentUser: String = ""     // This attribute is used to get the current user by username
+    @AppStorage("resume") private var resume: Bool = false
     @AppStorage("appearance") private var appearance: Appearance = .light
     @AppStorage("difficulty") private var difficulty: Difficulty = .easy
     
+    init() {
+        print(currentUser)
+        print(resume)
+    }
+    
     var body: some View {
         NavigationView {
-            VStack {
-                Spacer()
+            ZStack {
                 VStack {
-                    Image("logo")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .padding(.bottom, 10.0)
-                        .frame(width: 200)
-                    Text("BLACKJACK")
-                        .font(Font.custom("BeVietnamPro-Bold", size: 40))
-                        .tracking(5)
-                        .shadow(radius: 1, x: 2.5, y: 2.5)
-                        .foregroundColor(.accentColor)
-                }
-                
-                Spacer()
-                VStack(alignment: .center) {
-                    NavigationButton(destinationView: GameView(), icon: "play.fill", width: 240)
-                        .padding(.vertical, 5)
-                    
-                    NavigationButton(destinationView: LeaderBoardView(userVM: userVM), icon: "trophy.fill", width: 240)
-                        .padding(.vertical, 5)
-                    
-                    HStack {
-                        NavigationButton(destinationView: HowToPlayView(), icon: "questionmark", width: 95)
-                            .padding(.all, 5)
-                        
-                        NavigationButton(destinationView: SettingsView(appearance: $appearance, isSoundOn: true, difficulty: $difficulty), icon: "gearshape.fill", width: 95)
-                            .padding(.all, 5)
+                    Spacer()
+                    VStack {
+                        Image("logo")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .padding(.bottom, 10.0)
+                            .frame(width: 200)
+                        Text("BLACKJACK")
+                            .font(Font.custom("BeVietnamPro-Bold", size: 40))
+                            .tracking(5)
+                            .shadow(radius: 1, x: 2.5, y: 2.5)
+                            .foregroundColor(.accentColor)
                     }
+                    
+                    Spacer()
+                    VStack(alignment: .center) {
+                        NavigationButton(destinationView: GameView(userVM: userVM, difficulty: $difficulty, resume: $resume, currentUser: $currentUser), icon: "play.fill", width: 240)
+                            .padding(.vertical, 5)
+                        
+                        NavigationButton(destinationView: LeaderBoardView(userVM: userVM), icon: "trophy.fill", width: 240)
+                            .padding(.vertical, 5)
+                        
+                        HStack {
+                            NavigationButton(destinationView: HowToPlayView(), icon: "questionmark", width: 95)
+                                .padding(.all, 5)
+                            
+                            NavigationButton(destinationView: SettingsView(userVM: userVM, appearance: $appearance, difficulty: $difficulty), icon: "gearshape.fill", width: 95)
+                                .padding(.all, 5)
+                        }
+                    }
+                    
+                    Spacer()
                 }
                 
-                Spacer()
+                if (resume) {
+                    ResumeModal(userVM: userVM, difficulty: $difficulty, resume: $resume, currentUser: $currentUser)
+                }
             }
             .background(Background())
         }

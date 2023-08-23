@@ -6,13 +6,13 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 21/08/2023
-  Last modified: 21/08/2023
+  Last modified: 23/08/2023
   Acknowledgement: None
 */
 
 import Foundation
 
-enum Player {
-    case you        // Player themself
-    case opponent   // The opponent
+enum PlayerType {
+    case player
+    case dealer
 }

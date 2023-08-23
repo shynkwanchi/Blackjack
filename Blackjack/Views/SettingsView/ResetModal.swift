@@ -13,6 +13,16 @@
 import SwiftUI
 
 struct ResetModal: View {
+    var userVM: UserViewModel
+    @Binding var showReset: Bool
+    @Binding var showSucess: Bool
+    
+    init(userVM: UserViewModel, showReset: Binding<Bool>, showSuccess: Binding<Bool>) {
+        self.userVM = userVM
+        self._showReset = showReset
+        self._showSucess = showSuccess
+    }
+    
     var body: some View {
         ZStack {
             VStack(spacing: 10.0) {
@@ -26,7 +36,8 @@ struct ResetModal: View {
                 
                 HStack(spacing: 40.0) {
                     Button {
-                        
+                        showReset = false
+                        return
                     } label: {
                         Image(systemName: "xmark")
                             .iconModidifer()
@@ -35,7 +46,11 @@ struct ResetModal: View {
                     .buttonStyle(CustomButton())
                     
                     Button {
-                        
+                        userVM.deleteUsers()
+                        showReset = false
+                        withAnimation(.spring().delay(0.25)) {
+                            showSucess.toggle()
+                        }
                     } label: {
                         Image(systemName: "checkmark")
                             .iconModidifer()
@@ -52,6 +67,6 @@ struct ResetModal: View {
 
 struct ResetModal_Previews: PreviewProvider {
     static var previews: some View {
-        ResetModal()
+        ResetModal(userVM: UserViewModel(), showReset: .constant(true), showSuccess: .constant(false))
     }
 }

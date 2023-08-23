@@ -22,11 +22,11 @@ struct HowToPlayView: View {
                     InformationSection(
                         title: "How to play",
                         textParagraphs: [
-                            "Starting the game, you have $1000 and the opponent has $5000.",
-                            "Starting each round, you and the opponent both have 2 cards. If you or the opponent have a Blackjack or a Double Ace, tap the STAY button immediately.",
+                            "Starting the game, you have $1000 and the dealer has $5000.",
+                            "Starting each round, you and the dealer both have 2 cards. Tap on your cards to view them. If you or the dealer have a Blackjack or a Double Ace, tap the STAY button immediately.",
                             "Otherwise, you can draw more cards by tapping the HIT button so that the total score of your cards is between 16 and 21 and you are allowed to draw at most 3 cards. If you don't want to do so, tap the STAY button.",
-                            "Your cards and the opponent's cards will be shown and compared with each other by cases to decide the winner of the round:\n+ If you win, you will gain more money along with the total score of your cards in that round.\n+ If you lose, you will lose your money but your score still remains.\n+ If it is a tie, you won't lose any money as well as your score.",
-                            "The game ends when you or the opponent run out of money."
+                            "Your cards and the dealer's cards will be shown and compared with each other by cases to decide the winner of the round:\n+ If you win, you will gain more money along with the total score of your cards in that round.\n+ If you lose, you will lose your money but your score still remains.\n+ If it is a tie, you won't lose any money as well as your score.",
+                            "The game ends when you or the dealer run out of money."
                         ]
                     )
                     
@@ -42,9 +42,9 @@ struct HowToPlayView: View {
                         title: "Case comparison",
                         textParagraphs: [
                             "Bust < Regular < Magic Five < Blackjack < Double Ace.",
-                            "If both you and the opponent have a Bust, it is considered a tie.",
-                            "If both you and the opponent have a Regular or Magic Five case:\n+ If your cards have a higher total score than the opponent, you win and vice versa.\n+ If your cards have the same total score as the opponent's, it is also considered a tie.",
-                            "If both you and your opponent have a Blackjack or a Double Ace, you lose."
+                            "If both you and the dealer have a Bust, it is considered a tie.",
+                            "If both you and the dealer have a Regular or Magic Five case:\n+ If your cards have a higher total score than the dealer, you win and vice versa.\n+ If your cards have the same total score as the dealer's, it is also considered a tie.",
+                            "If both you and the dealer have a Blackjack or a Double Ace, you lose."
                         ]
                     )
                     
@@ -55,7 +55,7 @@ struct HowToPlayView: View {
                             "Easy:\nWin: gain $100.\nLose: lose $50.",
                             "Medium:\nWin: gain $125, double total score of your cards.\nLose: lose $125.",
                             "Hard:\nWin: gain $150, triple total score of your cards.\nLose: lose $200.",
-                            "Meanwhile, regardless of difficulties, if the opponent wins, they will gain the same amount of money as yours. If they lose, they will lose the same value as they win."
+                            "Meanwhile, regardless of difficulties, if the dealer wins, they will gain the same amount of money as yours. If they lose, they will lose the same value as they win."
                         ]
                     )
 

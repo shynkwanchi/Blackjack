@@ -13,7 +13,11 @@
 import SwiftUI
 
 struct RegistrationModal: View {
-    @State var username: String = ""
+    var userVM: UserViewModel
+    var dismiss: DismissAction
+    @Binding var showRegister: Bool
+    @Binding var currentUser: String
+    @State var usernameInput: String = ""
     @State var errorMesssage: String = ""
     @State var showErrorMessage: Bool = false
     
@@ -24,10 +28,10 @@ struct RegistrationModal: View {
                     .font(Font.custom("BeVietnamPro-Medium", size: 24))
                     .multilineTextAlignment(.center)
                 
-                TextField("Username", text: $username)
+                TextField("Username", text: $usernameInput)
                     .textFieldStyle(CustomTextField())
                 
-                Text("You can't leave this field empty!")
+                Text(errorMesssage)
                     .font(Font.custom("BeVietnamPro-Bold", size: 15))
                     .foregroundColor(.red)
                     .multilineTextAlignment(.center)
@@ -35,21 +39,28 @@ struct RegistrationModal: View {
                 
                 HStack(spacing: 40.0) {
                     Button {
-                        
+                        dismiss()
                     } label: {
-                        Image(systemName: "xmark")
+                        Image(systemName: "arrowshape.backward.fill")
                             .iconModidifer()
                             .frame(width: 30)
                     }
                     .buttonStyle(CustomButton())
                     
                     Button {
-                        if (username.isEmpty) {
-                            errorMesssage = "You can't leave this field empty!"
-                            showErrorMessage = true
-                        }
-                        else {
-                            showErrorMessage = false
+                        withAnimation {
+                            if (usernameInput.isEmpty) {
+                                errorMesssage = "You can't leave this field empty!"
+                                showErrorMessage = true
+                                return
+                            }
+                            else {
+                                showErrorMessage = false
+                            }
+                            
+                            currentUser = usernameInput
+                            userVM.addUser(newUser: User(username: currentUser, money: 1000, highscore: 0, roundsPlayed: 1, roundsWon: 0, badge: .empty, joinDate: getDateAsString()))
+                            self.showRegister = false
                         }
                     } label: {
                         Image(systemName: "checkmark")
@@ -67,6 +78,6 @@ struct RegistrationModal: View {
 
 struct RegistrationModal_Previews: PreviewProvider {
     static var previews: some View {
-        RegistrationModal()
+        ContentView()
     }
 }

@@ -23,8 +23,4 @@ class CardViewModel {
             }
         }
     }
-    
-    func shuffleDeck() {
-        return cards.shuffle()
-    }
 }

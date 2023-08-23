@@ -14,7 +14,7 @@ import SwiftUI
 
 struct Card: View {
     var card: CardModel
-    var hand: Player
+    var hand: PlayerType
     let duration: CGFloat = 0.25
     
     @State var isFlipped: Bool = false
@@ -47,7 +47,7 @@ struct Card: View {
                 .rotation3DEffect(.degrees(backDegree), axis: (x: 0, y: 1, z: 0))
         }
         .onTapGesture {
-            if (hand == .you) {
+            if (hand == .player) {
                 flip()
             }
         }
@@ -56,6 +56,6 @@ struct Card: View {
 
 struct Card_Previews: PreviewProvider {
     static var previews: some View {
-        Card(card: CardModel(suit: .spade, rank: .ace), hand: .you)
+        Card(card: CardModel(suit: .spade, rank: .ace), hand: .player)
     }
 }
