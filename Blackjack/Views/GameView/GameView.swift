@@ -15,10 +15,7 @@ import SwiftUI
 struct GameView: View {
     @Environment(\.dismiss) var dismiss
     private var userVM: UserViewModel
-    
-    // Properties for the player and the dealer
-    @State private var playerHand: [CardModel] = []
-    @State private var dealerHand: [CardModel] = []
+    @StateObject private var cardVM: CardViewModel = CardViewModel()
     
     // The number of cards that player and dealer can draw for each round
     @State private var currentPlayerHits: Int = 3
@@ -28,6 +25,10 @@ struct GameView: View {
     @Binding var difficulty: Difficulty
     @Binding var resume: Bool
     @Binding var currentUser: String
+    
+    @State var dealt: Bool = false
+    @State private var showHandCase: Bool = false
+    
     @State private var showRegister: Bool = false
     @State private var currentRound: Int = 1
     @State private var showRoundResult: Bool = false
@@ -46,42 +47,9 @@ struct GameView: View {
             _showRegister = State(initialValue: true)
         }
     }
-    
+ 
     var body: some View {
         ZStack {
-            VStack {
-                ZStack {
-                    Card(card: CardModel(suit: .club, rank: .king), hand: .dealer)
-                        .offset(x: -30)
-                    Card(card: CardModel(suit: .heart, rank: .queen), hand: .dealer)
-                        .offset(x: 30)
-                }
-                .offset(y: 40)
-                                
-                ZStack {
-                    Card(card: CardModel(suit: .diamond, rank: .ace), hand: .player)
-                        .offset(x: -30)
-                    Card(card: CardModel(suit: .spade, rank: .jack), hand: .player)
-                        .offset(x: 30)
-                }
-                .offset(y: -35)
-            }
-            
-            VStack() {
-                VStack {
-                    Text("20 POINTS")
-                        .font(Font.custom("BeVietnamPro-Bold", size: 30))
-                }
-                .offset(y: -20)
-                
-                VStack {
-                    Text("BLACKJACK")
-                        .font(Font.custom("BeVietnamPro-Bold", size: 30))
-                }
-                .offset(y: 25)
-            }
-            .modifier(TextModifier())
-            
             VStack{
                 HStack {
                     Button {
@@ -109,14 +77,43 @@ struct GameView: View {
                 // The opponent's stats
                 GameStats(icon: "laptopcomputer", money: 5000, score: 0)
                 
+                
+                // Dealer's cards and outcome display
+                LazyVGrid(columns: Array(repeating: GridItem(.fixed(135), spacing: -90), count: cardVM.dealerHand.count)) {
+                    ForEach(cardVM.dealerHand) { card in
+                        CardView(card: card, hand: .dealer)
+                            .offset(x: dealt ? 0 : UIScreen.main.bounds.size.width)
+                            .onAppear{
+                                withAnimation(.easeInOut(duration: 0.5)) {
+                                    dealt = true
+                                }
+                            }
+                    }
+                }
+                
                 Spacer()
+                
+                // Player's cards and outcome display
+                LazyVGrid(columns: Array(repeating: GridItem(.fixed(135), spacing: -90), count: cardVM.playerHand.count)) {
+                    ForEach(cardVM.playerHand) { card in
+                        CardView(card: card, hand: .player)
+                            .offset(x: dealt ? 0 : UIScreen.main.bounds.size.width)
+                            .onAppear{
+                                withAnimation(.easeInOut(duration: 0.5)) {
+                                    dealt = true
+                                }
+                            }
+                    }
+                }
                 
                 // The player's stats
                 GameStats(icon: "person.fill", money: 500, score: 21)
                 
                 HStack(spacing: 40.0) {
                     Button {
-                        
+                        withAnimation(.easeInOut(duration: 0.5)) {
+                            cardVM.playerHit()
+                        }
                     } label: {
                         Text("HIT")
                             .font(Font.custom("BeVietnamPro-Medium", size: 24))
@@ -127,7 +124,9 @@ struct GameView: View {
                     .buttonStyle(CustomButton())
                     
                     Button {
-                        
+                        withAnimation(.spring()) {
+                            showHandCase.toggle()
+                        }
                     } label: {
                         Text("STAY")
                             .font(Font.custom("BeVietnamPro-Medium", size: 24))
@@ -141,6 +140,16 @@ struct GameView: View {
             }
             .padding(.horizontal, 10.0)
             
+            VStack {
+                Text("20 POINTS")
+                    .offset(y: -5)
+                    .scaleEffect(showHandCase ? 1.0 : 0.0)
+                Text("BLACKJACK")
+                    .offset(y: 10)
+                    .scaleEffect(showHandCase ? 1.0 : 0.0)
+            }
+            .font(Font.custom("BeVietnamPro-Bold", size: 30))
+            .modifier(TextModifier())
             
             if (showRegister) {     // Show registration modal when user wants to register a username
                 RegistrationModal(userVM: userVM, dismiss: dismiss, showRegister: $showRegister, currentUser: $currentUser)
@@ -152,6 +161,6 @@ struct GameView: View {
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        GameView(userVM: UserViewModel(), difficulty: .constant(Difficulty.easy), resume: .constant(true), currentUser: .constant("Duy"))
     }
 }

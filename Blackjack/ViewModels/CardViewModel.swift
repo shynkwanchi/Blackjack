@@ -12,15 +12,32 @@
 
 import Foundation
 
-class CardViewModel {
+class CardViewModel: ObservableObject {
     // A Deck of cards
-    var cards: [CardModel] = []
+    var deckOfCards: [Card] = []
+    
+    // Cards in player and dealer's hand
+    @Published var playerHand: [Card] = []
+    @Published var dealerHand: [Card] = []
     
     init() {
         for suit in Suit.allCases {
             for rank in Rank.allCases {
-                cards.append(CardModel(suit: suit, rank: rank))
+                deckOfCards.append(Card(suit: suit, rank: rank))
             }
         }
+        dealCards()
+    }
+    
+    func dealCards() {
+        deckOfCards.shuffle()
+        for _ in 1...2 {
+            playerHand.append(deckOfCards.removeLast())
+            dealerHand.append(deckOfCards.removeLast())
+        }
+    }
+    
+    func playerHit() {
+        playerHand.append(deckOfCards.removeLast())
     }
 }

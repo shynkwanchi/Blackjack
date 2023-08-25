@@ -11,8 +11,7 @@
 */
 
 import Foundation
-
-var cardDeck: [CardModel] = CardViewModel().cards.shuffled()
+import SwiftUI
 
 func getDateAsString() -> String {
     // Create Date
@@ -28,6 +27,10 @@ func getDateAsString() -> String {
     return dateFormatter.string(from: date)
 }
 
-func dealCards() {
-    
+func dealAnimation(for card: Card, in hand: [Card]) -> Animation {
+    var delay: Double = 0.0
+    if let index = hand.firstIndex(where: { $0.id == card.id }) {
+        delay = Double(index) * (3 / Double(hand.count))
+    }
+    return Animation.easeIn(duration: 0.5).delay(delay)
 }
