@@ -12,8 +12,8 @@
 		69058D342A85FEC8007053BA /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69058D332A85FEC8007053BA /* Card.swift */; };
 		69058D382A8617CA007053BA /* UserRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69058D372A8617CA007053BA /* UserRow.swift */; };
 		69058D3A2A862C6E007053BA /* UserModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69058D392A862C6E007053BA /* UserModal.swift */; };
-		692DB8662A8B29E80066BE41 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692DB8652A8B29E80066BE41 /* Badge.swift */; };
-		692DB8682A8B2B9F0066BE41 /* BadgeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692DB8672A8B2B9F0066BE41 /* BadgeEnum.swift */; };
+		692DB8662A8B29E80066BE41 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692DB8652A8B29E80066BE41 /* BadgeView.swift */; };
+		692DB8682A8B2B9F0066BE41 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692DB8672A8B2B9F0066BE41 /* Badge.swift */; };
 		692DB86A2A8B42B70066BE41 /* SegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692DB8692A8B42B70066BE41 /* SegmentControl.swift */; };
 		692DB86C2A8B4EF20066BE41 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692DB86B2A8B4EF20066BE41 /* Background.swift */; };
 		692DB86E2A8B86480066BE41 /* Difficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692DB86D2A8B86480066BE41 /* Difficulty.swift */; };
@@ -61,6 +61,7 @@
 		69F80AAC2A985EBB00188408 /* blackjack-cards.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 69F80AA12A985EBB00188408 /* blackjack-cards.mp3 */; };
 		69F80AAD2A985EBB00188408 /* blackjack-game-win.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 69F80AA22A985EBB00188408 /* blackjack-game-win.mp3 */; };
 		69F80AAE2A985EBB00188408 /* blackjack-game-lose.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 69F80AA32A985EBB00188408 /* blackjack-game-lose.mp3 */; };
+		69FB89452A99C8E900DFFF5B /* HandStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FB89442A99C8E900DFFF5B /* HandStatus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,8 +70,8 @@
 		69058D332A85FEC8007053BA /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		69058D372A8617CA007053BA /* UserRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRow.swift; sourceTree = "<group>"; };
 		69058D392A862C6E007053BA /* UserModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModal.swift; sourceTree = "<group>"; };
-		692DB8652A8B29E80066BE41 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
-		692DB8672A8B2B9F0066BE41 /* BadgeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeEnum.swift; sourceTree = "<group>"; };
+		692DB8652A8B29E80066BE41 /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
+		692DB8672A8B2B9F0066BE41 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		692DB8692A8B42B70066BE41 /* SegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControl.swift; sourceTree = "<group>"; };
 		692DB86B2A8B4EF20066BE41 /* Background.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		692DB86D2A8B86480066BE41 /* Difficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Difficulty.swift; sourceTree = "<group>"; };
@@ -120,6 +121,7 @@
 		69F80AA12A985EBB00188408 /* blackjack-cards.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "blackjack-cards.mp3"; sourceTree = "<group>"; };
 		69F80AA22A985EBB00188408 /* blackjack-game-win.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "blackjack-game-win.mp3"; sourceTree = "<group>"; };
 		69F80AA32A985EBB00188408 /* blackjack-game-lose.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "blackjack-game-lose.mp3"; sourceTree = "<group>"; };
+		69FB89442A99C8E900DFFF5B /* HandStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandStatus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,12 +165,13 @@
 			isa = PBXGroup;
 			children = (
 				69E20F722A8CA072001F3009 /* Appearance.swift */,
-				692DB8672A8B2B9F0066BE41 /* BadgeEnum.swift */,
+				692DB8672A8B2B9F0066BE41 /* Badge.swift */,
 				692DB86D2A8B86480066BE41 /* Difficulty.swift */,
 				69EAC64A2A8F57EA0023FBE6 /* ResultStatus.swift */,
 				69DD4F5E2A932B3B00EF058C /* Suit.swift */,
 				69DD4F642A9351ED00EF058C /* PlayerType.swift */,
 				69DD4F602A932C5300EF058C /* Rank.swift */,
+				69FB89442A99C8E900DFFF5B /* HandStatus.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -234,7 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				692DB86B2A8B4EF20066BE41 /* Background.swift */,
-				692DB8652A8B29E80066BE41 /* Badge.swift */,
+				692DB8652A8B29E80066BE41 /* BadgeView.swift */,
 				693A4F3E2A83725700E5AF22 /* GameStats.swift */,
 				693A4F3C2A8364E600E5AF22 /* Header.swift */,
 				69EAC63A2A8F2A620023FBE6 /* InformationSection.swift */,
@@ -417,7 +420,7 @@
 			files = (
 				69E20F752A8CB6C0001F3009 /* HowToPlayView.swift in Sources */,
 				693A4F3D2A8364E600E5AF22 /* Header.swift in Sources */,
-				692DB8682A8B2B9F0066BE41 /* BadgeEnum.swift in Sources */,
+				692DB8682A8B2B9F0066BE41 /* Badge.swift in Sources */,
 				693A4F392A8364B600E5AF22 /* LeaderBoardView.swift in Sources */,
 				693A4F182A833CA000E5AF22 /* ContentView.swift in Sources */,
 				692DB86E2A8B86480066BE41 /* Difficulty.swift in Sources */,
@@ -432,6 +435,7 @@
 				693A4F3B2A8364D200E5AF22 /* SettingsView.swift in Sources */,
 				69058D342A85FEC8007053BA /* Card.swift in Sources */,
 				69DD4F652A9351ED00EF058C /* PlayerType.swift in Sources */,
+				69FB89452A99C8E900DFFF5B /* HandStatus.swift in Sources */,
 				69EAC64B2A8F57EA0023FBE6 /* ResultStatus.swift in Sources */,
 				693A4F252A833DFC00E5AF22 /* MenuView.swift in Sources */,
 				69058D3A2A862C6E007053BA /* UserModal.swift in Sources */,
@@ -450,7 +454,7 @@
 				69E20F732A8CA072001F3009 /* Appearance.swift in Sources */,
 				693A4F372A8364A600E5AF22 /* GameView.swift in Sources */,
 				69EAC6512A8F6D170023FBE6 /* ResumeModal.swift in Sources */,
-				692DB8662A8B29E80066BE41 /* Badge.swift in Sources */,
+				692DB8662A8B29E80066BE41 /* BadgeView.swift in Sources */,
 				69E32B592A91F62200F24CF1 /* CardView.swift in Sources */,
 				69DD4F632A9330A500EF058C /* CardViewModel.swift in Sources */,
 			);

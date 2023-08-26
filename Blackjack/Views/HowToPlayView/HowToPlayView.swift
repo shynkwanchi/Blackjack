@@ -39,11 +39,11 @@ struct HowToPlayView: View {
                     )
                     
                     InformationSection(
-                        title: "Case comparison",
+                        title: "Hand comparison",
                         textParagraphs: [
-                            "Bust < Regular < Magic Five < Blackjack < Double Ace.",
+                            "Bust < Normal < Magic Five < Blackjack < Double Ace.",
                             "If both you and the dealer have a Bust, it is considered a tie.",
-                            "If both you and the dealer have a Regular or Magic Five case:\n+ If your cards have a higher total score than the dealer, you win and vice versa.\n+ If your cards have the same total score as the dealer's, it is also considered a tie.",
+                            "If both you and the dealer have a Normal or Magic Five:\n+ If your cards have a higher total score than the dealer, you win and vice versa.\n+ If your cards have the same total score as the dealer's, it is also considered a tie.",
                             "If both you and the dealer have a Blackjack or a Double Ace, you lose."
                         ]
                     )
@@ -71,22 +71,22 @@ struct HowToPlayView: View {
                             Text("2. Depending on your current score, you will achieve different badges.")
                             
                             HStack {
-                                Badge(badge: .novice, size: 40)
+                                BadgeView(badge: .novice, size: 40)
                                 Text("Novice badge - reach 100 points.")
                             }
                             
                             HStack {
-                                Badge(badge: .expert, size: 40)
+                                BadgeView(badge: .expert, size: 40)
                                 Text("Expert badge - reach 250 points.")
                             }
                             
                             HStack {
-                                Badge(badge: .master, size: 40)
+                                BadgeView(badge: .master, size: 40)
                                 Text("Master badge - reach 500 points.")
                             }
                             
                             HStack {
-                                Badge(badge: .legend, size: 40)
+                                BadgeView(badge: .legend, size: 40)
                                 Text("Legend badge - reach 1000 points.")
                             }
                         }

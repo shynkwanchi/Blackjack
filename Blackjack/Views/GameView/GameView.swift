@@ -17,17 +17,13 @@ struct GameView: View {
     private var userVM: UserViewModel
     @StateObject private var cardVM: CardViewModel = CardViewModel()
     
-    // The number of cards that player and dealer can draw for each round
-    @State private var currentPlayerHits: Int = 3
-    @State private var currentDealerHits: Int = 3
-    
     // Properties for game
     @Binding var difficulty: Difficulty
     @Binding var resume: Bool
     @Binding var currentUser: String
     
-    @State var dealt: Bool = false
-    @State private var showHandCase: Bool = false
+    @State private var playerTurn: Bool = true
+    @State private var showHandStatus: Bool = false
     
     @State private var showRegister: Bool = false
     @State private var currentRound: Int = 1
@@ -82,12 +78,6 @@ struct GameView: View {
                 LazyVGrid(columns: Array(repeating: GridItem(.fixed(135), spacing: -90), count: cardVM.dealerHand.count)) {
                     ForEach(cardVM.dealerHand) { card in
                         CardView(card: card, hand: .dealer)
-                            .offset(x: dealt ? 0 : UIScreen.main.bounds.size.width)
-                            .onAppear{
-                                withAnimation(.easeInOut(duration: 0.5)) {
-                                    dealt = true
-                                }
-                            }
                     }
                 }
                 
@@ -97,12 +87,6 @@ struct GameView: View {
                 LazyVGrid(columns: Array(repeating: GridItem(.fixed(135), spacing: -90), count: cardVM.playerHand.count)) {
                     ForEach(cardVM.playerHand) { card in
                         CardView(card: card, hand: .player)
-                            .offset(x: dealt ? 0 : UIScreen.main.bounds.size.width)
-                            .onAppear{
-                                withAnimation(.easeInOut(duration: 0.5)) {
-                                    dealt = true
-                                }
-                            }
                     }
                 }
                 
@@ -110,48 +94,61 @@ struct GameView: View {
                 GameStats(icon: "person.fill", money: 500, score: 21)
                 
                 HStack(spacing: 40.0) {
-                    Button {
-                        withAnimation(.easeInOut(duration: 0.5)) {
-                            cardVM.playerHit()
+                    if playerTurn && cardVM.getPlayerTotal() < 21 && cardVM.playerHand.count < 5 {
+                        Button {
+                            withAnimation(.easeInOut(duration: 0.5)) {
+                                cardVM.playerHit()
+                            }
+                        } label: {
+                            Text("HIT")
+                                .font(Font.custom("BeVietnamPro-Medium", size: 24))
+                                .tracking(2.5)
+                                .frame(width: 120, height: 24)
+                                .modifier(TextModifier())
                         }
-                    } label: {
-                        Text("HIT")
-                            .font(Font.custom("BeVietnamPro-Medium", size: 24))
-                            .tracking(2.5)
-                            .frame(width: 120, height: 24)
-                            .modifier(TextModifier())
+                        .buttonStyle(CustomButton())
                     }
-                    .buttonStyle(CustomButton())
                     
-                    Button {
-                        withAnimation(.spring()) {
-                            showHandCase.toggle()
+                    if playerTurn && cardVM.getPlayerTotal() >= 16 {
+                        Button {
+                            withAnimation(.spring()) {
+                                playerTurn = false
+                            }
+                            
+                            cardVM.dealerTurn()
+                            
+                            withAnimation(.spring()) {
+                                showHandStatus = true
+                            }
+                            
+                            print(cardVM.compareHands().rawValue)
+                        } label: {
+                            Text("STAY")
+                                .font(Font.custom("BeVietnamPro-Medium", size: 24))
+                                .tracking(2.5)
+                                .frame(width: 120, height: 24)
+                                .modifier(TextModifier())
                         }
-                    } label: {
-                        Text("STAY")
-                            .font(Font.custom("BeVietnamPro-Medium", size: 24))
-                            .tracking(2.5)
-                            .frame(width: 120, height: 24)
-                            .modifier(TextModifier())
+                        .buttonStyle(CustomButton())
+                        .scaleEffect(playerTurn ? 1.0 : 0.0)
                     }
-                    .buttonStyle(CustomButton())
                 }
                 .padding(.top, 5.0)
             }
             .padding(.horizontal, 10.0)
             
             VStack {
-                Text("20 POINTS")
+                Text(cardVM.displayDealerHandStatus())
                     .offset(y: -5)
-                    .scaleEffect(showHandCase ? 1.0 : 0.0)
-                Text("BLACKJACK")
-                    .offset(y: 10)
-                    .scaleEffect(showHandCase ? 1.0 : 0.0)
+                    .scaleEffect(showHandStatus ? 1.0 : 0.0)
+                Text(cardVM.displayPlayerHandStatus())
+                    .offset(y: 65)
+                    .scaleEffect(showHandStatus ? 1.0 : 0.0)
             }
             .font(Font.custom("BeVietnamPro-Bold", size: 30))
             .modifier(TextModifier())
             
-            if (showRegister) {     // Show registration modal when user wants to register a username
+            if showRegister {     // Show registration modal when user wants to register a username
                 RegistrationModal(userVM: userVM, dismiss: dismiss, showRegister: $showRegister, currentUser: $currentUser)
             }
         }

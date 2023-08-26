@@ -17,12 +17,10 @@ struct CardView: View {
     var hand: PlayerType
     let duration: CGFloat = 0.25
     
-    @State var isFlipped: Bool = false
     @State private var backDegree: Double = 0.0
     @State private var frontDegree: Double = -90.0
     
-    func flip() {
-        isFlipped = !isFlipped
+    func flip(isFlipped: Bool) {
         if isFlipped {
             withAnimation(.linear(duration: duration)) {
                 backDegree = 90.0
@@ -45,8 +43,8 @@ struct CardView: View {
                 .rotation3DEffect(.degrees(backDegree), axis: (x: 0, y: 1, z: 0))
         }
         .onTapGesture {
-            if (hand == .player) {
-                flip()
+            if hand == .player {
+                flip(isFlipped: true)
             }
         }
     }

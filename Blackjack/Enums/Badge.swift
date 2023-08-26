@@ -12,7 +12,7 @@
 
 import Foundation
 
-enum BadgeEnum: Int, Decodable, Encodable {
+enum Badge: Int, Decodable, Encodable {
     case novice = 100
     case expert = 250
     case master = 500

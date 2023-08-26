@@ -14,7 +14,7 @@ import SwiftUI
 
 struct AchievementModal: View {
     @Binding var showAchievement: Bool
-    var badge: BadgeEnum
+    var badge: Badge
     
     var body: some View {
         ZStack {
@@ -40,7 +40,7 @@ struct AchievementModal: View {
                         .multilineTextAlignment(.center)
                 }
                 
-                Badge(badge: badge, size: 125)
+                BadgeView(badge: badge, size: 125)
                 
                 Text("You have reached \n\(badge.rawValue) points")
                     .font(Font.custom("BeVietnamPro-Light", size: 18))

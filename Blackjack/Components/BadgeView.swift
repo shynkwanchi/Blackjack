@@ -12,8 +12,8 @@
 
 import SwiftUI
 
-struct Badge: View {
-    var badge: BadgeEnum
+struct BadgeView: View {
+    var badge: Badge
     var size: Double
     
     var body: some View {
@@ -38,6 +38,6 @@ struct Badge: View {
 
 struct Badge_Previews: PreviewProvider {
     static var previews: some View {
-        Badge(badge: BadgeEnum.legend, size: 125)
+        BadgeView(badge: Badge.legend, size: 125)
     }
 }

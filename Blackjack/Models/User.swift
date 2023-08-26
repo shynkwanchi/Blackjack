@@ -17,6 +17,6 @@ struct User: Identifiable, Codable {
     var id = UUID().uuidString
     var username: String
     var money, highscore, roundsPlayed, roundsWon: Int
-    var badge: BadgeEnum
+    var badge: Badge
     var joinDate: String
 }

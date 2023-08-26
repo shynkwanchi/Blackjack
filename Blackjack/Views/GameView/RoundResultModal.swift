@@ -17,46 +17,48 @@ struct RoundResultModal: View {
     var money: Int
     
     var body: some View {
-        ZStack {
-            VStack {
-                switch roundResult {
-                case .win:
-                    VStack {
-                        Text("NICE PLAY!")
-                            .font(Font.custom("BeVietnamPro-Medium", size: 40))
-                        Text("You won $\(money).")
-                            .font(Font.custom("BeVietnamPro-Light", size: 24))
+        if roundResult != .empty {
+            ZStack {
+                VStack {
+                    switch roundResult {
+                    case .win:
+                        VStack {
+                            Text("NICE PLAY!")
+                                .font(Font.custom("BeVietnamPro-Medium", size: 40))
+                            Text("You won $\(money).")
+                                .font(Font.custom("BeVietnamPro-Light", size: 24))
+                        }
+                        .foregroundColor(Color.blue)
+                    case .lose:
+                        VStack {
+                            Text("TOO BAD!")
+                                .font(Font.custom("BeVietnamPro-Medium", size: 40))
+                            Text("You lost $\(money).")
+                                .font(Font.custom("BeVietnamPro-Light", size: 24))
+                        }
+                        .foregroundColor(Color.red)
+                    default:
+                        VStack {
+                            Text("TIE!")
+                                .font(Font.custom("BeVietnamPro-Medium", size: 40))
+                            Text("You didn't lose any money.")
+                                .font(Font.custom("BeVietnamPro-Light", size: 24))
+                        }
                     }
-                    .foregroundColor(Color.blue)
-                case .lose:
-                    VStack {
-                        Text("TOO BAD!")
-                            .font(Font.custom("BeVietnamPro-Medium", size: 40))
-                        Text("You lost $\(money).")
-                            .font(Font.custom("BeVietnamPro-Light", size: 24))
+                    
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "forward.fill")
+                            .iconModidifer()
+                            .frame(width: 30)
                     }
-                    .foregroundColor(Color.red)
-                case .tie:
-                    VStack {
-                        Text("TIE!")
-                            .font(Font.custom("BeVietnamPro-Medium", size: 40))
-                        Text("You didn't lose any money.")
-                            .font(Font.custom("BeVietnamPro-Light", size: 24))
-                    }
+                    .buttonStyle(CustomButton())
                 }
-                
-                Button {
-
-                } label: {
-                    Image(systemName: "forward.fill")
-                        .iconModidifer()
-                        .frame(width: 30)
-                }
-                .buttonStyle(CustomButton())
+                .modifier(InnerModalModifier())
             }
-            .modifier(InnerModalModifier())
+            .modifier(OuterModalModifier())
         }
-        .modifier(OuterModalModifier())
     }
 }
 

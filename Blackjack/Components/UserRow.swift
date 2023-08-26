@@ -35,7 +35,7 @@ struct UserRow: View {
             
             Spacer()
             
-            Badge(badge: user.badge, size: 50)
+            BadgeView(badge: user.badge, size: 50)
             
             Button {
                 userVM.selectedUser = user

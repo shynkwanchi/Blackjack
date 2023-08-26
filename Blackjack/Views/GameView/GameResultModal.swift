@@ -43,7 +43,7 @@ struct GameResultModal: View {
                     Text(currentUser.username)
                         .font(Font.custom("BeVietnamPro-Medium", size: 24))
                     
-                    Badge(badge: currentUser.badge, size: 125)
+                    BadgeView(badge: currentUser.badge, size: 125)
                         .padding(.vertical)
                     
                     StatItem(name: "NEW HIGHSCORE!", value: String(1021))

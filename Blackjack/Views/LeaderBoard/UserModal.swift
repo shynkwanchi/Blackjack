@@ -40,7 +40,7 @@ struct UserModal: View {
                         .font(Font.custom("BeVietnamPro-Medium", size: 24))
                         .padding(.bottom, 2.5)
                     
-                    Badge(badge: userVM.selectedUser.badge, size: 125)
+                    BadgeView(badge: userVM.selectedUser.badge, size: 125)
                     
                     HStack(alignment: .top) {
                         StatItem(name: "Joined", value: userVM.selectedUser.joinDate)
