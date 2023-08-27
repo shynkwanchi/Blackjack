@@ -22,13 +22,33 @@ struct GameView: View {
     @Binding var resume: Bool
     @Binding var currentUser: String
     
+    @State private var dealerMoney: Int = 5000
+    @State private var dealerHighscore: Int = 0
+    
     @State private var playerTurn: Bool = true
+    @State private var playerMoney: Int = 1000
+    @State private var playerHighscore: Int = 0
+    @State private var newBadge: Badge = .empty
+    
     @State private var showHandStatus: Bool = false
+    @State private var currentRounds: Int = 1
+    @State private var roundsWon: Int = 0
+    @State private var bonusMoney: Int = 0
+    @State private var lostMoney: Int = 0
+    @State private var roundResultStatus: ResultStatus = .empty
+    @State private var gameResultStatus: ResultStatus = .empty
     
     @State private var showRegister: Bool = false
-    @State private var currentRound: Int = 1
     @State private var showRoundResult: Bool = false
     @State private var showGameResult: Bool = false
+    @State private var showAchievement: Bool = false
+    
+    @State private var currentProgress: DispatchWorkItem = DispatchWorkItem {}
+    private func progress() -> DispatchWorkItem {
+        return DispatchWorkItem {
+            checkResult(cardVM: cardVM, userVM: userVM, difficulty: difficulty, playerMoney: &playerMoney, playerHighscore: &playerHighscore, newBadge: &newBadge, dealerMoney: &dealerMoney, dealerHighscore: &dealerHighscore, currentRounds: &currentRounds, roundsWon: &roundsWon, bonusMoney: &bonusMoney, lostMoney: &lostMoney, roundResultStatus: &roundResultStatus, gameResultStatus: &gameResultStatus, showRoundResult: &showRoundResult, showGameResult: &showGameResult, showAchievement: &showAchievement)
+        }
+    }
     
     init(userVM: UserViewModel, difficulty: Binding<Difficulty>, resume: Binding<Bool>, currentUser: Binding<String>) {
         self.userVM = userVM
@@ -36,12 +56,22 @@ struct GameView: View {
         self._resume = resume
         self._currentUser = currentUser
         
-        if (self.resume) {
+        if self.resume {
             _showRegister = State(initialValue: false)
         }
         else {
             _showRegister = State(initialValue: true)
         }
+        
+        if !showRegister {
+            _playerMoney = State(initialValue: userVM.getCurrentUser().playerMoney)
+            _playerHighscore = State(initialValue: userVM.getCurrentUser().playerHighscore)
+            _dealerMoney = State(initialValue: userVM.getCurrentUser().dealerMoney)
+            _dealerHighscore = State(initialValue: userVM.getCurrentUser().dealerHighscore)
+            _currentRounds = State(initialValue: userVM.getCurrentUser().roundsPlayed)
+        }
+        
+        self.currentProgress = progress()
     }
  
     var body: some View {
@@ -59,7 +89,7 @@ struct GameView: View {
                     .buttonStyle(CustomButton())
                     Spacer()
                     
-                    Text("ROUND \(currentRound)")
+                    Text("ROUND \(currentRounds)")
                         .font(Font.custom("BeVietnamPro-Bold", size: 30))
                         .tracking(2.5)
                         .modifier(TextModifier())
@@ -71,7 +101,7 @@ struct GameView: View {
                 .padding(.bottom, 5.0)
                 
                 // The opponent's stats
-                GameStats(icon: "laptopcomputer", money: 5000, score: 0)
+                GameStats(icon: "laptopcomputer", money: dealerMoney, score: dealerHighscore)
                 
                 
                 // Dealer's cards and outcome display
@@ -91,7 +121,7 @@ struct GameView: View {
                 }
                 
                 // The player's stats
-                GameStats(icon: "person.fill", money: 500, score: 21)
+                GameStats(icon: "person.fill", money: playerMoney, score: playerHighscore)
                 
                 HStack(spacing: 40.0) {
                     if playerTurn && cardVM.getPlayerTotal() < 21 && cardVM.playerHand.count < 5 {
@@ -111,6 +141,7 @@ struct GameView: View {
                     
                     if playerTurn && cardVM.getPlayerTotal() >= 16 {
                         Button {
+                            // If player tap this button, the action buttons (Hit and Stay) will dissappear
                             withAnimation(.spring()) {
                                 playerTurn = false
                             }
@@ -121,7 +152,9 @@ struct GameView: View {
                                 showHandStatus = true
                             }
                             
-                            print(cardVM.compareHands().rawValue)
+                            currentProgress = progress()
+                            // Wait 3 seconds before the process of checking result begins
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: currentProgress)
                         } label: {
                             Text("STAY")
                                 .font(Font.custom("BeVietnamPro-Medium", size: 24))
@@ -151,6 +184,26 @@ struct GameView: View {
             if showRegister {     // Show registration modal when user wants to register a username
                 RegistrationModal(userVM: userVM, dismiss: dismiss, showRegister: $showRegister, currentUser: $currentUser)
             }
+            
+            if showRoundResult {
+                if gameResultStatus == .win {
+                    RoundResultModal(showRoundResult: $showRoundResult, playerTurn: $playerTurn, cardVM: cardVM, roundResult: roundResultStatus, money: bonusMoney)
+                }
+                else if gameResultStatus == .lose {
+                    RoundResultModal(showRoundResult: $showRoundResult, playerTurn: $playerTurn, cardVM: cardVM, roundResult: roundResultStatus, money: lostMoney)
+                }
+                else if gameResultStatus == .tie {
+                    RoundResultModal(showRoundResult: $showRoundResult, playerTurn: $playerTurn, cardVM: cardVM, roundResult: roundResultStatus, money: 0)
+                }
+            }
+            
+            if showAchievement {
+                AchievementModal(showAchievement: $showAchievement, badge: newBadge)
+            }
+            
+            if showGameResult {
+                GameResultModal(resume: $resume, dismiss: dismiss, gameResult: gameResultStatus, currentUser: userVM.getCurrentUser())
+            }
         }
         .background(Background())
     }
@@ -158,6 +211,6 @@ struct GameView: View {
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView(userVM: UserViewModel(), difficulty: .constant(Difficulty.easy), resume: .constant(true), currentUser: .constant("Duy"))
+        ContentView()
     }
 }

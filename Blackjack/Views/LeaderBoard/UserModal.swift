@@ -45,7 +45,7 @@ struct UserModal: View {
                     HStack(alignment: .top) {
                         StatItem(name: "Joined", value: userVM.selectedUser.joinDate)
                             .frame(width: 125.0)
-                        StatItem(name: "Highscore", value: String(userVM.selectedUser.highscore))
+                        StatItem(name: "Highscore", value: String(userVM.selectedUser.playerHighscore))
                             .frame(width: 125.0)
                     }
                     .padding(.top, 2.5)

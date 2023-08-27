@@ -13,18 +13,18 @@
 import Foundation
 
 let dummyUsers = [
-    User(username: "Red", money: 0, highscore: 1000, roundsPlayed: 12, roundsWon: 10, badge: .legend, joinDate: "20 Sep 2023"),
-    User(username: "Chuck", money: 0, highscore: 630, roundsPlayed: 12, roundsWon: 10, badge: .master, joinDate: "30 Jul 2023"),
-    User(username: "Bomb", money: 0, highscore: 99, roundsPlayed: 12, roundsWon: 10, badge: .empty, joinDate: "10 Dec 2023"),
-    User(username: "Silver", money: 0, highscore: 549, roundsPlayed: 12, roundsWon: 10, badge: .master, joinDate: "30 Jul 2023"),
-    User(username: "Sonic", money: 0, highscore: 918, roundsPlayed: 12, roundsWon: 8, badge: .master, joinDate: "23 Jun 2023"),
-    User(username: "Tails", money: 0, highscore: 824, roundsPlayed: 12, roundsWon: 8, badge: .master, joinDate: "21 Jun 2023"),
-    User(username: "Knuckles", money: 0, highscore: 84, roundsPlayed: 12, roundsWon: 8, badge: .empty, joinDate: "8 Apr 2023"),
-    User(username: "Amy", money: 0, highscore: 497, roundsPlayed: 12, roundsWon: 8, badge: .expert, joinDate: "8 Jun 2023"),
-    User(username: "Mario", money: 0, highscore: 728, roundsPlayed: 12, roundsWon: 9, badge: .master, joinDate: "11 Oct 2023"),
-    User(username: "Luigi", money: 0, highscore: 110, roundsPlayed: 12, roundsWon: 9, badge: .novice, joinDate: "11 Oct 2023"),
-    User(username: "Toad", money: 0, highscore: 324, roundsPlayed: 12, roundsWon: 9, badge: .expert, joinDate: "13 Sep 2023"),
-    User(username: "Toadette", money: 0, highscore: 273, roundsPlayed: 12, roundsWon: 9, badge: .expert, joinDate: "7 Nov 2023")
+    User(username: "Red", playerMoney: 0, playerHighscore: 1000, roundsPlayed: 12, roundsWon: 10, badge: .legend, joinDate: "20 Sep 2023"),
+    User(username: "Chuck", playerMoney: 0, playerHighscore: 630, roundsPlayed: 12, roundsWon: 10, badge: .master, joinDate: "30 Jul 2023"),
+    User(username: "Bomb", playerMoney: 0, playerHighscore: 99, roundsPlayed: 12, roundsWon: 10, badge: .empty, joinDate: "10 Dec 2023"),
+    User(username: "Silver", playerMoney: 0, playerHighscore: 549, roundsPlayed: 12, roundsWon: 10, badge: .master, joinDate: "30 Jul 2023"),
+    User(username: "Sonic", playerMoney: 0, playerHighscore: 918, roundsPlayed: 12, roundsWon: 8, badge: .master, joinDate: "23 Jun 2023"),
+    User(username: "Tails", playerMoney: 0, playerHighscore: 824, roundsPlayed: 12, roundsWon: 8, badge: .master, joinDate: "21 Jun 2023"),
+    User(username: "Knuckles", playerMoney: 0, playerHighscore: 84, roundsPlayed: 12, roundsWon: 8, badge: .empty, joinDate: "8 Apr 2023"),
+    User(username: "Amy", playerMoney: 0, playerHighscore: 497, roundsPlayed: 12, roundsWon: 8, badge: .expert, joinDate: "8 Jun 2023"),
+    User(username: "Mario", playerMoney: 0, playerHighscore: 728, roundsPlayed: 12, roundsWon: 9, badge: .master, joinDate: "11 Oct 2023"),
+    User(username: "Luigi", playerMoney: 0, playerHighscore: 110, roundsPlayed: 12, roundsWon: 9, badge: .novice, joinDate: "11 Oct 2023"),
+    User(username: "Toad", playerMoney: 0, playerHighscore: 324, roundsPlayed: 12, roundsWon: 9, badge: .expert, joinDate: "13 Sep 2023"),
+    User(username: "Toadette", playerMoney: 0, playerHighscore: 273, roundsPlayed: 12, roundsWon: 9, badge: .expert, joinDate: "7 Nov 2023")
 ]
 
 final class UserViewModel: ObservableObject {
@@ -38,7 +38,7 @@ final class UserViewModel: ObservableObject {
     @Published var selectedUser: User!
     
     init() {
-        // Add users from dummy data
+//        // Add users from dummy data
 //        for user in dummyUsers {
 //            users.append(user)
 //        }
@@ -48,19 +48,32 @@ final class UserViewModel: ObservableObject {
     // Load user data from UserDefault
     func loadUsers() {
         if let savedUsers = UserDefaults.standard.object(forKey: "users") as? Data {
-            do {
-                self.users = try JSONDecoder().decode([User].self, from: savedUsers)
-            }
-            catch {
-                fatalError("Failed to load users!")
-            }
+            self.users = try! PropertyListDecoder().decode([User].self, from: savedUsers)
         }
     }
     
     // Add a new user in UserDefault
     func addUser(newUser: User) {
         users.append(newUser)
-        UserDefaults.standard.set(try? JSONEncoder().encode(users), forKey: "users")
+        UserDefaults.standard.set(try? PropertyListEncoder().encode(users), forKey: "users")
+    }
+    
+    // Get current user
+    func getCurrentUser() -> User {
+        if !users.isEmpty {
+            let lastIndex = users.count - 1
+            return users[lastIndex]
+        }
+        return User(username: "", playerMoney: 0, playerHighscore: -1, roundsPlayed: 0, roundsWon: -1, badge: .empty, joinDate: "")
+    }
+    
+    // Update current user
+    func updateCurrentUser(playerMoney: Int, playerHighScore: Int, dealerMoney: Int, dealerHighscore: Int, roundsPlayed: Int, roundsWon: Int, badge: Badge) {
+        if !users.isEmpty {
+            let lastIndex = users.count - 1
+            users[lastIndex] = User(username: getCurrentUser().username, playerMoney: playerMoney, playerHighscore: playerHighScore, dealerMoney: dealerMoney, dealerHighscore: dealerHighscore, roundsPlayed: roundsPlayed, roundsWon: roundsWon, badge: badge, joinDate: getCurrentUser().joinDate)
+            UserDefaults.standard.set(try? PropertyListEncoder().encode(users), forKey: "users")
+        }
     }
     
     // Remove all users in UserDefault
@@ -71,6 +84,6 @@ final class UserViewModel: ObservableObject {
     
     // Sort users descending by their highscores
     func sortUsers() -> [User] {
-        return users.sorted{ $0.highscore > $1.highscore }
+        return users.sorted{ $0.playerHighscore > $1.playerHighscore }
     }
 }

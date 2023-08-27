@@ -13,7 +13,7 @@
 import SwiftUI
 
 struct ResumeModal: View {
-    private var userVM: UserViewModel
+    var userVM: UserViewModel
     @Binding var resume: Bool
     @Binding var difficulty: Difficulty
     @Binding var currentUser: String

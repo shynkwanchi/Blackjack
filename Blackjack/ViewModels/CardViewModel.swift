@@ -27,6 +27,10 @@ class CardViewModel: ObservableObject {
             }
         }
         dealCards()
+        
+        print(deckOfCards)
+        print(playerHand)
+        print(dealerHand)
     }
     
     func dealCards() {

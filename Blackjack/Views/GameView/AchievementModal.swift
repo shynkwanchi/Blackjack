@@ -47,7 +47,7 @@ struct AchievementModal: View {
                     .multilineTextAlignment(.center)
                 
                 Button {
-                    
+                    showAchievement = false
                 } label: {
                     Image(systemName: "checkmark")
                         .iconModidifer()

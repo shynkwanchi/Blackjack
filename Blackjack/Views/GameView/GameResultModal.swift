@@ -13,6 +13,8 @@
 import SwiftUI
 
 struct GameResultModal: View {
+    @Binding var resume: Bool
+    var dismiss: DismissAction
     var gameResult: ResultStatus
     var currentUser: User
     
@@ -50,25 +52,16 @@ struct GameResultModal: View {
                 }
                 .padding(/*@START_MENU_TOKEN@*/.vertical, 5.0/*@END_MENU_TOKEN@*/)
                 
-                HStack(spacing: 40.0) {
-                    Button {
-                        
-                    } label: {
-                        Image(systemName: "arrowshape.backward.fill")
-                            .iconModidifer()
-                            .frame(width: 30)
-                    }
-                    .buttonStyle(CustomButton())
-                    
-                    Button {
-                        
-                    } label: {
-                        Image(systemName: "arrow.uturn.backward")
-                            .iconModidifer()
-                            .frame(width: 30)
-                    }
-                    .buttonStyle(CustomButton())
+                // Exit button
+                Button {
+                    resume = false
+                    dismiss()
+                } label: {
+                    Image(systemName: "arrowshape.backward.fill")
+                        .iconModidifer()
+                        .frame(width: 30)
                 }
+                .buttonStyle(CustomButton())
             }
             .modifier(InnerModalModifier())
         }
@@ -78,6 +71,6 @@ struct GameResultModal: View {
 
 struct GameResultModal_Previews: PreviewProvider {
     static var previews: some View {
-        GameResultModal(gameResult: .win, currentUser: dummyUsers[0])
+        ContentView()
     }
 }

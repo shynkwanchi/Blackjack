@@ -29,7 +29,7 @@ struct UserRow: View {
                 Text(user.username)
                     .font(Font.custom("BeVietnamPro-Medium", size: 20))
                     .lineLimit(1)
-                Text(String(user.highscore))
+                Text(String(user.playerHighscore))
                     .font(Font.custom("BeVietnamPro-Light", size: 18))
             }
             

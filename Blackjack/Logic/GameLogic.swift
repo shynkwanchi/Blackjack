@@ -158,6 +158,76 @@ func displayHandStatus(handOfCards: [Card]) -> String {
 }
 
 // Check results
-func checkResult() {
+func checkResult(cardVM: CardViewModel, userVM: UserViewModel, difficulty: Difficulty, playerMoney: inout Int, playerHighscore: inout Int, newBadge: inout Badge, dealerMoney: inout Int, dealerHighscore: inout Int, currentRounds: inout Int, roundsWon: inout Int, bonusMoney: inout Int, lostMoney: inout Int, roundResultStatus: inout ResultStatus, gameResultStatus: inout ResultStatus, showRoundResult: inout Bool, showGameResult: inout Bool, showAchievement: inout Bool) {
+    roundResultStatus = cardVM.compareHands()
+    showRoundResult = true
     
+    bonusMoney = 100
+    var playerBonusScore = cardVM.getPlayerTotal()
+    let dealerBonusScore = cardVM.getDealerTotal()
+    
+    // Depend of difficulties, the level of bonus and penalty will be different
+    if difficulty == Difficulty.easy {
+        lostMoney = -(bonusMoney / 2)
+    }
+    else if difficulty == .medium {
+        bonusMoney += 25
+        lostMoney = bonusMoney
+        playerBonusScore *= 2
+    }
+    else if difficulty == .hard {
+        bonusMoney += 50
+        lostMoney = bonusMoney + 50
+        playerBonusScore *= 3
+    }
+    
+    // Check round result
+    if roundResultStatus == .win {
+        playerMoney += bonusMoney
+        playerHighscore += playerBonusScore
+        dealerMoney -= bonusMoney
+        roundsWon += 1
+    }
+    else if roundResultStatus == .lose {
+        playerMoney -= lostMoney
+        dealerMoney += bonusMoney
+        dealerHighscore += dealerBonusScore
+    }
+    
+    // After the current round ends, the next round will be proceeded
+    currentRounds += 1
+    
+    // Check player highscore to get new badge
+    if playerHighscore >= 1000 {
+        newBadge = .legend
+    }
+    else if playerHighscore >= 500 {
+        newBadge = .master
+    }
+    else if playerHighscore >= 250 {
+        newBadge = .expert
+    }
+    else if playerHighscore >= 100 {
+        newBadge = .novice
+    }
+    
+    // Check if the user get a new badge
+    if userVM.getCurrentUser().badge != newBadge {
+        showAchievement = true
+    }
+    
+    // Update current user
+    userVM.updateCurrentUser(playerMoney: playerMoney, playerHighScore: playerHighscore, dealerMoney: dealerMoney, dealerHighscore: dealerHighscore,roundsPlayed: currentRounds, roundsWon: roundsWon, badge: newBadge)
+    
+    // Check current player an dealer money
+    if (playerMoney <= 0) {
+        playerMoney = 0
+        gameResultStatus = .lose
+        showGameResult = true
+    }
+    else if (dealerMoney <= 0) {
+        dealerMoney = 0
+        gameResultStatus = .win
+        showGameResult = true
+    }
 }

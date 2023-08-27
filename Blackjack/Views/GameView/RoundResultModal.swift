@@ -13,57 +13,60 @@
 import SwiftUI
 
 struct RoundResultModal: View {
+    @Binding var showRoundResult: Bool
+    @Binding var playerTurn: Bool
+    @State var cardVM: CardViewModel
     var roundResult: ResultStatus
     var money: Int
     
     var body: some View {
-        if roundResult != .empty {
-            ZStack {
-                VStack {
-                    switch roundResult {
-                    case .win:
-                        VStack {
-                            Text("NICE PLAY!")
-                                .font(Font.custom("BeVietnamPro-Medium", size: 40))
-                            Text("You won $\(money).")
-                                .font(Font.custom("BeVietnamPro-Light", size: 24))
-                        }
-                        .foregroundColor(Color.blue)
-                    case .lose:
-                        VStack {
-                            Text("TOO BAD!")
-                                .font(Font.custom("BeVietnamPro-Medium", size: 40))
-                            Text("You lost $\(money).")
-                                .font(Font.custom("BeVietnamPro-Light", size: 24))
-                        }
-                        .foregroundColor(Color.red)
-                    default:
-                        VStack {
-                            Text("TIE!")
-                                .font(Font.custom("BeVietnamPro-Medium", size: 40))
-                            Text("You didn't lose any money.")
-                                .font(Font.custom("BeVietnamPro-Light", size: 24))
-                        }
+        ZStack {
+            VStack {
+                switch roundResult {
+                case .win:
+                    VStack {
+                        Text("NICE PLAY!")
+                            .font(Font.custom("BeVietnamPro-Medium", size: 40))
+                        Text("You won $\(money).")
+                            .font(Font.custom("BeVietnamPro-Light", size: 24))
                     }
-                    
-                    Button {
-                        
-                    } label: {
-                        Image(systemName: "forward.fill")
-                            .iconModidifer()
-                            .frame(width: 30)
+                    .foregroundColor(Color.blue)
+                case .lose:
+                    VStack {
+                        Text("TOO BAD!")
+                            .font(Font.custom("BeVietnamPro-Medium", size: 40))
+                        Text("You lost $\(money).")
+                            .font(Font.custom("BeVietnamPro-Light", size: 24))
                     }
-                    .buttonStyle(CustomButton())
+                    .foregroundColor(Color.red)
+                default:
+                    VStack {
+                        Text("TIE!")
+                            .font(Font.custom("BeVietnamPro-Medium", size: 40))
+                        Text("You didn't lose any money.")
+                            .font(Font.custom("BeVietnamPro-Light", size: 24))
+                    }
                 }
-                .modifier(InnerModalModifier())
+                
+                Button {
+                    cardVM = CardViewModel()
+                    playerTurn = true
+                    showRoundResult = false
+                } label: {
+                    Image(systemName: "forward.fill")
+                        .iconModidifer()
+                        .frame(width: 30)
+                }
+                .buttonStyle(CustomButton())
             }
-            .modifier(OuterModalModifier())
+            .modifier(InnerModalModifier())
         }
+        .modifier(OuterModalModifier())
     }
 }
 
 struct RoundResultModal_Previews: PreviewProvider {
     static var previews: some View {
-        RoundResultModal(roundResult: ResultStatus.win, money: 100)
+        RoundResultModal(showRoundResult: .constant(true), playerTurn: .constant(false), cardVM: CardViewModel(), roundResult: ResultStatus.win, money: 100)
     }
 }

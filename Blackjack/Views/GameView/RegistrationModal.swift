@@ -49,7 +49,7 @@ struct RegistrationModal: View {
                     
                     Button {
                         withAnimation {
-                            if (usernameInput.isEmpty) {
+                            if (usernameInput.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty) {
                                 errorMesssage = "You can't leave this field empty!"
                                 showErrorMessage = true
                                 return
@@ -58,8 +58,8 @@ struct RegistrationModal: View {
                                 showErrorMessage = false
                             }
                             
-                            currentUser = usernameInput
-                            userVM.addUser(newUser: User(username: currentUser, money: 1000, highscore: 0, roundsPlayed: 1, roundsWon: 0, badge: .empty, joinDate: getDateAsString()))
+                            currentUser = usernameInput.trimmingCharacters(in: .whitespacesAndNewlines)
+                            userVM.addUser(newUser: User(username: currentUser, playerMoney: 1000, playerHighscore: 0, dealerMoney: 5000, dealerHighscore: 0, roundsPlayed: 1, roundsWon: 0, badge: .empty, joinDate: getDateAsString()))
                             self.showRegister = false
                         }
                     } label: {
