@@ -38,24 +38,44 @@ final class UserViewModel: ObservableObject {
     @Published var selectedUser: User!
     
     init() {
-//        // Add users from dummy data
+//        Add users from dummy data
 //        for user in dummyUsers {
 //            users.append(user)
 //        }
         loadUsers()
     }
     
-    // Load user data from UserDefault
-    func loadUsers() {
-        if let savedUsers = UserDefaults.standard.object(forKey: "users") as? Data {
-            self.users = try! PropertyListDecoder().decode([User].self, from: savedUsers)
+    // Save user data from JSON file
+    func saveUsers() {
+        do {
+            let fileURL = try FileManager.default.url(for: .desktopDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+                .appendingPathComponent("users.json")
+            
+            let encoder = JSONEncoder()
+            try encoder.encode(users).write(to: fileURL)
+        } catch {
+            print(error.localizedDescription)
         }
     }
     
-    // Add a new user in UserDefault
+    // Save user data from JSON file
+    func loadUsers() {
+        do {
+            let fileURL = try FileManager.default.url(for: .desktopDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+                .appendingPathComponent("users.json")
+            let data = try Data(contentsOf: fileURL)
+            
+            let decoder = JSONDecoder()
+            users = try decoder.decode([User].self, from: data)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    // Add a new user
     func addUser(newUser: User) {
         users.append(newUser)
-        UserDefaults.standard.set(try? PropertyListEncoder().encode(users), forKey: "users")
+        saveUsers()
     }
     
     // Get current user
@@ -72,14 +92,14 @@ final class UserViewModel: ObservableObject {
         if !users.isEmpty {
             let lastIndex = users.count - 1
             users[lastIndex] = User(username: getCurrentUser().username, playerMoney: playerMoney, playerHighscore: playerHighScore, dealerMoney: dealerMoney, dealerHighscore: dealerHighscore, roundsPlayed: roundsPlayed, roundsWon: roundsWon, badge: badge, joinDate: getCurrentUser().joinDate)
-            UserDefaults.standard.set(try? PropertyListEncoder().encode(users), forKey: "users")
+            saveUsers()
         }
     }
     
     // Remove all users in UserDefault
     func deleteUsers() {
         users.removeAll()
-        UserDefaults.standard.set(try? JSONEncoder().encode(users), forKey: "users")
+        saveUsers()
     }
     
     // Sort users descending by their highscores

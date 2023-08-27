@@ -19,8 +19,6 @@ struct MenuView: View {
     @AppStorage("resume") private var resume: Bool = false
     @AppStorage("appearance") private var appearance: Appearance = .light
     @AppStorage("difficulty") private var difficulty: Difficulty = .easy
-    @AppStorage("currentDealerMoney") private var currentDealerMoney: Int = 5000
-    @AppStorage("currentDealerHighscore") private var currentDealerHighscore: Int = 0
     
     init() {
         print(currentUser)

@@ -14,8 +14,9 @@ import SwiftUI
 
 struct RoundResultModal: View {
     @Binding var showRoundResult: Bool
+    @Binding var showHandStatus: Bool
     @Binding var playerTurn: Bool
-    @State var cardVM: CardViewModel
+    var cardVM: CardViewModel
     var roundResult: ResultStatus
     var money: Int
     
@@ -29,6 +30,7 @@ struct RoundResultModal: View {
                             .font(Font.custom("BeVietnamPro-Medium", size: 40))
                         Text("You won $\(money).")
                             .font(Font.custom("BeVietnamPro-Light", size: 24))
+                            .multilineTextAlignment(.center)
                     }
                     .foregroundColor(Color.blue)
                 case .lose:
@@ -37,6 +39,7 @@ struct RoundResultModal: View {
                             .font(Font.custom("BeVietnamPro-Medium", size: 40))
                         Text("You lost $\(money).")
                             .font(Font.custom("BeVietnamPro-Light", size: 24))
+                            .multilineTextAlignment(.center)
                     }
                     .foregroundColor(Color.red)
                 default:
@@ -45,12 +48,14 @@ struct RoundResultModal: View {
                             .font(Font.custom("BeVietnamPro-Medium", size: 40))
                         Text("You didn't lose any money.")
                             .font(Font.custom("BeVietnamPro-Light", size: 24))
+                            .multilineTextAlignment(.center)
                     }
                 }
                 
                 Button {
-                    cardVM = CardViewModel()
+                    cardVM.dealCards()
                     playerTurn = true
+                    showHandStatus = false
                     showRoundResult = false
                 } label: {
                     Image(systemName: "forward.fill")
@@ -67,6 +72,6 @@ struct RoundResultModal: View {
 
 struct RoundResultModal_Previews: PreviewProvider {
     static var previews: some View {
-        RoundResultModal(showRoundResult: .constant(true), playerTurn: .constant(false), cardVM: CardViewModel(), roundResult: ResultStatus.win, money: 100)
+        RoundResultModal(showRoundResult: .constant(true), showHandStatus: .constant(true), playerTurn: .constant(false), cardVM: CardViewModel(), roundResult: ResultStatus.win, money: 100)
     }
 }

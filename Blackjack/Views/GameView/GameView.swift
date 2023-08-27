@@ -70,8 +70,6 @@ struct GameView: View {
             _dealerHighscore = State(initialValue: userVM.getCurrentUser().dealerHighscore)
             _currentRounds = State(initialValue: userVM.getCurrentUser().roundsPlayed)
         }
-        
-        self.currentProgress = progress()
     }
  
     var body: some View {
@@ -123,50 +121,52 @@ struct GameView: View {
                 // The player's stats
                 GameStats(icon: "person.fill", money: playerMoney, score: playerHighscore)
                 
-                HStack(spacing: 40.0) {
-                    if playerTurn && cardVM.getPlayerTotal() < 21 && cardVM.playerHand.count < 5 {
-                        Button {
-                            withAnimation(.easeInOut(duration: 0.5)) {
-                                cardVM.playerHit()
+                if playerTurn {
+                    HStack(spacing: 40.0) {
+                        if cardVM.getPlayerTotal() < 21 && cardVM.playerHand.count < 5 {
+                            Button {
+                                withAnimation(.easeInOut(duration: 0.5)) {
+                                    cardVM.playerHit()
+                                }
+                            } label: {
+                                Text("HIT")
+                                    .font(Font.custom("BeVietnamPro-Medium", size: 24))
+                                    .tracking(2.5)
+                                    .frame(width: 120, height: 24)
+                                    .modifier(TextModifier())
                             }
-                        } label: {
-                            Text("HIT")
-                                .font(Font.custom("BeVietnamPro-Medium", size: 24))
-                                .tracking(2.5)
-                                .frame(width: 120, height: 24)
-                                .modifier(TextModifier())
+                            .buttonStyle(CustomButton())
                         }
-                        .buttonStyle(CustomButton())
-                    }
-                    
-                    if playerTurn && cardVM.getPlayerTotal() >= 16 {
-                        Button {
-                            // If player tap this button, the action buttons (Hit and Stay) will dissappear
-                            withAnimation(.spring()) {
-                                playerTurn = false
+                        
+                        if cardVM.getPlayerTotal() >= 16 {
+                            Button {
+                                // If player tap this button, the action buttons (Hit and Stay) will dissappear
+                                withAnimation(.spring()) {
+                                    playerTurn = false
+                                }
+                                
+                                cardVM.dealerTurn()
+                                
+                                withAnimation(.spring()) {
+                                    showHandStatus = true
+                                }
+                                
+                                currentProgress = progress()
+                                // Wait 3 seconds before the process of checking result begins
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: currentProgress)
+                            } label: {
+                                Text("STAY")
+                                    .font(Font.custom("BeVietnamPro-Medium", size: 24))
+                                    .tracking(2.5)
+                                    .frame(width: 120, height: 24)
+                                    .modifier(TextModifier())
                             }
-                            
-                            cardVM.dealerTurn()
-                            
-                            withAnimation(.spring()) {
-                                showHandStatus = true
-                            }
-                            
-                            currentProgress = progress()
-                            // Wait 3 seconds before the process of checking result begins
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: currentProgress)
-                        } label: {
-                            Text("STAY")
-                                .font(Font.custom("BeVietnamPro-Medium", size: 24))
-                                .tracking(2.5)
-                                .frame(width: 120, height: 24)
-                                .modifier(TextModifier())
+                            .buttonStyle(CustomButton())
+                            .scaleEffect(playerTurn ? 1.0 : 0.0)
                         }
-                        .buttonStyle(CustomButton())
-                        .scaleEffect(playerTurn ? 1.0 : 0.0)
                     }
+                    .padding(.top, 5.0)
                 }
-                .padding(.top, 5.0)
             }
             .padding(.horizontal, 10.0)
             
@@ -182,18 +182,18 @@ struct GameView: View {
             .modifier(TextModifier())
             
             if showRegister {     // Show registration modal when user wants to register a username
-                RegistrationModal(userVM: userVM, dismiss: dismiss, showRegister: $showRegister, currentUser: $currentUser)
+                RegistrationModal(userVM: userVM, cardVM: cardVM, dismiss: dismiss, showRegister: $showRegister, currentUser: $currentUser)
             }
             
             if showRoundResult {
-                if gameResultStatus == .win {
-                    RoundResultModal(showRoundResult: $showRoundResult, playerTurn: $playerTurn, cardVM: cardVM, roundResult: roundResultStatus, money: bonusMoney)
+                if roundResultStatus == .win {
+                    RoundResultModal(showRoundResult: $showRoundResult, showHandStatus: $showHandStatus, playerTurn: $playerTurn, cardVM: cardVM, roundResult: roundResultStatus, money: bonusMoney)
                 }
-                else if gameResultStatus == .lose {
-                    RoundResultModal(showRoundResult: $showRoundResult, playerTurn: $playerTurn, cardVM: cardVM, roundResult: roundResultStatus, money: lostMoney)
+                else if roundResultStatus == .lose {
+                    RoundResultModal(showRoundResult: $showRoundResult, showHandStatus: $showHandStatus, playerTurn: $playerTurn, cardVM: cardVM, roundResult: roundResultStatus, money: lostMoney)
                 }
-                else if gameResultStatus == .tie {
-                    RoundResultModal(showRoundResult: $showRoundResult, playerTurn: $playerTurn, cardVM: cardVM, roundResult: roundResultStatus, money: 0)
+                else if roundResultStatus == .tie {
+                    RoundResultModal(showRoundResult: $showRoundResult, showHandStatus: $showHandStatus, playerTurn: $playerTurn, cardVM: cardVM, roundResult: roundResultStatus, money: 0)
                 }
             }
             

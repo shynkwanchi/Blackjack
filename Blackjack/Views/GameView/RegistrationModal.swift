@@ -14,6 +14,7 @@ import SwiftUI
 
 struct RegistrationModal: View {
     var userVM: UserViewModel
+    var cardVM: CardViewModel
     var dismiss: DismissAction
     @Binding var showRegister: Bool
     @Binding var currentUser: String
@@ -61,6 +62,7 @@ struct RegistrationModal: View {
                             currentUser = usernameInput.trimmingCharacters(in: .whitespacesAndNewlines)
                             userVM.addUser(newUser: User(username: currentUser, playerMoney: 1000, playerHighscore: 0, dealerMoney: 5000, dealerHighscore: 0, roundsPlayed: 1, roundsWon: 0, badge: .empty, joinDate: getDateAsString()))
                             self.showRegister = false
+                            cardVM.dealCards()
                         }
                     } label: {
                         Image(systemName: "checkmark")

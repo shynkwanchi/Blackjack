@@ -20,21 +20,23 @@ class CardViewModel: ObservableObject {
     @Published var playerHand: [Card] = []
     @Published var dealerHand: [Card] = []
     
-    init() {
+    func createCardDeck() {
         for suit in Suit.allCases {
             for rank in Rank.allCases {
                 deckOfCards.append(Card(suit: suit, rank: rank))
             }
         }
-        dealCards()
-        
-        print(deckOfCards)
-        print(playerHand)
-        print(dealerHand)
+        deckOfCards.shuffle()
     }
     
     func dealCards() {
-        deckOfCards.shuffle()
+        // Avoid duplicate the card deck
+        deckOfCards.removeAll()
+        
+        // Create a new card deck
+        createCardDeck()
+        
+        // Deal cards
         for _ in 1...2 {
             playerHand.append(deckOfCards.removeLast())
             dealerHand.append(deckOfCards.removeLast())
