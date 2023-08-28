@@ -58,7 +58,7 @@ final class UserViewModel: ObservableObject {
         }
     }
     
-    // Save user data from JSON file
+    // Load user data from JSON file
     func loadUsers() {
         do {
             let fileURL = try FileManager.default.url(for: .desktopDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
@@ -87,6 +87,16 @@ final class UserViewModel: ObservableObject {
         return User(username: "", playerMoney: 0, playerHighscore: -1, roundsPlayed: 0, roundsWon: -1, badge: .empty, joinDate: "")
     }
     
+    // Check if username already exists
+    func usernameExists(username: String) -> Bool {
+        for user in users {
+            if user.username == username {
+                return true
+            }
+        }
+        return false
+    }
+    
     // Update current user
     func updateCurrentUser(playerMoney: Int, playerHighScore: Int, dealerMoney: Int, dealerHighscore: Int, roundsPlayed: Int, roundsWon: Int, badge: Badge) {
         if !users.isEmpty {
@@ -96,7 +106,7 @@ final class UserViewModel: ObservableObject {
         }
     }
     
-    // Remove all users in UserDefault
+    // Remove all users
     func deleteUsers() {
         users.removeAll()
         saveUsers()

@@ -30,6 +30,9 @@ struct NavigationButton<Content: View>: View {
                 .frame(width: width)
         }
         .buttonStyle(CustomButton())
+        .onTapGesture(perform: {
+            playSound(sound: "blackjack-confirm-button", type: "mp3")
+        })
     }
 }
 

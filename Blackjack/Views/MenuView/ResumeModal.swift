@@ -14,16 +14,10 @@ import SwiftUI
 
 struct ResumeModal: View {
     var userVM: UserViewModel
+    var cardVM: CardViewModel
     @Binding var resume: Bool
     @Binding var difficulty: Difficulty
     @Binding var currentUser: String
-    
-    init(userVM: UserViewModel, difficulty: Binding<Difficulty>, resume: Binding<Bool>, currentUser: Binding<String>) {
-        self.userVM = userVM
-        self._difficulty = difficulty
-        self._resume = resume
-        self._currentUser = currentUser
-    }
     
     var body: some View {
         ZStack {
@@ -55,7 +49,7 @@ struct ResumeModal: View {
                     
                     Spacer()
                     
-                    NavigationLink(destination: GameView(userVM: UserViewModel(), difficulty: $difficulty, resume: $resume, currentUser: $currentUser).navigationBarBackButtonHidden(true)) {
+                    NavigationLink(destination: GameView(userVM: UserViewModel(), cardVM: cardVM, difficulty: $difficulty, resume: $resume, currentUser: $currentUser).navigationBarBackButtonHidden(true)) {
                         Text("CONTINUE")
                             .font(Font.custom("BeVietnamPro-Medium", size: 18))
                             .frame(height: 18)
@@ -72,6 +66,6 @@ struct ResumeModal: View {
 
 struct ContinueModal_Previews: PreviewProvider {
     static var previews: some View {
-        ResumeModal(userVM: UserViewModel(), difficulty: .constant(Difficulty.easy), resume: .constant(false), currentUser: .constant("Duy"))
+        ResumeModal(userVM: UserViewModel(), cardVM: CardViewModel(), resume: .constant(false), difficulty: .constant(Difficulty.easy), currentUser: .constant("Duy"))
     }
 }

@@ -79,6 +79,7 @@ struct SettingsView: View {
                             
                             Button {
                                 showReset = true
+                                playSound(sound: "blackjack-confirm-button", type: "mp3")
                             } label: {
                                 Text("RESET")
                                     .font(Font.custom("BeVietnamPro-Medium", size: 18))

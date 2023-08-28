@@ -160,24 +160,22 @@ func displayHandStatus(handOfCards: [Card]) -> String {
 // Check results
 func checkResult(cardVM: CardViewModel, userVM: UserViewModel, difficulty: Difficulty, playerMoney: inout Int, playerHighscore: inout Int, newBadge: inout Badge, dealerMoney: inout Int, dealerHighscore: inout Int, currentRounds: inout Int, roundsWon: inout Int, bonusMoney: inout Int, lostMoney: inout Int, roundResultStatus: inout ResultStatus, gameResultStatus: inout ResultStatus, showRoundResult: inout Bool, showGameResult: inout Bool, showAchievement: inout Bool) {
     roundResultStatus = cardVM.compareHands()
-    showRoundResult = true
-    
     bonusMoney = 100
     var playerBonusScore = cardVM.getPlayerTotal()
     let dealerBonusScore = cardVM.getDealerTotal()
     
     // Depend of difficulties, the level of bonus and penalty will be different
     if difficulty == Difficulty.easy {
-        lostMoney = -(bonusMoney / 2)
+        lostMoney = (bonusMoney / 2)
     }
     else if difficulty == .medium {
-        bonusMoney += 25
+        bonusMoney += 50
         lostMoney = bonusMoney
         playerBonusScore *= 2
     }
     else if difficulty == .hard {
-        bonusMoney += 50
-        lostMoney = bonusMoney + 50
+        bonusMoney *= 2
+        lostMoney = bonusMoney * 2
         playerBonusScore *= 3
     }
     
@@ -193,9 +191,6 @@ func checkResult(cardVM: CardViewModel, userVM: UserViewModel, difficulty: Diffi
         dealerMoney += bonusMoney
         dealerHighscore += dealerBonusScore
     }
-    
-    // After the current round ends, the next round will be proceeded
-    currentRounds += 1
     
     // Check player highscore to get new badge
     if playerHighscore >= 1000 {
@@ -229,5 +224,11 @@ func checkResult(cardVM: CardViewModel, userVM: UserViewModel, difficulty: Diffi
         dealerMoney = 0
         gameResultStatus = .win
         showGameResult = true
+    }
+    
+    // If the game result is displayed, no need to displayed round result as well as proceed to the next round
+    if !showGameResult {
+        showRoundResult = true
+        currentRounds += 1
     }
 }

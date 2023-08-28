@@ -40,6 +40,7 @@ struct UserRow: View {
             Button {
                 userVM.selectedUser = user
                 userVM.showUser.toggle()
+                playSound(sound: "blackjack-confirm-button", type: "mp3")
             } label: {
                 Image(systemName: "info.circle")
                     .frame(width: 24, height: 24)

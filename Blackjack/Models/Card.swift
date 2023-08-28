@@ -16,4 +16,12 @@ struct Card: Identifiable {
     var id = UUID()
     var suit: Suit
     var rank: Rank
+    var image: String
+    
+    init(id: UUID = UUID(), suit: Suit, rank: Rank) {
+        self.id = id
+        self.suit = suit
+        self.rank = rank
+        self.image = "\(self.suit.rawValue) \(self.rank.rawValue)"
+    }
 }

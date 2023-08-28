@@ -20,6 +20,10 @@ class CardViewModel: ObservableObject {
     @Published var playerHand: [Card] = []
     @Published var dealerHand: [Card] = []
     
+    init() {
+        dealCards()
+    }
+    
     func createCardDeck() {
         for suit in Suit.allCases {
             for rank in Rank.allCases {
@@ -30,8 +34,10 @@ class CardViewModel: ObservableObject {
     }
     
     func dealCards() {
-        // Avoid duplicate the card deck
+        // Clear the current deck along with player and dealer's hands
         deckOfCards.removeAll()
+        playerHand.removeAll()
+        dealerHand.removeAll()
         
         // Create a new card deck
         createCardDeck()
@@ -61,35 +67,38 @@ class CardViewModel: ObservableObject {
     }
     
     // Dealer's operation
-    // Function where dealer will decide if they want to draw more cards or stay
+    // Function where dealer will decide if they want to hit (draw more cards) or stay (stop drawing any cards)
     func dealerTurn() {
-        var currentDifference: Int = abs(21 - getDealerTotal())
         var tempHandOfCards: [Card] = dealerHand
         var tempDifference: Int = 0, tempTotal: Int = 0
         
         // Dealer can draw up to 3 cards
         for _ in 1...3 {
-            // Check if dealer has a blackjack or double ace
-            if currentDifference == 0 {
-                return
-            }
-            
-            if getDealerTotal() < 16 {
-                dealerHand.append(deckOfCards.removeLast())
-            }
-            else {
-                if let newCard = deckOfCards.last {
-                    tempHandOfCards.append(newCard)
-                }
-                tempTotal = getFlexibleHandTotal(handOfCards: tempHandOfCards)
-                tempDifference = abs(21 - tempTotal)
-                if (currentDifference > tempDifference) {
-                    currentDifference = tempDifference
+            // Check if dealer's total is 21 or more
+            if getDealerTotal() < 21 {
+                // If the dealer's total is not at least 16, they have to hit
+                if getDealerTotal() < 16 {
                     dealerHand.append(deckOfCards.removeLast())
+                    tempHandOfCards = dealerHand
                 }
+                // Otherwise, the can hit as long as the total is as close to 21 as possible
                 else {
-                    break
+                    if let newCard = deckOfCards.last {
+                        tempHandOfCards.append(newCard)
+                    }
+                    tempTotal = getFlexibleHandTotal(handOfCards: tempHandOfCards)
+                    tempDifference = 21 - tempTotal
+                    if (abs(21 - getDealerTotal()) > abs(tempDifference)) {
+                        dealerHand.append(deckOfCards.removeLast())
+                    }
+                    else {
+                        return
+                    }
                 }
+            }
+            // If so, the dealer stays
+            else {
+                return
             }
         }
     }

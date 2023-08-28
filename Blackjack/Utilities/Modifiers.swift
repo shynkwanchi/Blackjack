@@ -143,7 +143,10 @@ struct CustomToggle: ToggleStyle {
                         .offset(x: configuration.isOn ? 15 : -15, y: 0)
                         .animation(.spring(), value: configuration.isOn)
                 ).cornerRadius(20)
-                .onTapGesture { configuration.isOn.toggle() }
+                .onTapGesture {
+                    configuration.isOn.toggle()
+                    playSound(sound: "blackjack-confirm-button", type: "mp3")
+                }
         }
     }
 }
@@ -169,5 +172,16 @@ struct CustomTextField: TextFieldStyle {
             .padding(.all, 10)
             .background(Color("text-field"))
             .cornerRadius(10)
+    }
+}
+
+// Customize the flip view
+extension Image {
+    func flipViewModidifer(degree: Double) -> some View {
+        self
+            .resizable()
+            .scaledToFit()
+            .rotation3DEffect(.degrees(degree), axis: (x: 0, y: 1, z: 0))
+            .shadow(radius: 1, x: 2.5, y: 2.5)
     }
 }

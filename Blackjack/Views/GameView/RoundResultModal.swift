@@ -15,7 +15,8 @@ import SwiftUI
 struct RoundResultModal: View {
     @Binding var showRoundResult: Bool
     @Binding var showHandStatus: Bool
-    @Binding var playerTurn: Bool
+    @Binding var playerStay: Bool
+    @Binding var dealerStay: Bool
     var cardVM: CardViewModel
     var roundResult: ResultStatus
     var money: Int
@@ -53,10 +54,14 @@ struct RoundResultModal: View {
                 }
                 
                 Button {
-                    cardVM.dealCards()
-                    playerTurn = true
-                    showHandStatus = false
-                    showRoundResult = false
+                    withAnimation(.spring()) {
+                        cardVM.dealCards()
+                        // Reset to initial state
+                        playerStay = false
+                        dealerStay = false
+                        showHandStatus = false
+                        showRoundResult = false
+                    }
                 } label: {
                     Image(systemName: "forward.fill")
                         .iconModidifer()
@@ -72,6 +77,6 @@ struct RoundResultModal: View {
 
 struct RoundResultModal_Previews: PreviewProvider {
     static var previews: some View {
-        RoundResultModal(showRoundResult: .constant(true), showHandStatus: .constant(true), playerTurn: .constant(false), cardVM: CardViewModel(), roundResult: ResultStatus.win, money: 100)
+        RoundResultModal(showRoundResult: .constant(true), showHandStatus: .constant(true), playerStay: .constant(true), dealerStay: .constant(true),cardVM: CardViewModel(), roundResult: ResultStatus.win, money: 100)
     }
 }

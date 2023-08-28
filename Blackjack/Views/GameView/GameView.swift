@@ -15,7 +15,7 @@ import SwiftUI
 struct GameView: View {
     @Environment(\.dismiss) var dismiss
     private var userVM: UserViewModel
-    @StateObject private var cardVM: CardViewModel = CardViewModel()
+    private var cardVM: CardViewModel
     
     // Properties for game
     @Binding var difficulty: Difficulty
@@ -24,11 +24,12 @@ struct GameView: View {
     
     @State private var dealerMoney: Int = 5000
     @State private var dealerHighscore: Int = 0
+    @State private var dealerStay: Bool = false
     
-    @State private var playerTurn: Bool = true
     @State private var playerMoney: Int = 1000
     @State private var playerHighscore: Int = 0
     @State private var newBadge: Badge = .empty
+    @State private var playerStay: Bool = false
     
     @State private var showHandStatus: Bool = false
     @State private var currentRounds: Int = 1
@@ -50,8 +51,9 @@ struct GameView: View {
         }
     }
     
-    init(userVM: UserViewModel, difficulty: Binding<Difficulty>, resume: Binding<Bool>, currentUser: Binding<String>) {
+    init(userVM: UserViewModel, cardVM: CardViewModel, difficulty: Binding<Difficulty>, resume: Binding<Bool>, currentUser: Binding<String>) {
         self.userVM = userVM
+        self.cardVM = cardVM
         self._difficulty = difficulty
         self._resume = resume
         self._currentUser = currentUser
@@ -70,6 +72,8 @@ struct GameView: View {
             _dealerHighscore = State(initialValue: userVM.getCurrentUser().dealerHighscore)
             _currentRounds = State(initialValue: userVM.getCurrentUser().roundsPlayed)
         }
+        
+        self.currentProgress = progress()
     }
  
     var body: some View {
@@ -77,8 +81,10 @@ struct GameView: View {
             VStack{
                 HStack {
                     Button {
+                        playSound(sound: "blackjack-cancel-button", type: "mp3")
                         dismiss()
                         resume = true
+                        playSound(sound: "blackjack-menu-bgm", type: "mp3")
                     } label: {
                         Image(systemName: "arrowshape.backward.fill")
                             .iconModidifer()
@@ -105,7 +111,7 @@ struct GameView: View {
                 // Dealer's cards and outcome display
                 LazyVGrid(columns: Array(repeating: GridItem(.fixed(135), spacing: -90), count: cardVM.dealerHand.count)) {
                     ForEach(cardVM.dealerHand) { card in
-                        CardView(card: card, hand: .dealer)
+                        CardView(card: card, hand: .dealer, stayed: dealerStay)
                     }
                 }
                 
@@ -114,15 +120,15 @@ struct GameView: View {
                 // Player's cards and outcome display
                 LazyVGrid(columns: Array(repeating: GridItem(.fixed(135), spacing: -90), count: cardVM.playerHand.count)) {
                     ForEach(cardVM.playerHand) { card in
-                        CardView(card: card, hand: .player)
+                        CardView(card: card, hand: .player, stayed: playerStay)
                     }
                 }
                 
                 // The player's stats
                 GameStats(icon: "person.fill", money: playerMoney, score: playerHighscore)
                 
-                if playerTurn {
-                    HStack(spacing: 40.0) {
+                HStack(spacing: 40.0) {
+                    if !playerStay {
                         if cardVM.getPlayerTotal() < 21 && cardVM.playerHand.count < 5 {
                             Button {
                                 withAnimation(.easeInOut(duration: 0.5)) {
@@ -142,18 +148,21 @@ struct GameView: View {
                             Button {
                                 // If player tap this button, the action buttons (Hit and Stay) will dissappear
                                 withAnimation(.spring()) {
-                                    playerTurn = false
+                                    playerStay = true
+                                    cardVM.dealerTurn()
                                 }
                                 
-                                cardVM.dealerTurn()
+                                dealerStay = true
                                 
-                                withAnimation(.spring()) {
+                                withAnimation(.spring().delay(0.25)) {
                                     showHandStatus = true
                                 }
                                 
                                 currentProgress = progress()
                                 // Wait 3 seconds before the process of checking result begins
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: currentProgress)
+                                withAnimation(.spring()) {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: currentProgress)
+                                }
                             } label: {
                                 Text("STAY")
                                     .font(Font.custom("BeVietnamPro-Medium", size: 24))
@@ -162,11 +171,10 @@ struct GameView: View {
                                     .modifier(TextModifier())
                             }
                             .buttonStyle(CustomButton())
-                            .scaleEffect(playerTurn ? 1.0 : 0.0)
                         }
                     }
-                    .padding(.top, 5.0)
                 }
+                .padding(.top, 5.0)
             }
             .padding(.horizontal, 10.0)
             
@@ -187,25 +195,28 @@ struct GameView: View {
             
             if showRoundResult {
                 if roundResultStatus == .win {
-                    RoundResultModal(showRoundResult: $showRoundResult, showHandStatus: $showHandStatus, playerTurn: $playerTurn, cardVM: cardVM, roundResult: roundResultStatus, money: bonusMoney)
+                    RoundResultModal(showRoundResult: $showRoundResult, showHandStatus: $showHandStatus, playerStay: $playerStay, dealerStay: $dealerStay, cardVM: cardVM, roundResult: roundResultStatus, money: bonusMoney)
                 }
                 else if roundResultStatus == .lose {
-                    RoundResultModal(showRoundResult: $showRoundResult, showHandStatus: $showHandStatus, playerTurn: $playerTurn, cardVM: cardVM, roundResult: roundResultStatus, money: lostMoney)
+                    RoundResultModal(showRoundResult: $showRoundResult, showHandStatus: $showHandStatus, playerStay: $playerStay, dealerStay: $dealerStay, cardVM: cardVM, roundResult: roundResultStatus, money: lostMoney)
                 }
                 else if roundResultStatus == .tie {
-                    RoundResultModal(showRoundResult: $showRoundResult, showHandStatus: $showHandStatus, playerTurn: $playerTurn, cardVM: cardVM, roundResult: roundResultStatus, money: 0)
+                    RoundResultModal(showRoundResult: $showRoundResult, showHandStatus: $showHandStatus, playerStay: $playerStay, dealerStay: $dealerStay, cardVM: cardVM, roundResult: roundResultStatus, money: 0)
                 }
+            }
+            
+            if showGameResult {
+                GameResultModal(resume: $resume, cardVM: cardVM, dismiss: dismiss, gameResult: gameResultStatus, currentUser: userVM.getCurrentUser())
             }
             
             if showAchievement {
                 AchievementModal(showAchievement: $showAchievement, badge: newBadge)
             }
-            
-            if showGameResult {
-                GameResultModal(resume: $resume, dismiss: dismiss, gameResult: gameResultStatus, currentUser: userVM.getCurrentUser())
-            }
         }
         .background(Background())
+        .onAppear(perform: {
+            playSound(sound: "blackjack-ingame-bgm", type: "mp3")
+        })
     }
 }
 

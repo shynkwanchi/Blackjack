@@ -15,6 +15,7 @@ import SwiftUI
 struct CardView: View {
     var card: Card
     var hand: PlayerType
+    var stayed: Bool
     let duration: CGFloat = 0.25
     
     @State private var backDegree: Double = 0.0
@@ -32,19 +33,20 @@ struct CardView: View {
     }
     
     var body: some View {
-        ZStack {
-            Image("\(card.suit.rawValue) \(card.rank.rawValue)")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .rotation3DEffect(.degrees(frontDegree), axis: (x: 0, y: 1, z: 0))
-            Image("card-back")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .rotation3DEffect(.degrees(backDegree), axis: (x: 0, y: 1, z: 0))
-        }
-        .onTapGesture {
-            if hand == .player {
+        // If player / dealer stays, the card automatically flips
+        if stayed {
+            FlipView(frontView: card.image, backView: "card-back", frontDegree: $frontDegree, backDegree: $backDegree)
+            .onAppear {
                 flip(isFlipped: true)
+            }
+        }
+        // Otherwise, if the card belongs to the player, player can flip it with a tap
+        else {
+            FlipView(frontView: card.image, backView: "card-back", frontDegree: $frontDegree, backDegree: $backDegree)
+            .onTapGesture {
+                if hand == .player {
+                    flip(isFlipped: true)
+                }
             }
         }
     }
@@ -52,6 +54,6 @@ struct CardView: View {
 
 struct Card_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(card: Card(suit: .spade, rank: .ace), hand: .player)
+        CardView(card: Card(suit: .spade, rank: .ace), hand: .player, stayed: true)
     }
 }

@@ -14,6 +14,7 @@ import SwiftUI
 
 struct GameResultModal: View {
     @Binding var resume: Bool
+    var cardVM: CardViewModel
     var dismiss: DismissAction
     var gameResult: ResultStatus
     var currentUser: User
@@ -48,12 +49,14 @@ struct GameResultModal: View {
                     BadgeView(badge: currentUser.badge, size: 125)
                         .padding(.vertical)
                     
-                    StatItem(name: "NEW HIGHSCORE!", value: String(1021))
+                    StatItem(name: "Highscore", value: String(currentUser.playerHighscore))
                 }
                 .padding(/*@START_MENU_TOKEN@*/.vertical, 5.0/*@END_MENU_TOKEN@*/)
                 
                 // Exit button
                 Button {
+                    // Return to initial state
+                    cardVM.dealCards()
                     resume = false
                     dismiss()
                 } label: {

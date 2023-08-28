@@ -22,6 +22,7 @@ struct SegmentControl<T: CaseIterable & Identifiable & Hashable & CustomStringCo
                     withAnimation(Animation.spring()) {
                         self.option = option
                     }
+                    playSound(sound: "blackjack-confirm-button", type: "mp3")
                 } label: {
                     Text(option.description)
                         .modifier(TextModifier())

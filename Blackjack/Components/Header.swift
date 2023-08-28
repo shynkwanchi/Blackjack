@@ -20,6 +20,7 @@ struct Header: View {
     var body: some View {
         VStack {
             Button {
+                playSound(sound: "blackjack-cancel-button", type: "mp3")
                 dismiss()
             } label: {
                 Image(systemName: "arrowshape.backward.fill")

@@ -14,16 +14,11 @@ import SwiftUI
 
 struct MenuView: View {
     @EnvironmentObject var userVM: UserViewModel
-   
+    @StateObject private var cardVM: CardViewModel = CardViewModel()
     @AppStorage("currentUser") private var currentUser: String = ""     // This attribute is used to get the current user by username
     @AppStorage("resume") private var resume: Bool = false
     @AppStorage("appearance") private var appearance: Appearance = .light
     @AppStorage("difficulty") private var difficulty: Difficulty = .easy
-    
-    init() {
-        print(currentUser)
-        print(resume)
-    }
     
     var body: some View {
         NavigationView {
@@ -45,7 +40,7 @@ struct MenuView: View {
                     
                     Spacer()
                     VStack(alignment: .center) {
-                        NavigationButton(destinationView: GameView(userVM: userVM, difficulty: $difficulty, resume: $resume, currentUser: $currentUser), icon: "play.fill", width: 240)
+                        NavigationButton(destinationView: GameView(userVM: userVM, cardVM: cardVM, difficulty: $difficulty, resume: $resume, currentUser: $currentUser), icon: "play.fill", width: 240)
                             .padding(.vertical, 5)
                         
                         NavigationButton(destinationView: LeaderBoardView(userVM: userVM), icon: "trophy.fill", width: 240)
@@ -64,13 +59,16 @@ struct MenuView: View {
                 }
                 
                 if (resume) {
-                    ResumeModal(userVM: userVM, difficulty: $difficulty, resume: $resume, currentUser: $currentUser)
+                    ResumeModal(userVM: userVM, cardVM: cardVM, resume: $resume, difficulty: $difficulty, currentUser: $currentUser)
                 }
             }
             .background(Background())
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .preferredColorScheme(appearance == .light ? .light : appearance == .dark ? .dark : nil)
+        .onAppear(perform: {
+            playSound(sound: "blackjack-menu-bgm", type: "mp3")
+        })
     }
 }
 

@@ -40,7 +40,9 @@ struct RegistrationModal: View {
                 
                 HStack(spacing: 40.0) {
                     Button {
+                        playSound(sound: "blackjack-cancel-button", type: "mp3")
                         dismiss()
+                        playSound(sound: "blackjack-menu-bgm", type: "mp3")
                     } label: {
                         Image(systemName: "arrowshape.backward.fill")
                             .iconModidifer()
@@ -49,20 +51,22 @@ struct RegistrationModal: View {
                     .buttonStyle(CustomButton())
                     
                     Button {
-                        withAnimation {
-                            if (usernameInput.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty) {
+                        withAnimation(.spring()) {
+                            if usernameInput.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
                                 errorMesssage = "You can't leave this field empty!"
                                 showErrorMessage = true
-                                return
+                            }
+                            else if userVM.usernameExists(username: usernameInput.trimmingCharacters(in: .whitespacesAndNewlines)) {
+                                errorMesssage = "Username already exists!"
+                                showErrorMessage = true
                             }
                             else {
                                 showErrorMessage = false
+                                currentUser = usernameInput.trimmingCharacters(in: .whitespacesAndNewlines)
+                                userVM.addUser(newUser: User(username: currentUser, playerMoney: 1000, playerHighscore: 0, dealerMoney: 5000, dealerHighscore: 0, roundsPlayed: 1, roundsWon: 0, badge: .empty, joinDate: getDateAsString()))
+                                showRegister = false
+                                playSound(sound: "blackjack-confirm-button", type: "mp3")
                             }
-                            
-                            currentUser = usernameInput.trimmingCharacters(in: .whitespacesAndNewlines)
-                            userVM.addUser(newUser: User(username: currentUser, playerMoney: 1000, playerHighscore: 0, dealerMoney: 5000, dealerHighscore: 0, roundsPlayed: 1, roundsWon: 0, badge: .empty, joinDate: getDateAsString()))
-                            self.showRegister = false
-                            cardVM.dealCards()
                         }
                     } label: {
                         Image(systemName: "checkmark")
