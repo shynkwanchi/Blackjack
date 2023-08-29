@@ -81,10 +81,10 @@ struct GameView: View {
             VStack{
                 HStack {
                     Button {
-                        playSoundEffect(sound: "blackjack-cancel-button", type: "mp3")
                         dismiss()
                         resume = true
-                        playBackgroundMusic(sound: "blackjack-menu-bgm", type: "mp3")
+                        playSoundEffect(sound: "cancel-button", type: "mp3")
+                        playBackgroundMusic(sound: "menu-bgm", type: "mp3")
                     } label: {
                         Image(systemName: "arrowshape.backward.fill")
                             .iconModidifer()
