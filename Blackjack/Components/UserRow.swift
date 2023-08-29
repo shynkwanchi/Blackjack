@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 11/08/2023
-  Last modified: 20/08/2023
+  Last modified: 29/08/2023
   Acknowledgement: None
 */
 
@@ -40,7 +40,7 @@ struct UserRow: View {
             Button {
                 userVM.selectedUser = user
                 userVM.showUser.toggle()
-                playSound(sound: "blackjack-confirm-button", type: "mp3")
+                playSoundEffect(sound: "confirm-button", type: "mp3")
             } label: {
                 Image(systemName: "info.circle")
                     .frame(width: 24, height: 24)

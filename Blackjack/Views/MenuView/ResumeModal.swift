@@ -39,6 +39,7 @@ struct ResumeModal: View {
                 HStack() {
                     Button {
                         resume = false
+                        playSoundEffect(sound: "cancel-button", type: "mp3")
                     } label: {
                         Text("NEW GAME")
                             .font(Font.custom("BeVietnamPro-Medium", size: 18))
@@ -49,7 +50,7 @@ struct ResumeModal: View {
                     
                     Spacer()
                     
-                    NavigationLink(destination: GameView(userVM: UserViewModel(), cardVM: cardVM, difficulty: $difficulty, resume: $resume, currentUser: $currentUser).navigationBarBackButtonHidden(true)) {
+                    NavigationLink(destination: GameView(userVM: userVM, cardVM: cardVM, difficulty: $difficulty, resume: $resume, currentUser: $currentUser).navigationBarBackButtonHidden(true)) {
                         Text("CONTINUE")
                             .font(Font.custom("BeVietnamPro-Medium", size: 18))
                             .frame(height: 18)

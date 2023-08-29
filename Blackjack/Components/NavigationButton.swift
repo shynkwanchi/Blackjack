@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 13/08/2023
-  Last modified: 23/08/2023
+  Last modified: 29/08/2023
   Acknowledgement: Stack Overflow
 */
 
@@ -30,9 +30,6 @@ struct NavigationButton<Content: View>: View {
                 .frame(width: width)
         }
         .buttonStyle(CustomButton())
-        .onTapGesture(perform: {
-            playSound(sound: "blackjack-confirm-button", type: "mp3")
-        })
     }
 }
 

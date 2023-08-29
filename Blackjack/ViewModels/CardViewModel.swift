@@ -6,8 +6,8 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 21/08/2023
-  Last modified: To be updated
-  Acknowledgement: YouTube
+  Last modified: 28/08/2023
+  Acknowledgement: None
 */
 
 import Foundation
@@ -81,7 +81,7 @@ class CardViewModel: ObservableObject {
                     dealerHand.append(deckOfCards.removeLast())
                     tempHandOfCards = dealerHand
                 }
-                // Otherwise, the can hit as long as the total is as close to 21 as possible
+                // Otherwise, the dealer can hit so that the total is as close to 21 as possible
                 else {
                     if let newCard = deckOfCards.last {
                         tempHandOfCards.append(newCard)
@@ -115,7 +115,7 @@ class CardViewModel: ObservableObject {
         return displayHandStatus(handOfCards: dealerHand)
     }
     
-    // Compare the hands of player and dealer
+    // Compare the hands of player and dealer to determine the winner of the round
     func compareHands() -> ResultStatus {
         let playerHandStatus: HandStatus = evaluatePlayerHand()
         let dealerHandStatus: HandStatus = evaluateDealerHand()

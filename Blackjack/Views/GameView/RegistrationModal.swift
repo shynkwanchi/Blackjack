@@ -40,9 +40,9 @@ struct RegistrationModal: View {
                 
                 HStack(spacing: 40.0) {
                     Button {
-                        playSound(sound: "blackjack-cancel-button", type: "mp3")
                         dismiss()
-                        playSound(sound: "blackjack-menu-bgm", type: "mp3")
+                        playSoundEffect(sound: "cancel-button", type: "mp3")
+                        playBackgroundMusic(sound: "menu-bgm", type: "mp3")
                     } label: {
                         Image(systemName: "arrowshape.backward.fill")
                             .iconModidifer()
@@ -65,8 +65,8 @@ struct RegistrationModal: View {
                                 currentUser = usernameInput.trimmingCharacters(in: .whitespacesAndNewlines)
                                 userVM.addUser(newUser: User(username: currentUser, playerMoney: 1000, playerHighscore: 0, dealerMoney: 5000, dealerHighscore: 0, roundsPlayed: 1, roundsWon: 0, badge: .empty, joinDate: getDateAsString()))
                                 showRegister = false
-                                playSound(sound: "blackjack-confirm-button", type: "mp3")
                             }
+                            playSoundEffect(sound: "confirm-button", type: "mp3")
                         }
                     } label: {
                         Image(systemName: "checkmark")

@@ -37,7 +37,7 @@ struct ResetModal: View {
                 HStack(spacing: 40.0) {
                     Button {
                         showReset = false
-                        playSound(sound: "blackjack-cancel-button", type: "mp3")
+                        playSoundEffect(sound: "cancel-button", type: "mp3")
                         return
                     } label: {
                         Image(systemName: "xmark")
@@ -49,7 +49,7 @@ struct ResetModal: View {
                     Button {
                         userVM.deleteUsers()
                         showReset = false
-                        playSound(sound: "blackjack-confirm-button", type: "mp3")
+                        playSoundEffect(sound: "confirm-button", type: "mp3")
                         withAnimation(.spring().delay(0.25)) {
                             showSucess.toggle()
                         }

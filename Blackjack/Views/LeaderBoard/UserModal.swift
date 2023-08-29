@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 11/08/2023
-  Last modified: 20/08/2023
+  Last modified: 29/08/2023
   Acknowledgement: YouTube
 */
 
@@ -29,6 +29,7 @@ struct UserModal: View {
                         Button {
                             userVM.showUser.toggle()
                             userVM.selectedUser = nil
+                            playSoundEffect(sound: "cancel-button", type: "mp3")
                         } label: {
                             Image(systemName: "xmark")
                         }

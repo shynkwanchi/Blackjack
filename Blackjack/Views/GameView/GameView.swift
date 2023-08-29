@@ -81,10 +81,10 @@ struct GameView: View {
             VStack{
                 HStack {
                     Button {
-                        playSound(sound: "blackjack-cancel-button", type: "mp3")
+                        playSoundEffect(sound: "blackjack-cancel-button", type: "mp3")
                         dismiss()
                         resume = true
-                        playSound(sound: "blackjack-menu-bgm", type: "mp3")
+                        playBackgroundMusic(sound: "blackjack-menu-bgm", type: "mp3")
                     } label: {
                         Image(systemName: "arrowshape.backward.fill")
                             .iconModidifer()
@@ -133,6 +133,8 @@ struct GameView: View {
                             Button {
                                 withAnimation(.easeInOut(duration: 0.5)) {
                                     cardVM.playerHit()
+                                    playSoundEffect(sound: "confirm-button", type: "mp3")
+                                    playSecondSoundEffect(sound: "card-hit", type: "mp3")
                                 }
                             } label: {
                                 Text("HIT")
@@ -150,6 +152,7 @@ struct GameView: View {
                                 withAnimation(.spring()) {
                                     playerStay = true
                                     cardVM.dealerTurn()
+                                    playSoundEffect(sound: "confirm-button", type: "mp3")
                                 }
                                 
                                 dealerStay = true
@@ -215,7 +218,7 @@ struct GameView: View {
         }
         .background(Background())
         .onAppear(perform: {
-            playSound(sound: "blackjack-ingame-bgm", type: "mp3")
+            playBackgroundMusic(sound: "ingame-bgm", type: "mp3")
         })
     }
 }

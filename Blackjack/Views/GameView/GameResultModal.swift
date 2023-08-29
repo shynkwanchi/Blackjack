@@ -59,6 +59,8 @@ struct GameResultModal: View {
                     cardVM.dealCards()
                     resume = false
                     dismiss()
+                    playSoundEffect(sound: "confirm-button", type: "mp3")
+                    playBackgroundMusic(sound: "menu-bgm", type: "mp3")
                 } label: {
                     Image(systemName: "arrowshape.backward.fill")
                         .iconModidifer()

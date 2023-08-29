@@ -13,7 +13,7 @@
 		69058D382A8617CA007053BA /* UserRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69058D372A8617CA007053BA /* UserRow.swift */; };
 		69058D3A2A862C6E007053BA /* UserModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69058D392A862C6E007053BA /* UserModal.swift */; };
 		6913F0132A9C77E000A9372D /* FlipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6913F0122A9C77E000A9372D /* FlipView.swift */; };
-		6913F0152A9C994500A9372D /* PlaySounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6913F0142A9C994500A9372D /* PlaySounds.swift */; };
+		6913F0152A9C994500A9372D /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6913F0142A9C994500A9372D /* AudioPlayer.swift */; };
 		692DB8662A8B29E80066BE41 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692DB8652A8B29E80066BE41 /* BadgeView.swift */; };
 		692DB8682A8B2B9F0066BE41 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692DB8672A8B2B9F0066BE41 /* Badge.swift */; };
 		692DB86A2A8B42B70066BE41 /* SegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692DB8692A8B42B70066BE41 /* SegmentControl.swift */; };
@@ -52,17 +52,17 @@
 		69EAC64F2A8F6C590023FBE6 /* RegistrationModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69EAC64E2A8F6C590023FBE6 /* RegistrationModal.swift */; };
 		69EAC6512A8F6D170023FBE6 /* ResumeModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69EAC6502A8F6D170023FBE6 /* ResumeModal.swift */; };
 		69EAC6532A8F6D550023FBE6 /* ResetModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69EAC6522A8F6D550023FBE6 /* ResetModal.swift */; };
-		69F80AA42A985EBB00188408 /* blackjack-achievement.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 69F80A992A985EBA00188408 /* blackjack-achievement.mp3 */; };
-		69F80AA52A985EBB00188408 /* blackjack-round-lose.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 69F80A9A2A985EBA00188408 /* blackjack-round-lose.mp3 */; };
-		69F80AA62A985EBB00188408 /* blackjack-round-win.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 69F80A9B2A985EBA00188408 /* blackjack-round-win.mp3 */; };
-		69F80AA72A985EBB00188408 /* blackjack-ingame-bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 69F80A9C2A985EBA00188408 /* blackjack-ingame-bgm.mp3 */; };
-		69F80AA82A985EBB00188408 /* blackjack-card-flip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 69F80A9D2A985EBA00188408 /* blackjack-card-flip.mp3 */; };
-		69F80AA92A985EBB00188408 /* blackjack-cancel-button.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 69F80A9E2A985EBA00188408 /* blackjack-cancel-button.mp3 */; };
-		69F80AAA2A985EBB00188408 /* blackjack-confirm-button.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 69F80A9F2A985EBA00188408 /* blackjack-confirm-button.mp3 */; };
-		69F80AAB2A985EBB00188408 /* blackjack-menu-bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 69F80AA02A985EBA00188408 /* blackjack-menu-bgm.mp3 */; };
-		69F80AAC2A985EBB00188408 /* blackjack-cards.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 69F80AA12A985EBB00188408 /* blackjack-cards.mp3 */; };
-		69F80AAD2A985EBB00188408 /* blackjack-game-win.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 69F80AA22A985EBB00188408 /* blackjack-game-win.mp3 */; };
-		69F80AAE2A985EBB00188408 /* blackjack-game-lose.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 69F80AA32A985EBB00188408 /* blackjack-game-lose.mp3 */; };
+		69F80AA42A985EBB00188408 /* achievement.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 69F80A992A985EBA00188408 /* achievement.mp3 */; };
+		69F80AA52A985EBB00188408 /* round-lose.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 69F80A9A2A985EBA00188408 /* round-lose.mp3 */; };
+		69F80AA62A985EBB00188408 /* round-win.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 69F80A9B2A985EBA00188408 /* round-win.mp3 */; };
+		69F80AA72A985EBB00188408 /* ingame-bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 69F80A9C2A985EBA00188408 /* ingame-bgm.mp3 */; };
+		69F80AA82A985EBB00188408 /* card-flip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 69F80A9D2A985EBA00188408 /* card-flip.mp3 */; };
+		69F80AA92A985EBB00188408 /* cancel-button.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 69F80A9E2A985EBA00188408 /* cancel-button.mp3 */; };
+		69F80AAA2A985EBB00188408 /* confirm-button.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 69F80A9F2A985EBA00188408 /* confirm-button.mp3 */; };
+		69F80AAB2A985EBB00188408 /* menu-bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 69F80AA02A985EBA00188408 /* menu-bgm.mp3 */; };
+		69F80AAC2A985EBB00188408 /* card-hit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 69F80AA12A985EBB00188408 /* card-hit.mp3 */; };
+		69F80AAD2A985EBB00188408 /* game-win.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 69F80AA22A985EBB00188408 /* game-win.mp3 */; };
+		69F80AAE2A985EBB00188408 /* game-lose.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 69F80AA32A985EBB00188408 /* game-lose.mp3 */; };
 		69FB89452A99C8E900DFFF5B /* HandStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FB89442A99C8E900DFFF5B /* HandStatus.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,7 +73,7 @@
 		69058D372A8617CA007053BA /* UserRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRow.swift; sourceTree = "<group>"; };
 		69058D392A862C6E007053BA /* UserModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModal.swift; sourceTree = "<group>"; };
 		6913F0122A9C77E000A9372D /* FlipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipView.swift; sourceTree = "<group>"; };
-		6913F0142A9C994500A9372D /* PlaySounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySounds.swift; sourceTree = "<group>"; };
+		6913F0142A9C994500A9372D /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		692DB8652A8B29E80066BE41 /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
 		692DB8672A8B2B9F0066BE41 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		692DB8692A8B42B70066BE41 /* SegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControl.swift; sourceTree = "<group>"; };
@@ -114,17 +114,17 @@
 		69EAC64E2A8F6C590023FBE6 /* RegistrationModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModal.swift; sourceTree = "<group>"; };
 		69EAC6502A8F6D170023FBE6 /* ResumeModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeModal.swift; sourceTree = "<group>"; };
 		69EAC6522A8F6D550023FBE6 /* ResetModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetModal.swift; sourceTree = "<group>"; };
-		69F80A992A985EBA00188408 /* blackjack-achievement.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "blackjack-achievement.mp3"; sourceTree = "<group>"; };
-		69F80A9A2A985EBA00188408 /* blackjack-round-lose.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "blackjack-round-lose.mp3"; sourceTree = "<group>"; };
-		69F80A9B2A985EBA00188408 /* blackjack-round-win.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "blackjack-round-win.mp3"; sourceTree = "<group>"; };
-		69F80A9C2A985EBA00188408 /* blackjack-ingame-bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "blackjack-ingame-bgm.mp3"; sourceTree = "<group>"; };
-		69F80A9D2A985EBA00188408 /* blackjack-card-flip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "blackjack-card-flip.mp3"; sourceTree = "<group>"; };
-		69F80A9E2A985EBA00188408 /* blackjack-cancel-button.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "blackjack-cancel-button.mp3"; sourceTree = "<group>"; };
-		69F80A9F2A985EBA00188408 /* blackjack-confirm-button.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "blackjack-confirm-button.mp3"; sourceTree = "<group>"; };
-		69F80AA02A985EBA00188408 /* blackjack-menu-bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "blackjack-menu-bgm.mp3"; sourceTree = "<group>"; };
-		69F80AA12A985EBB00188408 /* blackjack-cards.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "blackjack-cards.mp3"; sourceTree = "<group>"; };
-		69F80AA22A985EBB00188408 /* blackjack-game-win.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "blackjack-game-win.mp3"; sourceTree = "<group>"; };
-		69F80AA32A985EBB00188408 /* blackjack-game-lose.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "blackjack-game-lose.mp3"; sourceTree = "<group>"; };
+		69F80A992A985EBA00188408 /* achievement.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = achievement.mp3; sourceTree = "<group>"; };
+		69F80A9A2A985EBA00188408 /* round-lose.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "round-lose.mp3"; sourceTree = "<group>"; };
+		69F80A9B2A985EBA00188408 /* round-win.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "round-win.mp3"; sourceTree = "<group>"; };
+		69F80A9C2A985EBA00188408 /* ingame-bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "ingame-bgm.mp3"; sourceTree = "<group>"; };
+		69F80A9D2A985EBA00188408 /* card-flip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "card-flip.mp3"; sourceTree = "<group>"; };
+		69F80A9E2A985EBA00188408 /* cancel-button.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "cancel-button.mp3"; sourceTree = "<group>"; };
+		69F80A9F2A985EBA00188408 /* confirm-button.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "confirm-button.mp3"; sourceTree = "<group>"; };
+		69F80AA02A985EBA00188408 /* menu-bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "menu-bgm.mp3"; sourceTree = "<group>"; };
+		69F80AA12A985EBB00188408 /* card-hit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "card-hit.mp3"; sourceTree = "<group>"; };
+		69F80AA22A985EBB00188408 /* game-win.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "game-win.mp3"; sourceTree = "<group>"; };
+		69F80AA32A985EBB00188408 /* game-lose.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "game-lose.mp3"; sourceTree = "<group>"; };
 		69FB89442A99C8E900DFFF5B /* HandStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandStatus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -143,7 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				69058D2E2A85EA8B007053BA /* Modifiers.swift */,
-				6913F0142A9C994500A9372D /* PlaySounds.swift */,
+				6913F0142A9C994500A9372D /* AudioPlayer.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -325,17 +325,17 @@
 		69F80A982A985E8A00188408 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				69F80AA02A985EBA00188408 /* blackjack-menu-bgm.mp3 */,
-				69F80A9E2A985EBA00188408 /* blackjack-cancel-button.mp3 */,
-				69F80A9D2A985EBA00188408 /* blackjack-card-flip.mp3 */,
-				69F80AA12A985EBB00188408 /* blackjack-cards.mp3 */,
-				69F80A9F2A985EBA00188408 /* blackjack-confirm-button.mp3 */,
-				69F80AA32A985EBB00188408 /* blackjack-game-lose.mp3 */,
-				69F80AA22A985EBB00188408 /* blackjack-game-win.mp3 */,
-				69F80A9C2A985EBA00188408 /* blackjack-ingame-bgm.mp3 */,
-				69F80A992A985EBA00188408 /* blackjack-achievement.mp3 */,
-				69F80A9A2A985EBA00188408 /* blackjack-round-lose.mp3 */,
-				69F80A9B2A985EBA00188408 /* blackjack-round-win.mp3 */,
+				69F80AA02A985EBA00188408 /* menu-bgm.mp3 */,
+				69F80A9E2A985EBA00188408 /* cancel-button.mp3 */,
+				69F80A9D2A985EBA00188408 /* card-flip.mp3 */,
+				69F80AA12A985EBB00188408 /* card-hit.mp3 */,
+				69F80A9F2A985EBA00188408 /* confirm-button.mp3 */,
+				69F80AA32A985EBB00188408 /* game-lose.mp3 */,
+				69F80AA22A985EBB00188408 /* game-win.mp3 */,
+				69F80A9C2A985EBA00188408 /* ingame-bgm.mp3 */,
+				69F80A992A985EBA00188408 /* achievement.mp3 */,
+				69F80A9A2A985EBA00188408 /* round-lose.mp3 */,
+				69F80A9B2A985EBA00188408 /* round-win.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -398,22 +398,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69F80AAB2A985EBB00188408 /* blackjack-menu-bgm.mp3 in Resources */,
-				69F80AAA2A985EBB00188408 /* blackjack-confirm-button.mp3 in Resources */,
-				69F80AAE2A985EBB00188408 /* blackjack-game-lose.mp3 in Resources */,
+				69F80AAB2A985EBB00188408 /* menu-bgm.mp3 in Resources */,
+				69F80AAA2A985EBB00188408 /* confirm-button.mp3 in Resources */,
+				69F80AAE2A985EBB00188408 /* game-lose.mp3 in Resources */,
 				693A4F1D2A833CA100E5AF22 /* Preview Assets.xcassets in Resources */,
 				69E32B562A91E1B300F24CF1 /* BeVietnamPro-Medium.ttf in Resources */,
-				69F80AA82A985EBB00188408 /* blackjack-card-flip.mp3 in Resources */,
-				69F80AA42A985EBB00188408 /* blackjack-achievement.mp3 in Resources */,
-				69F80AA62A985EBB00188408 /* blackjack-round-win.mp3 in Resources */,
-				69F80AAC2A985EBB00188408 /* blackjack-cards.mp3 in Resources */,
+				69F80AA82A985EBB00188408 /* card-flip.mp3 in Resources */,
+				69F80AA42A985EBB00188408 /* achievement.mp3 in Resources */,
+				69F80AA62A985EBB00188408 /* round-win.mp3 in Resources */,
+				69F80AAC2A985EBB00188408 /* card-hit.mp3 in Resources */,
 				693A4F1A2A833CA100E5AF22 /* Assets.xcassets in Resources */,
 				69E32B572A91E1B300F24CF1 /* BeVietnamPro-Light.ttf in Resources */,
-				69F80AA72A985EBB00188408 /* blackjack-ingame-bgm.mp3 in Resources */,
+				69F80AA72A985EBB00188408 /* ingame-bgm.mp3 in Resources */,
 				69E32B552A91E1B300F24CF1 /* BeVietnamPro-Bold.ttf in Resources */,
-				69F80AAD2A985EBB00188408 /* blackjack-game-win.mp3 in Resources */,
-				69F80AA52A985EBB00188408 /* blackjack-round-lose.mp3 in Resources */,
-				69F80AA92A985EBB00188408 /* blackjack-cancel-button.mp3 in Resources */,
+				69F80AAD2A985EBB00188408 /* game-win.mp3 in Resources */,
+				69F80AA52A985EBB00188408 /* round-lose.mp3 in Resources */,
+				69F80AA92A985EBB00188408 /* cancel-button.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,7 +457,7 @@
 				69821C222A95B11A0084771D /* GameLogic.swift in Sources */,
 				69821C242A95FC7D0084771D /* SuccessModal.swift in Sources */,
 				69058D322A85FEAB007053BA /* User.swift in Sources */,
-				6913F0152A9C994500A9372D /* PlaySounds.swift in Sources */,
+				6913F0152A9C994500A9372D /* AudioPlayer.swift in Sources */,
 				693A4F3F2A83725700E5AF22 /* GameStats.swift in Sources */,
 				69E20F732A8CA072001F3009 /* Appearance.swift in Sources */,
 				693A4F372A8364A600E5AF22 /* GameView.swift in Sources */,

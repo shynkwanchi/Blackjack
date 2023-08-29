@@ -16,10 +16,10 @@ struct SettingsView: View {
     var userVM: UserViewModel
     
     @Binding var appearance: Appearance
-    @State var isSoundOn: Bool = true
+    @Binding var difficulty: Difficulty
     @State var showReset: Bool = false
     @State private var showSuccess: Bool = false
-    @Binding var difficulty: Difficulty
+    
     
     init(userVM: UserViewModel, appearance: Binding<Appearance>, difficulty: Binding<Difficulty>) {
         self.userVM = userVM
@@ -46,14 +46,7 @@ struct SettingsView: View {
                         Divider()
                             .background(Color.accentColor)
                         
-                        // Sound options
-                        Toggle(isOn: $isSoundOn, label: {
-                            Text("Sounds")
-                                .font(Font.custom("BeVietnamPro-Medium", size: 20))
-                                .modifier(TextModifier())
-                        })
-                        .toggleStyle(CustomToggle())
-                        .padding(.vertical, 20)
+                        
                         
                         Divider()
                             .background(Color.accentColor)
@@ -79,7 +72,7 @@ struct SettingsView: View {
                             
                             Button {
                                 showReset = true
-                                playSound(sound: "blackjack-confirm-button", type: "mp3")
+                                playSoundEffect(sound: "confirm-button", type: "mp3")
                             } label: {
                                 Text("RESET")
                                     .font(Font.custom("BeVietnamPro-Medium", size: 18))

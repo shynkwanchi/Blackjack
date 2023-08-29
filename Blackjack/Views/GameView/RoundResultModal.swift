@@ -55,12 +55,13 @@ struct RoundResultModal: View {
                 
                 Button {
                     withAnimation(.spring()) {
-                        cardVM.dealCards()
                         // Reset to initial state
+                        cardVM.dealCards()
                         playerStay = false
                         dealerStay = false
                         showHandStatus = false
                         showRoundResult = false
+                        playSoundEffect(sound: "confirm-button", type: "mp3")
                     }
                 } label: {
                     Image(systemName: "forward.fill")

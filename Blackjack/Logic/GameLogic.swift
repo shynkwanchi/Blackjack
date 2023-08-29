@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 23/08/2023
-  Last modified: To be updated
+  Last modified: 29/08/2023
   Acknowledgement: None
 */
 
@@ -185,11 +185,13 @@ func checkResult(cardVM: CardViewModel, userVM: UserViewModel, difficulty: Diffi
         playerHighscore += playerBonusScore
         dealerMoney -= bonusMoney
         roundsWon += 1
+        playAnnouncement(sound: "round-win", type: "mp3")
     }
     else if roundResultStatus == .lose {
         playerMoney -= lostMoney
         dealerMoney += bonusMoney
         dealerHighscore += dealerBonusScore
+        playAnnouncement(sound: "round-lose", type: "mp3")
     }
     
     // Check player highscore to get new badge
@@ -209,6 +211,7 @@ func checkResult(cardVM: CardViewModel, userVM: UserViewModel, difficulty: Diffi
     // Check if the user get a new badge
     if userVM.getCurrentUser().badge != newBadge {
         showAchievement = true
+        playSoundEffect(sound: "achievement", type: "mp3")
     }
     
     // Update current user
@@ -219,11 +222,15 @@ func checkResult(cardVM: CardViewModel, userVM: UserViewModel, difficulty: Diffi
         playerMoney = 0
         gameResultStatus = .lose
         showGameResult = true
+        stopPlayingSounds()
+        playAnnouncement(sound: "game-lose", type: "mp3")
     }
     else if (dealerMoney <= 0) {
         dealerMoney = 0
         gameResultStatus = .win
         showGameResult = true
+        stopPlayingSounds()
+        playAnnouncement(sound: "game-win", type: "mp3")
     }
     
     // If the game result is displayed, no need to displayed round result as well as proceed to the next round

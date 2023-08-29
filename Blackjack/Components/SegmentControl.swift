@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 15/08/2023
-  Last modified: 20/08/2023
+  Last modified: 29/08/2023
   Acknowledgement: YouTube, Stack Overflow
 */
 
@@ -22,7 +22,7 @@ struct SegmentControl<T: CaseIterable & Identifiable & Hashable & CustomStringCo
                     withAnimation(Animation.spring()) {
                         self.option = option
                     }
-                    playSound(sound: "blackjack-confirm-button", type: "mp3")
+                    playSoundEffect(sound: "confirm-button", type: "mp3")
                 } label: {
                     Text(option.description)
                         .modifier(TextModifier())

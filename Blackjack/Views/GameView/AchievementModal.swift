@@ -48,6 +48,7 @@ struct AchievementModal: View {
                 
                 Button {
                     showAchievement = false
+                    playSoundEffect(sound: "confirm-button", type: "mp3")
                 } label: {
                     Image(systemName: "checkmark")
                         .iconModidifer()

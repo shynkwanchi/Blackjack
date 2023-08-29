@@ -7,7 +7,7 @@
   ID: 3877991
   Created  date: 09/08/2023
   Last modified: To be updated
-  Acknowledgement: Stack Overflow
+  Acknowledgement: None
 */
 
 import SwiftUI
@@ -67,7 +67,7 @@ struct MenuView: View {
         .navigationViewStyle(StackNavigationViewStyle())
         .preferredColorScheme(appearance == .light ? .light : appearance == .dark ? .dark : nil)
         .onAppear(perform: {
-            playSound(sound: "blackjack-menu-bgm", type: "mp3")
+            playBackgroundMusic(sound: "menu-bgm", type: "mp3")
         })
     }
 }

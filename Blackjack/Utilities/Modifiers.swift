@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 11/08/2023
-  Last modified: To be added
+  Last modified: 29/08/2023
   Acknowledgement: Hacking with Swift, Stack Overflow
 */
 
@@ -145,7 +145,7 @@ struct CustomToggle: ToggleStyle {
                 ).cornerRadius(20)
                 .onTapGesture {
                     configuration.isOn.toggle()
-                    playSound(sound: "blackjack-confirm-button", type: "mp3")
+                    playSoundEffect(sound: "confirm-button", type: "mp3")
                 }
         }
     }

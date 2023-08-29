@@ -21,6 +21,9 @@ struct CardView: View {
     @State private var backDegree: Double = 0.0
     @State private var frontDegree: Double = -90.0
     
+    // Avoid playing card flip sound effect more than twice
+    @State private var numberOfFlips: Int = 0
+    
     func flip(isFlipped: Bool) {
         if isFlipped {
             withAnimation(.linear(duration: duration)) {
@@ -28,6 +31,11 @@ struct CardView: View {
             }
             withAnimation(.linear(duration: duration).delay(duration)) {
                 frontDegree = 0
+            }
+            
+            numberOfFlips += 1
+            if numberOfFlips == 1 {
+                playSecondSoundEffect(sound: "card-flip", type: "mp3")
             }
         }
     }

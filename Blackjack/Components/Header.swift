@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 09/08/2023
-  Last modified: 20/08/2023
+  Last modified: 29/08/2023
   Acknowledgement: None
 */
 
@@ -20,7 +20,7 @@ struct Header: View {
     var body: some View {
         VStack {
             Button {
-                playSound(sound: "blackjack-cancel-button", type: "mp3")
+                playSoundEffect(sound: "cancel-button", type: "mp3")
                 dismiss()
             } label: {
                 Image(systemName: "arrowshape.backward.fill")
