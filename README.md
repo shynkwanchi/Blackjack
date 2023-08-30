@@ -23,15 +23,16 @@
 ## 🔮 Live Demo (Animation GIF)
 <table align="center">
    <tr>
-       <td align="center">Main features</td>
-       <td align="center">Resume the progress</td>
-       <td align="center">Dark mode segment control</td>
-
+       <td align="center">Easy mode + Achievement</td>
+       <td align="center">Hard mode + Game result</td>
+       <td align="center">Save and resume</td>
+       <td align="center">Theme setting</td>
    </tr>
    <tr>
-       <td align="center"><image width="240" src="./Screenshots/main-features-demo.gif"></td>
-       <td align="center"><image width="240" src="./Screenshots/resume-the-progress-demo.gif"></td>
-       <td align="center"><image width="240" src="./Screenshots/dark-mode-segment-control-demo.gif"></td>
+       <td align="center"><image width="240" src="./Screenshots/easy-mode-demo.gif"></td>
+       <td align="center"><image width="240" src="./Screenshots/hard-mode-demo.gif"></td>
+       <td align="center"><image width="240" src="./Screenshots/save-and-resume-demo.gif"></td>
+       <td align="center"><image width="240" src="./Screenshots/theme-setting-demo.gif"></td>
    </tr>
 </table>
 
