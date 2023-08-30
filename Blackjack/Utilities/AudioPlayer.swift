@@ -17,6 +17,7 @@ var secondSoundEffectPlayer: AVAudioPlayer?
 var announcementPlayer: AVAudioPlayer?
 var backgroundMusicPlayer: AVAudioPlayer?
 
+// This function is used to play sound effects of user actions such as button tap
 func playSoundEffect(sound: String, type: String) {
     if let path = Bundle.main.path(forResource: sound, ofType: type) {
         do {
@@ -29,6 +30,7 @@ func playSoundEffect(sound: String, type: String) {
     }
 }
 
+// This extra function is implemented to avoid stopping playing current sound effects
 func playSecondSoundEffect(sound: String, type: String) {
     if let path = Bundle.main.path(forResource: sound, ofType: type) {
         do {
@@ -41,6 +43,7 @@ func playSecondSoundEffect(sound: String, type: String) {
     }
 }
 
+// This function is used to play announcement sound effects such as game result and round result
 func playAnnouncement(sound: String, type: String) {
     if let path = Bundle.main.path(forResource: sound, ofType: type) {
         do {

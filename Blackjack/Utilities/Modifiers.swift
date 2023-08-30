@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 11/08/2023
-  Last modified: 29/08/2023
+  Last modified: 30/08/2023
   Acknowledgement: Hacking with Swift, Stack Overflow
 */
 
@@ -166,7 +166,6 @@ struct SectionModifier: ViewModifier {
 struct CustomTextField: TextFieldStyle {
     func _body(configuration: TextField<Self._Label>) -> some View {
         configuration
-            .foregroundColor(.black)
             .font(Font.custom("BeVietnamPro-Light", size: 18))
             .multilineTextAlignment(.center)
             .padding(.all, 10)

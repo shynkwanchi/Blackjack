@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 09/08/2023
-  Last modified: To be updated
+  Last modified: 30/08/2023
   Acknowledgement: None
 */
 
@@ -79,6 +79,7 @@ struct GameView: View {
     var body: some View {
         ZStack {
             VStack{
+                // The header view
                 HStack {
                     Button {
                         dismiss()
@@ -104,11 +105,11 @@ struct GameView: View {
                 }
                 .padding(.bottom, 5.0)
                 
-                // The opponent's stats
+                // The dealer's stats
                 GameStats(icon: "laptopcomputer", money: dealerMoney, score: dealerHighscore)
                 
                 
-                // Dealer's cards and outcome display
+                // Dealer's cards display
                 LazyVGrid(columns: Array(repeating: GridItem(.fixed(135), spacing: -90), count: cardVM.dealerHand.count)) {
                     ForEach(cardVM.dealerHand) { card in
                         CardView(card: card, hand: .dealer, stayed: dealerStay)
@@ -117,7 +118,7 @@ struct GameView: View {
                 
                 Spacer()
                 
-                // Player's cards and outcome display
+                // Player's cards display
                 LazyVGrid(columns: Array(repeating: GridItem(.fixed(135), spacing: -90), count: cardVM.playerHand.count)) {
                     ForEach(cardVM.playerHand) { card in
                         CardView(card: card, hand: .player, stayed: playerStay)
@@ -149,15 +150,11 @@ struct GameView: View {
                         if cardVM.getPlayerTotal() >= 16 {
                             Button {
                                 // If player tap this button, the action buttons (Hit and Stay) will dissappear
-                                withAnimation(.spring()) {
-                                    playerStay = true
-                                    cardVM.dealerTurn()
-                                    playSoundEffect(sound: "confirm-button", type: "mp3")
-                                }
-                                
+                                playerStay = true
+                                cardVM.dealerTurn()
                                 dealerStay = true
                                 
-                                withAnimation(.spring().delay(0.25)) {
+                                withAnimation(.spring().delay(0.5)) {
                                     showHandStatus = true
                                 }
                                 
@@ -166,6 +163,8 @@ struct GameView: View {
                                 withAnimation(.spring()) {
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: currentProgress)
                                 }
+                                
+                                playSoundEffect(sound: "confirm-button", type: "mp3")
                             } label: {
                                 Text("STAY")
                                     .font(Font.custom("BeVietnamPro-Medium", size: 24))
@@ -181,6 +180,7 @@ struct GameView: View {
             }
             .padding(.horizontal, 10.0)
             
+            // Display the status of player and dealer's hand of cards.
             VStack {
                 Text(cardVM.displayDealerHandStatus())
                     .offset(y: -5)
@@ -192,10 +192,12 @@ struct GameView: View {
             .font(Font.custom("BeVietnamPro-Bold", size: 30))
             .modifier(TextModifier())
             
-            if showRegister {     // Show registration modal when user wants to register a username
+            // Show registration modal when user wants to register a username
+            if showRegister {
                 RegistrationModal(userVM: userVM, cardVM: cardVM, dismiss: dismiss, showRegister: $showRegister, currentUser: $currentUser)
             }
             
+            // Display round result modal
             if showRoundResult {
                 if roundResultStatus == .win {
                     RoundResultModal(showRoundResult: $showRoundResult, showHandStatus: $showHandStatus, playerStay: $playerStay, dealerStay: $dealerStay, cardVM: cardVM, roundResult: roundResultStatus, money: bonusMoney)
@@ -208,10 +210,12 @@ struct GameView: View {
                 }
             }
             
+            // Display game result modal
             if showGameResult {
                 GameResultModal(resume: $resume, cardVM: cardVM, dismiss: dismiss, gameResult: gameResultStatus, currentUser: userVM.getCurrentUser())
             }
             
+            // Display achievement modal
             if showAchievement {
                 AchievementModal(showAchievement: $showAchievement, badge: newBadge)
             }

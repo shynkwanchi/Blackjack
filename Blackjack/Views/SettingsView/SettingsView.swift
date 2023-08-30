@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 09/08/2023
-  Last modified: To be updated
+  Last modified: 30/08/2023
   Acknowledgement: None
 */
 
@@ -14,7 +14,6 @@ import SwiftUI
 
 struct SettingsView: View {
     var userVM: UserViewModel
-    
     @Binding var appearance: Appearance
     @Binding var difficulty: Difficulty
     @State var showReset: Bool = false
@@ -36,7 +35,7 @@ struct SettingsView: View {
                     VStack(spacing: 0) {
                         // Display options
                         VStack(alignment: .leading) {
-                            Text("Appearances")
+                            Text("Appearance")
                                 .font(Font.custom("BeVietnamPro-Medium", size: 20))
                                 .modifier(TextModifier())
                             SegmentControl(option: $appearance)
@@ -46,17 +45,28 @@ struct SettingsView: View {
                         Divider()
                             .background(Color.accentColor)
                         
-                        
-                        
-                        Divider()
-                            .background(Color.accentColor)
-                        
                         // Difficulty options
                         VStack(alignment: .leading) {
-                            Text("Difficulties")
+                            Text("Difficulty")
                                 .font(Font.custom("BeVietnamPro-Medium", size: 20))
                                 .modifier(TextModifier())
                             SegmentControl(option: $difficulty)
+                            
+                            // Difficulty description
+                            Group {
+                                if difficulty == .easy {
+                                    Text("Win: gain $100.\nLose: lose $50.")
+                                }
+                                else if difficulty == .medium {
+                                    Text("Win: gain $150, double total score of your cards.\nLose: lose $150.")
+                                }
+                                else if difficulty == .hard {
+                                    Text("Win: gain $200, triple total score of your cards.\nLose: lose $400.")
+                                }
+                            }
+                            .font(Font.custom("BeVietnamPro-Light", size: 18))
+                            .modifier(TextModifier())
+                            .frame(maxWidth: .infinity)
                         }
                         .padding(.vertical, 20)
                         
@@ -89,10 +99,12 @@ struct SettingsView: View {
                 }
             }
             
+            // Show the reset warning modal
             if showReset {
                 ResetModal(userVM: userVM, showReset: $showReset, showSuccess: $showSuccess)
             }
             
+            // If users confirm reset the leaderboard, the Success modal will appear in a short amount of time
             if showSuccess {
                 SuccessModal()
                 .onAppear{

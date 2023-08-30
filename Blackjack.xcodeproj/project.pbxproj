@@ -14,6 +14,12 @@
 		69058D3A2A862C6E007053BA /* UserModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69058D392A862C6E007053BA /* UserModal.swift */; };
 		6913F0132A9C77E000A9372D /* FlipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6913F0122A9C77E000A9372D /* FlipView.swift */; };
 		6913F0152A9C994500A9372D /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6913F0142A9C994500A9372D /* AudioPlayer.swift */; };
+		691EDBAA2A9F2CE800B11E9C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 691EDBA92A9F2CE800B11E9C /* README.md */; };
+		691EDBB12A9F357500B11E9C /* settings-view.png in Resources */ = {isa = PBXBuildFile; fileRef = 691EDBAC2A9F357500B11E9C /* settings-view.png */; };
+		691EDBB22A9F357500B11E9C /* game-view.png in Resources */ = {isa = PBXBuildFile; fileRef = 691EDBAD2A9F357500B11E9C /* game-view.png */; };
+		691EDBB32A9F357500B11E9C /* app-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 691EDBAE2A9F357500B11E9C /* app-icon.png */; };
+		691EDBB42A9F357500B11E9C /* how-to-play-view.png in Resources */ = {isa = PBXBuildFile; fileRef = 691EDBAF2A9F357500B11E9C /* how-to-play-view.png */; };
+		691EDBB52A9F357500B11E9C /* menu-view.png in Resources */ = {isa = PBXBuildFile; fileRef = 691EDBB02A9F357500B11E9C /* menu-view.png */; };
 		692DB8662A8B29E80066BE41 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692DB8652A8B29E80066BE41 /* BadgeView.swift */; };
 		692DB8682A8B2B9F0066BE41 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692DB8672A8B2B9F0066BE41 /* Badge.swift */; };
 		692DB86A2A8B42B70066BE41 /* SegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692DB8692A8B42B70066BE41 /* SegmentControl.swift */; };
@@ -74,6 +80,12 @@
 		69058D392A862C6E007053BA /* UserModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModal.swift; sourceTree = "<group>"; };
 		6913F0122A9C77E000A9372D /* FlipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipView.swift; sourceTree = "<group>"; };
 		6913F0142A9C994500A9372D /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		691EDBA92A9F2CE800B11E9C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		691EDBAC2A9F357500B11E9C /* settings-view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-view.png"; sourceTree = "<group>"; };
+		691EDBAD2A9F357500B11E9C /* game-view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "game-view.png"; sourceTree = "<group>"; };
+		691EDBAE2A9F357500B11E9C /* app-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon.png"; sourceTree = "<group>"; };
+		691EDBAF2A9F357500B11E9C /* how-to-play-view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "how-to-play-view.png"; sourceTree = "<group>"; };
+		691EDBB02A9F357500B11E9C /* menu-view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-view.png"; sourceTree = "<group>"; };
 		692DB8652A8B29E80066BE41 /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
 		692DB8672A8B2B9F0066BE41 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		692DB8692A8B42B70066BE41 /* SegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControl.swift; sourceTree = "<group>"; };
@@ -181,10 +193,24 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
+		691EDBAB2A9F355F00B11E9C /* Screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				691EDBAE2A9F357500B11E9C /* app-icon.png */,
+				691EDBAD2A9F357500B11E9C /* game-view.png */,
+				691EDBAF2A9F357500B11E9C /* how-to-play-view.png */,
+				691EDBB02A9F357500B11E9C /* menu-view.png */,
+				691EDBAC2A9F357500B11E9C /* settings-view.png */,
+			);
+			path = Screenshots;
+			sourceTree = "<group>";
+		};
 		693A4F092A833CA000E5AF22 = {
 			isa = PBXGroup;
 			children = (
+				691EDBAB2A9F355F00B11E9C /* Screenshots */,
 				693A4F142A833CA000E5AF22 /* Blackjack */,
+				691EDBA92A9F2CE800B11E9C /* README.md */,
 				693A4F132A833CA000E5AF22 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -382,6 +408,7 @@
 			knownRegions = (
 				en,
 				Base,
+				vi,
 			);
 			mainGroup = 693A4F092A833CA000E5AF22;
 			productRefGroup = 693A4F132A833CA000E5AF22 /* Products */;
@@ -399,6 +426,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69F80AAB2A985EBB00188408 /* menu-bgm.mp3 in Resources */,
+				691EDBB22A9F357500B11E9C /* game-view.png in Resources */,
 				69F80AAA2A985EBB00188408 /* confirm-button.mp3 in Resources */,
 				69F80AAE2A985EBB00188408 /* game-lose.mp3 in Resources */,
 				693A4F1D2A833CA100E5AF22 /* Preview Assets.xcassets in Resources */,
@@ -409,10 +437,15 @@
 				69F80AAC2A985EBB00188408 /* card-hit.mp3 in Resources */,
 				693A4F1A2A833CA100E5AF22 /* Assets.xcassets in Resources */,
 				69E32B572A91E1B300F24CF1 /* BeVietnamPro-Light.ttf in Resources */,
+				691EDBAA2A9F2CE800B11E9C /* README.md in Resources */,
 				69F80AA72A985EBB00188408 /* ingame-bgm.mp3 in Resources */,
 				69E32B552A91E1B300F24CF1 /* BeVietnamPro-Bold.ttf in Resources */,
+				691EDBB52A9F357500B11E9C /* menu-view.png in Resources */,
 				69F80AAD2A985EBB00188408 /* game-win.mp3 in Resources */,
+				691EDBB42A9F357500B11E9C /* how-to-play-view.png in Resources */,
+				691EDBB12A9F357500B11E9C /* settings-view.png in Resources */,
 				69F80AA52A985EBB00188408 /* round-lose.mp3 in Resources */,
+				691EDBB32A9F357500B11E9C /* app-icon.png in Resources */,
 				69F80AA92A985EBB00188408 /* cancel-button.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,6 +508,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -535,6 +569,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

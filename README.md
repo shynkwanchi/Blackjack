@@ -26,13 +26,12 @@
        <td align="center">Main features</td>
        <td align="center">Resume the progress</td>
        <td align="center">Dark mode segment control</td>
-       <td align="center">Language support</td>
+
    </tr>
    <tr>
-       <td align="center"><image width="200" src="./Screenshots/main-features-demo.gif"></td>
-       <td align="center"><image width="200" src="./Screenshots/resume-the-progress-demo.gif"></td>
-       <td align="center"><image width="200" src="./Screenshots/dark-mode-segment-control-demo.gif"></td>
-       <td align="center"><image width="200" src="./Screenshots/language-support-demo.gif"></td>
+       <td align="center"><image width="240" src="./Screenshots/main-features-demo.gif"></td>
+       <td align="center"><image width="240" src="./Screenshots/resume-the-progress-demo.gif"></td>
+       <td align="center"><image width="240" src="./Screenshots/dark-mode-segment-control-demo.gif"></td>
    </tr>
 </table>
 

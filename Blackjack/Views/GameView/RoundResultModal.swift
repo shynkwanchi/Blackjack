@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 18/08/2023
-  Last modified: To be updated
+  Last modified: 30/08/2023
   Acknowledgement: None
 */
 
@@ -54,15 +54,13 @@ struct RoundResultModal: View {
                 }
                 
                 Button {
-                    withAnimation(.spring()) {
-                        // Reset to initial state
-                        cardVM.dealCards()
-                        playerStay = false
-                        dealerStay = false
-                        showHandStatus = false
-                        showRoundResult = false
-                        playSoundEffect(sound: "confirm-button", type: "mp3")
-                    }
+                    // Reset to initial state
+                    cardVM.dealCards()
+                    playerStay = false
+                    dealerStay = false
+                    showHandStatus = false
+                    showRoundResult = false
+                    playSoundEffect(sound: "confirm-button", type: "mp3")
                 } label: {
                     Image(systemName: "forward.fill")
                         .iconModidifer()

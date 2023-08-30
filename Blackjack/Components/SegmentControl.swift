@@ -17,7 +17,7 @@ struct SegmentControl<T: CaseIterable & Identifiable & Hashable & CustomStringCo
     
     var body: some View {
         HStack(spacing: 0) {
-            ForEach (Array(T.allCases)) { option in
+            ForEach(Array(T.allCases)) { option in
                 Button {
                     withAnimation(Animation.spring()) {
                         self.option = option

@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 16/08/2023
-  Last modified: To be updated
+  Last modified: 30/08/2023
   Acknowledgement: None
 */
 
@@ -34,7 +34,7 @@ struct HowToPlayView: View {
                         title: "Scoring",
                         textParagraphs: [
                             "The cards with different rank has different scores:\n+ Ranks 2-10 have the same score as its rank.\n+ Ranks J, Q, K have 10 points.\n+ Rank A has flexible score depending on the current total score of the cards, which can be 1, 10 or 11.",
-                            "Based on the number of handed cards and their total scores, there are 5 cases:\n+ Double Ace: two cards with category A.\n+ Blackjack: two cards, one with category A and one with 10 points (10, J, Q, K).\n+ Magic Five: five cards with total score at most 21.\n+ Regular: total score between 16 and 21.\n+ Bust: total score over 21."
+                            "Based on the number of handed cards and their total scores, there are 5 hand status:\n+ Double Ace: two cards with category A.\n+ Blackjack: two cards, one with category A and one with 10 points (10, J, Q, K).\n+ Magic Five: five cards with total score at most 21.\n+ Regular: total score between 16 and 21.\n+ Bust: total score over 21."
                         ]
                     )
                     
@@ -64,30 +64,30 @@ struct HowToPlayView: View {
                             .font(Font.custom("BeVietnamPro-Medium", size: 20))
                         
                         Group {
-                            Text("1. During the game, if you reach a certain milestone score, you will achieve a badge.")
+                            Text("1. During the game, if you reach a certain score, you will achieve a badge.")
                                 
                             Divider()
                                 .background(Color.accentColor)
-                            Text("2. Depending on your current score, you will achieve different badges.")
+                            Text("2. Depending on your current highscore, you will achieve different badges.")
                             
                             HStack {
                                 BadgeView(badge: .novice, size: 40)
-                                Text("Novice badge - reach 250 points.")
+                                Text("Novice badge - reach 100 points.")
                             }
                             
                             HStack {
                                 BadgeView(badge: .expert, size: 40)
-                                Text("Expert badge - reach 500 points.")
+                                Text("Expert badge - reach 250 points.")
                             }
                             
                             HStack {
                                 BadgeView(badge: .master, size: 40)
-                                Text("Master badge - reach 1000 points.")
+                                Text("Master badge - reach 500 points.")
                             }
                             
                             HStack {
                                 BadgeView(badge: .legend, size: 40)
-                                Text("Legend badge - reach 2500 points.")
+                                Text("Legend badge - reach 1000 points.")
                             }
                         }
                         .font(Font.custom("BeVietnamPro-Light", size: 15))
