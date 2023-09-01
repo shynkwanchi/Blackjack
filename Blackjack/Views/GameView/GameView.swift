@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 09/08/2023
-  Last modified: 30/08/2023
+  Last modified: 01/09/2023
   Acknowledgement: None
 */
 
@@ -20,7 +20,6 @@ struct GameView: View {
     // Properties for game
     @Binding var difficulty: Difficulty
     @Binding var resume: Bool
-    @Binding var currentUser: String
     
     @State private var dealerMoney: Int = 5000
     @State private var dealerHighscore: Int = 0
@@ -51,12 +50,11 @@ struct GameView: View {
         }
     }
     
-    init(userVM: UserViewModel, cardVM: CardViewModel, difficulty: Binding<Difficulty>, resume: Binding<Bool>, currentUser: Binding<String>) {
+    init(userVM: UserViewModel, cardVM: CardViewModel, difficulty: Binding<Difficulty>, resume: Binding<Bool>) {
         self.userVM = userVM
         self.cardVM = cardVM
         self._difficulty = difficulty
         self._resume = resume
-        self._currentUser = currentUser
         
         if self.resume {
             _showRegister = State(initialValue: false)
@@ -194,7 +192,7 @@ struct GameView: View {
             
             // Show registration modal when user wants to register a username
             if showRegister {
-                RegistrationModal(userVM: userVM, cardVM: cardVM, dismiss: dismiss, showRegister: $showRegister, currentUser: $currentUser)
+                RegistrationModal(userVM: userVM, cardVM: cardVM, dismiss: dismiss, showRegister: $showRegister)
             }
             
             // Display round result modal

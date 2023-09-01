@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 23/08/2023
-  Last modified: 29/08/2023
+  Last modified: 01/09/2023
   Acknowledgement: None
 */
 
@@ -233,7 +233,7 @@ func checkResult(cardVM: CardViewModel, userVM: UserViewModel, difficulty: Diffi
         playAnnouncement(sound: "game-win", type: "mp3")
     }
     
-    // If the game result is displayed, no need to displayed round result as well as proceed to the next round
+    // If the game result is displayed, no need to display round result as well as proceed to the next round
     if !showGameResult {
         showRoundResult = true
         currentRounds += 1

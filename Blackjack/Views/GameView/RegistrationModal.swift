@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 18/08/2023
-  Last modified: 30/08/2023
+  Last modified: 01/09/2023
   Acknowledgement: None
 */
 
@@ -17,7 +17,6 @@ struct RegistrationModal: View {
     var cardVM: CardViewModel
     var dismiss: DismissAction
     @Binding var showRegister: Bool
-    @Binding var currentUser: String
     @State var usernameInput: String = ""
     @State var errorMesssage: String = ""
     @State var showErrorMessage: Bool = false
@@ -62,8 +61,7 @@ struct RegistrationModal: View {
                             }
                             else {
                                 showErrorMessage = false
-                                currentUser = usernameInput.trimmingCharacters(in: .whitespacesAndNewlines)
-                                userVM.addUser(newUser: User(username: currentUser, playerMoney: 1000, playerHighscore: 0, dealerMoney: 5000, dealerHighscore: 0, roundsPlayed: 1, roundsWon: 0, badge: .empty, joinDate: getDateAsString()))
+                                userVM.addUser(newUser: User(username: usernameInput.trimmingCharacters(in: .whitespacesAndNewlines), playerMoney: 1000, playerHighscore: 0, dealerMoney: 5000, dealerHighscore: 0, roundsPlayed: 1, roundsWon: 0, badge: .empty, joinDate: getDateAsString()))
                                 showRegister = false
                             }
                             playSoundEffect(sound: "confirm-button", type: "mp3")

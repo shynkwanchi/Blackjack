@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 09/08/2023
-  Last modified: 30/08/2023
+  Last modified: 01/09/2023
   Acknowledgement: None
 */
 
@@ -15,7 +15,6 @@ import SwiftUI
 struct MenuView: View {
     @EnvironmentObject var userVM: UserViewModel
     @StateObject private var cardVM: CardViewModel = CardViewModel()
-    @AppStorage("currentUser") private var currentUser: String = ""     // This attribute is used to get the current user by username
     @AppStorage("resume") private var resume: Bool = false
     @AppStorage("appearance") private var appearance: Appearance = .light
     @AppStorage("difficulty") private var difficulty: Difficulty = .easy
@@ -40,7 +39,7 @@ struct MenuView: View {
                     
                     Spacer()
                     VStack(alignment: .center) {
-                        NavigationButton(destinationView: GameView(userVM: userVM, cardVM: cardVM, difficulty: $difficulty, resume: $resume, currentUser: $currentUser), icon: "play.fill", width: 240)
+                        NavigationButton(destinationView: GameView(userVM: userVM, cardVM: cardVM, difficulty: $difficulty, resume: $resume), icon: "play.fill", width: 240)
                             .padding(.vertical, 5)
                         
                         NavigationButton(destinationView: LeaderBoardView(userVM: userVM), icon: "trophy.fill", width: 240)
@@ -59,7 +58,7 @@ struct MenuView: View {
                 }
                 
                 if (resume) {
-                    ResumeModal(userVM: userVM, cardVM: cardVM, resume: $resume, difficulty: $difficulty, currentUser: $currentUser)
+                    ResumeModal(userVM: userVM, cardVM: cardVM, resume: $resume, difficulty: $difficulty)
                 }
             }
             .background(Background())

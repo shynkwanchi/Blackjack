@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 20/08/2023
-  Last modified: 30/08/2023
+  Last modified: 01/09/2023
   Acknowledgement: None
 */
 
@@ -17,12 +17,11 @@ struct ResumeModal: View {
     var cardVM: CardViewModel
     @Binding var resume: Bool
     @Binding var difficulty: Difficulty
-    @Binding var currentUser: String
     
     var body: some View {
         ZStack {
             VStack (spacing: 10.0) {
-                Text("Continue as \(currentUser)?")
+                Text("Continue as \(userVM.getCurrentUser())?")
                     .font(Font.custom("BeVietnamPro-Medium", size: 24))
                     .multilineTextAlignment(.center)
                 
@@ -50,7 +49,7 @@ struct ResumeModal: View {
                     
                     Spacer()
                     
-                    NavigationLink(destination: GameView(userVM: userVM, cardVM: cardVM, difficulty: $difficulty, resume: $resume, currentUser: $currentUser).navigationBarBackButtonHidden(true)) {
+                    NavigationLink(destination: GameView(userVM: userVM, cardVM: cardVM, difficulty: $difficulty, resume: $resume).navigationBarBackButtonHidden(true)) {
                         Text("CONTINUE")
                             .font(Font.custom("BeVietnamPro-Medium", size: 18))
                             .frame(height: 18)
@@ -67,6 +66,6 @@ struct ResumeModal: View {
 
 struct ContinueModal_Previews: PreviewProvider {
     static var previews: some View {
-        ResumeModal(userVM: UserViewModel(), cardVM: CardViewModel(), resume: .constant(false), difficulty: .constant(Difficulty.easy), currentUser: .constant("Duy"))
+        ResumeModal(userVM: UserViewModel(), cardVM: CardViewModel(), resume: .constant(false), difficulty: .constant(Difficulty.easy))
     }
 }
