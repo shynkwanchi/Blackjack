@@ -34,12 +34,12 @@ struct HowToPlayView: View {
                         title: "Scoring",
                         textParagraphs: [
                             "The cards with different rank has different scores:\n+ Ranks 2-10 have the same score as its rank.\n+ Ranks J, Q, K have 10 points.\n+ Rank A has flexible score depending on the current total score of the cards, which can be 1, 10 or 11.",
-                            "Based on the number of handed cards and their total scores, there are 5 hand status:\n+ Double Ace: two cards with category A.\n+ Blackjack: two cards, one with category A and one with 10 points (10, J, Q, K).\n+ Magic Five: five cards with total score at most 21.\n+ Regular: total score between 16 and 21.\n+ Bust: total score over 21."
+                            "Based on the number of cards in a hand and their total scores, there are 5 hand status:\n+ Double Ace: two cards with rank A.\n+ Blackjack: two cards, one with rank A and one with 10 points (10, J, Q, K).\n+ Magic Five: five cards with total score at most 21.\n+ Normal: total score between 16 and 21.\n+ Bust: total score over 21."
                         ]
                     )
                     
                     InformationSection(
-                        title: "Hand comparison",
+                        title: "Hand status comparison",
                         textParagraphs: [
                             "Bust < Normal < Magic Five < Blackjack < Double Ace.",
                             "If both you and the dealer have a Bust, it is considered a tie.",
