@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 09/08/2023
-  Last modified: 01/09/2023
+  Last modified: 03/09/2023
   Acknowledgement: None
 */
 
@@ -145,7 +145,7 @@ struct GameView: View {
                             .buttonStyle(CustomButton())
                         }
                         
-                        if cardVM.getPlayerTotal() >= 16 {
+                        if cardVM.getPlayerTotal() >= 16 || cardVM.playerHand.count = 5 {
                             Button {
                                 // If player tap this button, the action buttons (Hit and Stay) will dissappear
                                 playerStay = true
