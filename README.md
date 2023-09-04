@@ -2,12 +2,12 @@
 <div align="center">
    <image width="125" src="./Blackjack/Assets.xcassets/AppIcon.appiconset/app-icon.png">
 </div>
-<p align="center">""</p>
+<p align="center">"The more you play, the more you win."</p>
 
 
 ## 📖 Description
 - This is an iOS application insprired from "Xì Dách", one of the most popular card games in Vietnam.
-- 
+- The goal is simple, try to get the total of your cards is as close to 21 as possible without exceeding it and beat the dealer.
 
 
 <div align="center">
@@ -29,10 +29,10 @@
        <td align="center">Theme setting</td>
    </tr>
    <tr>
-       <td align="center"><image width="240" src="./Screenshots/easy-mode-demo.gif"></td>
-       <td align="center"><image width="240" src="./Screenshots/hard-mode-demo.gif"></td>
-       <td align="center"><image width="240" src="./Screenshots/save-and-resume-demo.gif"></td>
-       <td align="center"><image width="240" src="./Screenshots/theme-setting-demo.gif"></td>
+       <td align="center"><image width="225" src="./Screenshots/easy-mode-demo.gif"></td>
+       <td align="center"><image width="225" src="./Screenshots/hard-mode-demo.gif"></td>
+       <td align="center"><image width="225" src="./Screenshots/save-and-resume-demo.gif"></td>
+       <td align="center"><image width="225" src="./Screenshots/theme-setting-demo.gif"></td>
    </tr>
 </table>
 
