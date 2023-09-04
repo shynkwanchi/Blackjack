@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 11/08/2023
-  Last modified: 30/08/2023
+  Last modified: 04/09/2023
   Acknowledgement: Hacking with Swift, Stack Overflow
 */
 
@@ -34,7 +34,7 @@ struct ModalButton: ButtonStyle {
     }
 }
 
-// Customize the text inside the button
+// Customize the text style
 struct TextModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
@@ -123,31 +123,6 @@ extension Image {
             .scaledToFit()
             .frame(width: size, height: size)
             .shadow(radius: 1, x: 2.5, y: 2.5)
-    }
-}
-
-// Customize the toggle button
-struct CustomToggle: ToggleStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        HStack {
-            configuration.label
-            Spacer()
-            Rectangle()
-                .foregroundColor(configuration.isOn ? Color("button") : Color("inactive-toggle"))
-                .frame(width: 70, height: 40, alignment: .center)
-                .animation(.easeInOut(duration: 0.25), value: configuration.isOn)
-                .overlay(
-                    Circle()
-                        .foregroundColor(.white)
-                        .padding(.all, 4)
-                        .offset(x: configuration.isOn ? 15 : -15, y: 0)
-                        .animation(.spring(), value: configuration.isOn)
-                ).cornerRadius(20)
-                .onTapGesture {
-                    configuration.isOn.toggle()
-                    playSoundEffect(sound: "confirm-button", type: "mp3")
-                }
-        }
     }
 }
 
