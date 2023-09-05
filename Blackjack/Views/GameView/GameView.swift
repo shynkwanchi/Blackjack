@@ -231,7 +231,13 @@ struct GameView: View {
                 currentProgress.cancel()
                 
                 if !showRegister {
-                    resume = true
+                    // If the game result modal view appears, the progress will be stopped
+                    if showGameResult {
+                        resume = false
+                    }
+                    else {
+                        resume = true
+                    }
                 }
                 
                 stopPlayingSounds()

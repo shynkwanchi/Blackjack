@@ -14,6 +14,7 @@
 		69058D3A2A862C6E007053BA /* UserModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69058D392A862C6E007053BA /* UserModal.swift */; };
 		6913F0132A9C77E000A9372D /* FlipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6913F0122A9C77E000A9372D /* FlipView.swift */; };
 		6913F0152A9C994500A9372D /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6913F0142A9C994500A9372D /* AudioPlayer.swift */; };
+		691531E32AA70922002C9AEE /* leaderboard-view.png in Resources */ = {isa = PBXBuildFile; fileRef = 691531E22AA70922002C9AEE /* leaderboard-view.png */; };
 		691EDBAA2A9F2CE800B11E9C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 691EDBA92A9F2CE800B11E9C /* README.md */; };
 		691EDBB12A9F357500B11E9C /* settings-view.png in Resources */ = {isa = PBXBuildFile; fileRef = 691EDBAC2A9F357500B11E9C /* settings-view.png */; };
 		691EDBB22A9F357500B11E9C /* game-view.png in Resources */ = {isa = PBXBuildFile; fileRef = 691EDBAD2A9F357500B11E9C /* game-view.png */; };
@@ -80,6 +81,7 @@
 		69058D392A862C6E007053BA /* UserModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModal.swift; sourceTree = "<group>"; };
 		6913F0122A9C77E000A9372D /* FlipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipView.swift; sourceTree = "<group>"; };
 		6913F0142A9C994500A9372D /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		691531E22AA70922002C9AEE /* leaderboard-view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "leaderboard-view.png"; sourceTree = "<group>"; };
 		691EDBA92A9F2CE800B11E9C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		691EDBAC2A9F357500B11E9C /* settings-view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-view.png"; sourceTree = "<group>"; };
 		691EDBAD2A9F357500B11E9C /* game-view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "game-view.png"; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				691EDBAE2A9F357500B11E9C /* app-icon.png */,
 				691EDBAD2A9F357500B11E9C /* game-view.png */,
 				691EDBAF2A9F357500B11E9C /* how-to-play-view.png */,
+				691531E22AA70922002C9AEE /* leaderboard-view.png */,
 				691EDBB02A9F357500B11E9C /* menu-view.png */,
 				691EDBAC2A9F357500B11E9C /* settings-view.png */,
 			);
@@ -437,6 +440,7 @@
 				69F80AAC2A985EBB00188408 /* card-hit.mp3 in Resources */,
 				693A4F1A2A833CA100E5AF22 /* Assets.xcassets in Resources */,
 				69E32B572A91E1B300F24CF1 /* BeVietnamPro-Light.ttf in Resources */,
+				691531E32AA70922002C9AEE /* leaderboard-view.png in Resources */,
 				691EDBAA2A9F2CE800B11E9C /* README.md in Resources */,
 				69F80AA72A985EBB00188408 /* ingame-bgm.mp3 in Resources */,
 				69E32B552A91E1B300F24CF1 /* BeVietnamPro-Bold.ttf in Resources */,
