@@ -7,7 +7,7 @@
   ID: 3877991
   Created  date: 09/08/2023
   Last modified: 05/09/2023
-  Acknowledgement: None
+  Acknowledgement: Hacking with Swift
 */
 
 import SwiftUI

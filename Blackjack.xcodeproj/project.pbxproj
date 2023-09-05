@@ -15,6 +15,7 @@
 		6913F0132A9C77E000A9372D /* FlipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6913F0122A9C77E000A9372D /* FlipView.swift */; };
 		6913F0152A9C994500A9372D /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6913F0142A9C994500A9372D /* AudioPlayer.swift */; };
 		691531E32AA70922002C9AEE /* leaderboard-view.png in Resources */ = {isa = PBXBuildFile; fileRef = 691531E22AA70922002C9AEE /* leaderboard-view.png */; };
+		691531E52AA73867002C9AEE /* document.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 691531E42AA73867002C9AEE /* document.pdf */; };
 		691EDBAA2A9F2CE800B11E9C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 691EDBA92A9F2CE800B11E9C /* README.md */; };
 		691EDBB12A9F357500B11E9C /* settings-view.png in Resources */ = {isa = PBXBuildFile; fileRef = 691EDBAC2A9F357500B11E9C /* settings-view.png */; };
 		691EDBB22A9F357500B11E9C /* game-view.png in Resources */ = {isa = PBXBuildFile; fileRef = 691EDBAD2A9F357500B11E9C /* game-view.png */; };
@@ -82,6 +83,7 @@
 		6913F0122A9C77E000A9372D /* FlipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipView.swift; sourceTree = "<group>"; };
 		6913F0142A9C994500A9372D /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		691531E22AA70922002C9AEE /* leaderboard-view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "leaderboard-view.png"; sourceTree = "<group>"; };
+		691531E42AA73867002C9AEE /* document.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = document.pdf; sourceTree = "<group>"; };
 		691EDBA92A9F2CE800B11E9C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		691EDBAC2A9F357500B11E9C /* settings-view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-view.png"; sourceTree = "<group>"; };
 		691EDBAD2A9F357500B11E9C /* game-view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "game-view.png"; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				691EDBAB2A9F355F00B11E9C /* Screenshots */,
 				693A4F142A833CA000E5AF22 /* Blackjack */,
 				691EDBA92A9F2CE800B11E9C /* README.md */,
+				691531E42AA73867002C9AEE /* document.pdf */,
 				693A4F132A833CA000E5AF22 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 				69F80AAB2A985EBB00188408 /* menu-bgm.mp3 in Resources */,
 				691EDBB22A9F357500B11E9C /* game-view.png in Resources */,
 				69F80AAA2A985EBB00188408 /* confirm-button.mp3 in Resources */,
+				691531E52AA73867002C9AEE /* document.pdf in Resources */,
 				69F80AAE2A985EBB00188408 /* game-lose.mp3 in Resources */,
 				693A4F1D2A833CA100E5AF22 /* Preview Assets.xcassets in Resources */,
 				69E32B562A91E1B300F24CF1 /* BeVietnamPro-Medium.ttf in Resources */,

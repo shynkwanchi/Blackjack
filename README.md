@@ -25,6 +25,7 @@ Please click on one of the links below to access and view the full demo.
 - [YouTube](https://youtu.be/1Z47H_7TUr8)
 - [Google Drive](https://drive.google.com/file/d/1LQYpMmVofr0KstxvNiic3PUmdAJCv5_O/view?usp=sharing) (for backup purpose).
 
+<strong>Note:</strong> Blackjack got features like background music and sound effects, so for the best experience, it is recommended to play on physical iPhone or iPad.
 
 ## 🔧 Build Information
 - Xcode 14.3.1
