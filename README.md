@@ -20,23 +20,10 @@
 </div>
 
 
-## 🔮 Live Demo (Animation GIF)
-<table align="center">
-   <tr>
-       <td align="center">Easy mode + Achievement</td>
-       <td align="center">Hard mode + Game result</td>
-       <td align="center">Save and resume</td>
-       <td align="center">Theme setting</td>
-   </tr>
-   <tr>
-       <td align="center"><image width="225" src="./Screenshots/easy-mode-demo.gif"></td>
-       <td align="center"><image width="225" src="./Screenshots/hard-mode-demo.gif"></td>
-       <td align="center"><image width="225" src="./Screenshots/save-and-resume-demo.gif"></td>
-       <td align="center"><image width="225" src="./Screenshots/theme-setting-demo.gif"></td>
-   </tr>
-</table>
-
-Note: Blackjack got features like background music and sound effects, so for the best experience, it is recommended to play on actual physical devices such as iPhone and iPad!
+## 🔮 Live Demo (Video)
+Please click on one of the links below to access and view the full demo.
+- [YouTube](https://youtu.be/1Z47H_7TUr8)
+- [Google Drive](https://drive.google.com/file/d/1LQYpMmVofr0KstxvNiic3PUmdAJCv5_O/view?usp=sharing) (for backup purpose).
 
 
 ## 🔧 Build Information
