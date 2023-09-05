@@ -6,14 +6,15 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 09/08/2023
-  Last modified: 03/09/2023
-  Acknowledgement: None
+  Last modified: 05/09/2023
+  Acknowledgement: Hacking with Swift
 */
 
 import SwiftUI
 
 struct GameView: View {
     @Environment(\.dismiss) var dismiss
+    @Environment(\.scenePhase) var scenePhase
     private var userVM: UserViewModel
     private var cardVM: CardViewModel
     
@@ -145,7 +146,7 @@ struct GameView: View {
                             .buttonStyle(CustomButton())
                         }
                         
-                        if cardVM.getPlayerTotal() >= 16 || cardVM.playerHand.count = 5 {
+                        if cardVM.getPlayerTotal() >= 16 || cardVM.playerHand.count == 5 {
                             Button {
                                 // If player tap this button, the action buttons (Hit and Stay) will dissappear
                                 playerStay = true
@@ -222,6 +223,20 @@ struct GameView: View {
         .onAppear(perform: {
             playBackgroundMusic(sound: "ingame-bgm", type: "mp3")
         })
+        .onChange(of: scenePhase) { newPhase in
+            if newPhase == .active {
+                playBackgroundMusic(sound: "ingame-bgm", type: "mp3")
+            }
+            else if newPhase == .inactive || newPhase == .background {
+                currentProgress.cancel()
+                
+                if !showRegister {
+                    resume = true
+                }
+                
+                stopPlayingSounds()
+            }
+        }
     }
 }
 

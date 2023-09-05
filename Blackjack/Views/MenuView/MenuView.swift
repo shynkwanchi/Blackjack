@@ -6,15 +6,18 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 09/08/2023
-  Last modified: 01/09/2023
+  Last modified: 05/09/2023
   Acknowledgement: None
 */
 
 import SwiftUI
 
 struct MenuView: View {
+    @Environment(\.scenePhase) var scenePhase
+    
     @EnvironmentObject var userVM: UserViewModel
     @StateObject private var cardVM: CardViewModel = CardViewModel()
+    
     @AppStorage("resume") private var resume: Bool = false
     @AppStorage("appearance") private var appearance: Appearance = .light
     @AppStorage("difficulty") private var difficulty: Difficulty = .easy
@@ -68,6 +71,14 @@ struct MenuView: View {
         .onAppear(perform: {
             playBackgroundMusic(sound: "menu-bgm", type: "mp3")
         })
+        .onChange(of: scenePhase) { newPhase in
+            if newPhase == .active {
+                playBackgroundMusic(sound: "menu-bgm", type: "mp3")
+            }
+            else if newPhase == .inactive || newPhase == .background {
+                stopPlayingSounds()
+            }
+        }
     }
 }
 

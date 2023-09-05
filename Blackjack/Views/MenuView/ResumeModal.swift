@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 20/08/2023
-  Last modified: 01/09/2023
+  Last modified: 05/09/2023
   Acknowledgement: None
 */
 
@@ -21,7 +21,7 @@ struct ResumeModal: View {
     var body: some View {
         ZStack {
             VStack (spacing: 10.0) {
-                Text("Continue as \(userVM.getCurrentUser())?")
+                Text("Continue as \(userVM.getCurrentUser().username)?")
                     .font(Font.custom("BeVietnamPro-Medium", size: 24))
                     .multilineTextAlignment(.center)
                 

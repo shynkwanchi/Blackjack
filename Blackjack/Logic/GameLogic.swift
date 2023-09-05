@@ -6,7 +6,7 @@
   Author: Nguyen Quang Duy
   ID: 3877991
   Created  date: 23/08/2023
-  Last modified: 01/09/2023
+  Last modified: 05/09/2023
   Acknowledgement: None
 */
 
@@ -214,9 +214,6 @@ func checkResult(cardVM: CardViewModel, userVM: UserViewModel, difficulty: Diffi
         playSoundEffect(sound: "achievement", type: "mp3")
     }
     
-    // Update current user
-    userVM.updateCurrentUser(playerMoney: playerMoney, playerHighScore: playerHighscore, dealerMoney: dealerMoney, dealerHighscore: dealerHighscore,roundsPlayed: currentRounds, roundsWon: roundsWon, badge: newBadge)
-    
     // Check current player an dealer money
     if (playerMoney <= 0) {
         playerMoney = 0
@@ -238,4 +235,7 @@ func checkResult(cardVM: CardViewModel, userVM: UserViewModel, difficulty: Diffi
         showRoundResult = true
         currentRounds += 1
     }
+    
+    // Update current user
+    userVM.updateCurrentUser(playerMoney: playerMoney, playerHighScore: playerHighscore, dealerMoney: dealerMoney, dealerHighscore: dealerHighscore,roundsPlayed: currentRounds, roundsWon: roundsWon, badge: newBadge)
 }
